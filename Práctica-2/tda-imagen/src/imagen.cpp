@@ -5,7 +5,7 @@
   */
 
 #include <cassert>
-#include "../include/imagen.h"
+#include <imagen.h>
 
 // -- Reserva de memoria estructurada --
 void Imagen::reservar(){
