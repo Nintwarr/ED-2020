@@ -1,6 +1,6 @@
  /**
   * @file imagenES.cpp
-  * @brief Fichero con definiciones para la E/S de imágenes
+  * @brief Fichero con definiciones para la E/S de imï¿½genes
   *
   * Permite la E/S de archivos de tipo PGM,PPM
   *
@@ -58,12 +58,12 @@ bool LeerCabecera (ifstream& f, int& fils, int& cols){
     while (SaltarSeparadores(f)=='#')
       getline(f,linea);
     f >> cols >> fils >> maxvalor;
-    
+
     if (/*str &&*/ f && fils>0 && fils<5000 && cols>0 && cols<5000){
         f.get(); // Saltamos separador
         return true;
     }
-    else 
+    else
       return false;
 }
 
@@ -76,7 +76,7 @@ unsigned char *LeerImagenPPM (const char *nombre, int& fils, int& cols){
   fils=0;
   cols=0;
   ifstream f(nombre);
-  
+
   if (LeerTipo(f)==IMG_PPM){
     if (LeerCabecera (f, fils, cols)){
         res= new unsigned char[fils*cols*3];
@@ -97,7 +97,7 @@ unsigned char *LeerImagenPGM (const char *nombre, int& fils, int& cols){
   fils=0;
   cols=0;
   ifstream f(nombre);
-  
+
   if (LeerTipo(f)==IMG_PGM){
     if (LeerCabecera (f, fils, cols)){
       res= new unsigned char[fils*cols];
@@ -113,11 +113,11 @@ unsigned char *LeerImagenPGM (const char *nombre, int& fils, int& cols){
 
 // _____________________________________________________________________________
 
-bool EscribirImagenPPM (const char *nombre, const unsigned char *datos, 
+bool EscribirImagenPPM (const char *nombre, const unsigned char *datos,
                         const int fils, const int cols){
   ofstream f(nombre);
   bool res= true;
-  
+
   if (f){
     f << "P6" << endl;
     f << cols << ' ' << fils << endl;
@@ -130,11 +130,11 @@ bool EscribirImagenPPM (const char *nombre, const unsigned char *datos,
 }
 // _____________________________________________________________________________
 
-bool EscribirImagenPGM (const char *nombre, const unsigned char *datos, 
+bool EscribirImagenPGM (const char *nombre, const unsigned char *datos,
                         const int fils, const int cols){
   ofstream f(nombre);
   bool res= true;
-  
+
   if (f){
     f << "P5" << endl;
     f << cols << ' ' << fils << endl;
@@ -146,6 +146,4 @@ bool EscribirImagenPGM (const char *nombre, const unsigned char *datos,
   return res;
 }
 
-
 /* Fin Fichero: imagenES.cpp */
-
