@@ -13,7 +13,7 @@ int main() {
     for (int i=0; i<filas; ++i) {
         for (int j=0; j<columnas; ++j) {
             imagen.asigna_pixel(i,j,255);
-            cout << imagen.valor_pixel(i,j);
+            cout << '1';
         }
         cout << endl;
     }
