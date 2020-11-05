@@ -20,7 +20,7 @@ void Imagen::reservar(){
 
 		// Hacemos que cada fila apunte a un vector de byte para que contenga
 		// los valores de la imagen
-		for (int i=0; i<this->filas; i++)
+		for (int i=0; i<this->filas; ++i)
 			this->imagen[i] = new byte[this->columnas];
 	}
 }
@@ -30,8 +30,8 @@ void Imagen::copiar(const Imagen& imagen) {
 	// Supone que la memoria está bien reservada
 	assert(this->filas==imagen.num_filas() && this->columnas==imagen.num_columnas());
 
-	for (int i=0; i<this->filas; i++)
-		for (int j=0; j<this->columnas; i++)
+	for (int i=0; i<this->filas; ++i)
+		for (int j=0; j<this->columnas; ++j)
 			this->asigna_pixel(i,j,imagen.valor_pixel(i,j));
 }
 
@@ -41,7 +41,7 @@ void Imagen::borrar() {
 	if (this->imagen != nullptr) {
 		// Primero debemos borrar el contenido de las columnas porque se encuentran
 		// en el vector de filas al que apunta el puntero a puntero a byte "imagen"
-		for (int i=0; i<this->filas; i++)
+		for (int i=0; i<this->filas; ++i)
 			delete [] this->imagen[i];
 
 		// Ya podemos borrar el contenido del puntero a puntero a byte
@@ -50,6 +50,64 @@ void Imagen::borrar() {
 		this->filas = 0;
 		this->columnas = 0;
 	}
+}
+
+// -- Lee un fichero con formato pgm --
+bool Imagen::leer_fichero_PGM(const char *nombre) {
+	// Variable que controla el éxito de la ejecución
+	bool exito = false;
+	// Variables auxiliares de filas y columnas
+	int f = 0,c = 0;
+	// Vector de unsigned char o 'bytes' que nos devuelve la función
+	unsigned char *datos = LeerImagenPGM(nombre,f,c);
+
+	if (f!=0 && c!=0) {
+		// Si miramos la implementaciónde LeerImagenPGM, si devuelve 0 es que
+		// no se ha podido leer el archivo
+		if (datos != 0) {
+			// Indicamos que ha habido éxito
+			exito = true;
+
+			// Si la estructura interna no coincide con la del
+			// fichero, tenemos que adaptarla
+			if (f!=this->filas || c!=this->columnas) {
+			this->borrar();
+
+			this->filas = f;
+			this->columnas = c;
+
+			this->reservar();
+			}
+
+			// Copiamos los datos leídos en nuestra instancia
+			for (int i=0; i<this->filas; ++i)
+				for (int j=0; j<this->columnas; ++j)
+					asigna_pixel(i,j,datos[i*this->columnas+j]);
+			// ------------------------------------------- //
+
+			// Liberamos la memoria de datos
+			delete [] datos;
+		}
+	} else {
+			cerr << "No se pudo leer la imagen.\nFichero no existente o tipo erróneo: " << nombre << endl;
+		}
+
+	return exito;
+}
+
+// Convertir los datos a vector unidimensional
+unsigned char *Imagen::pasar_unidimensional(int &tam) {
+	// Calculamos el tamaño, por si acaso
+	tam = this->filas*this->columnas;
+	// Reservamos el espacion necesario;
+	unsigned char *datos = new unsigned char[tam];
+
+	// Copiamos los datos al vector
+	for (int i=0; i<this->filas; ++i)
+		for (int j=0; j<this->columnas; ++j)
+			datos[i*this->columnas+j] = this->valor_pixel(i,j);
+
+	return datos;
 }
 
 // -- Constructor por defecto y con parámetros --
@@ -70,6 +128,12 @@ Imagen::Imagen(int filas, int columnas) {
 // y asignar la memoria dinámica correspondiente y no repetir código
 Imagen::Imagen(const Imagen& imagen) : Imagen(imagen.num_filas(),imagen.num_columnas()) {
 	this->copiar(imagen);
+}
+
+// -- Constructor mediante fichero --
+Imagen::Imagen(const char *nombre) : Imagen() {
+	if (!this->leer_fichero_PGM(nombre))
+		exit(1);
 }
 
 // -- Destructor --
@@ -115,4 +179,21 @@ byte Imagen::valor_pixel(int fila, int columna) const {
 
 	// Accedemos al valor con los parámetros introducidos
 	return this->imagen[fila][columna];
+}
+
+bool Imagen::cargar_imagen_PGM(const char *nombre) {
+	return this->leer_fichero_PGM(nombre);
+}
+
+bool Imagen::escribir_imagen_PGM(const char *nombre) {
+	bool exito = false;
+	int tam = 0;
+	unsigned char *datos = this->pasar_unidimensional(tam);
+
+	if (EscribirImagenPGM(nombre,datos,this->filas,this->columnas))
+		exito = true;
+
+	delete [] datos;
+
+	return exito;
 }

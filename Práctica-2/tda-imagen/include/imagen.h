@@ -11,7 +11,7 @@
 #define __IMAGEN__H__
 
 #include <iostream>
-#include <imagen.h>
+#include <imagenES.h>
 
 using namespace std;
 
@@ -50,9 +50,9 @@ private:
 	* rep.columnas)
 	*/
 
-	unsigned int filas;     /** Es el número de filas de la imagen */
-	unsigned int columnas;  /** Es el número de columnas de la imagen */
-	byte **imagen;          /** Apunta a un vector de punteros a @e byte */
+	int filas;     /** Es el número de filas de la imagen */
+	int columnas;  /** Es el número de columnas de la imagen */
+	byte **imagen; /** Apunta a un vector de punteros a @e byte */
 
 	// -- Métodos auxiliares -- //
 
@@ -62,23 +62,31 @@ private:
 	* vector de bytes.
 	*/
 	void reservar();
+
 	/**
 	* Se encarga de copiar los píxeles de "imagen" a "this".
 	* Asume que las filas y las columnas coinciden
 	*/
-
 	void copiar(const Imagen& imagen);
+
 	/**
 	* Borra la estructura de memoria que reservamos con "reservar()"
 	*/
-
 	void borrar();
+
 	/**
 	* Utiliza el módulo @c imagenES para leer una imagen y copiar los datos
 	* a la estructura interna
 	*/
+	bool leer_fichero_PGM(const char *nombre);
 
-	void leerFichero(const char *nombre);
+	/**
+	* Pasa los datos de la imagen a un vector unidimensional
+	* 'tam' es un parámetro de salida con el tamaño del vector
+	* AVISO!!! Devuelve memoria dinámica. Hay que borrarla
+	* cuando no se necesite
+	*/
+	unsigned char *pasar_unidimensional(int &tam);
 
 public:
 	// -- Constructores -- //
@@ -92,7 +100,7 @@ public:
 	*          El objeto resultante no está inicializado y tendrá valores basura.
 	* @note Este constructor sirve como constructor por defecto si se invoca vacío
 	*/
-	Imagen(int filas = 0, int columnas = 0);
+	Imagen(int filas = 1, int columnas = 1);
 
 	/**
 	* @brief Constructor de copia
@@ -101,8 +109,10 @@ public:
 	Imagen(const Imagen& imagen);
 
 	/**
-	*
-	*
+	* @brief Constructor a partir del nombre de un fichero de tipo @e pgm
+	* @param nombre_archivo Es el nombre o ruta del archivo a leer
+	* @post Si el archivo existe, la instancia tendrá los datos de la misma.
+	*       Sino, el programa terminará con error
 	*/
 	Imagen(const char *nombre_archivo);
 
@@ -160,10 +170,9 @@ public:
 	* @brief Lee un fichero en formato @e .pgm y lo copia en la estructura interna
 	* @details Utliza el módulo @e imagenES para cargar la imagen
 	* @param nombre Archivo a leer
-	* @pre Las filas y las columnas del archivo deben coincidir con las filas
-	*	   y las columnas de la instancia
 	* @post En la estructura interna de la instancia se habrán copiado
-	*       los datos del fichero
+	*       los datos del fichero. Tanto su contenido como su número de
+	*       filas y columnas quedará sbrescrito en caso de éxito
 	* @return Valor booleano que indica si se ha leído el archivo correctamente
 	*/
 	bool cargar_imagen_PGM(const char *nombre);
