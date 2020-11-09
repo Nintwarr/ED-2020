@@ -12,6 +12,7 @@
 
 #include <iostream>
 #include <imagenES.h>
+#include <cmath>
 
 using namespace std;
 
@@ -86,7 +87,24 @@ private:
 	* AVISO!!! Devuelve memoria dinámica. Hay que borrarla
 	* cuando no se necesite
 	*/
-	unsigned char *pasar_unidimensional(int &tam);
+	byte *pasar_unidimensional(int &tam);
+
+	/**
+	* Calcula la media de los niveles de gris en una imagen
+	*/
+	double calcular_media_gris(Imagen *imagen_entrada);
+
+	/**
+	* Separa una imagen en dos según un umbral y se devuelve su media
+	* de grises
+	*/
+	void separar_segun_umbral(Imagen *imagen_entrada, const double umbral_entrada,
+							  double &umbral_primero, double &umbral_segundo);
+
+	/**
+	* Umbralizar una imagen con un umbral dado
+	*/
+	void umbralizar_basico(Imagen *imagen_entrada, const byte umbral);
 
 public:
 	// -- Constructores -- //
@@ -188,6 +206,19 @@ public:
 	* @return Si la escritura ha tenido éxito o no
 	*/
 	bool escribir_imagen_PGM(const char *nombre);
+
+	/**
+	* @brief Genera una imagen a partir de una imagen de entrada tal que los píxeles
+	*        con un valor menor que un umbral calculado de forma automática se dejan
+	*        tal cual. Y todos aquellos que estén por encima de ese umbral, se pasan
+	*        a blanco.
+	* @param fichero_entrada Nombre del fichero a leer
+	* @param fichero_salida Nombre del fichero que se va a escribir umbralizada
+	* @param umbral Parámetro de salida que informa del umbral que se ha calculado de
+	                forma automática. Por defecto
+	* @return Si ha tenido éxito la umbralización o no
+	*/
+	bool umbralizado_automatico(const char *fichero_entrada, const char *fichero_salida, byte &umbral);
 };
 
 #endif
