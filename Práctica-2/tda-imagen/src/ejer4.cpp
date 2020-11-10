@@ -14,13 +14,13 @@ using namespace std;
 //-- Funcion auxiliar para calcular la media de valores en una submatriz
 /** @param matriz que vamos a usar, comienzo de las filas, comienzo de las columnas, final de las filas, final de las columnas y numero de columnas
 */
-int calcularMedia(unsigned char* imagen,int inicio_f, 
+int calcularMedia(unsigned char* imagen,int inicio_f,
                   int inicio_c, int fin_f, int fin_c, int num_columnas){
-    
+
     // Inicializamos el resultado a 0
     int solucion = 0;
 
-    //Sumamos los valores de toda la matriz y los alacenamos
+    //Sumamos los valores de toda la matriz y los almacenamos
     for(int i = inicio_f; i < fin_f;i++){
         for(int j = inicio_c; j < fin_c; j++){
             solucion+= (int)imagen[i*num_columnas + j];
@@ -31,7 +31,7 @@ int calcularMedia(unsigned char* imagen,int inicio_f,
     solucion = solucion / ((fin_f-inicio_f)*(fin_c-inicio_c));
 
     return solucion;
-} 
+}
 
 
 //-- Funcion que crea una imagen que es un numero entero de veces más pequeña que la original dada
@@ -58,7 +58,7 @@ void crearIcono(char* origen, char* destino, const int nf, const int nc){
 
     // Reservamos memoria para la matriz solucion
     solucion = new unsigned char [nf*nc];
-    
+
     // Calculamos el factor de reduccion que va a sufrir la imagen
     // Redondearemos a un entero ya que es el tipo con el que estamos trabajando
     factor_nf = f_original/nf;
@@ -77,14 +77,14 @@ void crearIcono(char* origen, char* destino, const int nf, const int nc){
         cerr << "Terminando la ejecucion del programa." << endl;
         exit (1);
     }
-    
+
 
     int i = 0;
     int j = 0;
     int a = 0;
     int b = 0;
     int media = 0;
-    
+
 
     // Calculamos la media de los pixeles
     // El número de píxeles utilizado se decide según el factor calculado anteriormente
@@ -93,7 +93,7 @@ void crearIcono(char* origen, char* destino, const int nf, const int nc){
         b = 0;
         j = 0;
         while (j < c_original){
-            
+
             media = calcularMedia(imagen,i,j,i+factor_nf, j+factor_nc,c_original);
 
             solucion[a*nc + b] = media;
@@ -101,7 +101,7 @@ void crearIcono(char* origen, char* destino, const int nf, const int nc){
             j+=factor_nc;
             b++;
         }
-        
+
         a++;
 
         i+=factor_nf;
@@ -118,7 +118,7 @@ void crearIcono(char* origen, char* destino, const int nf, const int nc){
     }
 
     // Liberaos la memoria usada una vez ya lo hemos guardado
-    delete [] solucion; 
+    delete [] solucion;
 
 }
 

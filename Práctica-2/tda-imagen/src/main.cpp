@@ -25,33 +25,30 @@ Imagen crear_imagen_rayas(int filas, int columnas) {
     return imagen;
 }
 
-byte umbralizado_automatico(Imagen imagen, string entrada, string salida) {
-    byte umbral = 0;
-
-    if (imagen.umbralizado_automatico(entrada.c_str(),salida.c_str(),umbral)) {
-        cout << "Imagen '" << entrada << "' umbralizada automáticamente con éxito "
-             << "en '" << salida << "'." << endl;
-        cout << "Se ha utilizado un umbral de: " << int(umbral) << endl;
-    } else {
-        cout << "No se ha podido umbralizar la imagen";
-    }
-
-    return umbral;
-}
-
 int main() {
     const string RUTA_BASE = "imagenespgmppm/";
-    string salida          = RUTA_BASE + "salidaMain.pgm";
-    string cameraman       = RUTA_BASE + "cameraman.pgm";
-    string saturno         = RUTA_BASE + "saturno.pgm";
-    string vacas           = RUTA_BASE + "vacas.pgm";
-    string celulas         = RUTA_BASE + "celulas.pgm";
-    string castillo        = RUTA_BASE + "castillo.pgm";
-    string board           = RUTA_BASE + "board.pgm";
-    string llave           = RUTA_BASE + "llave.pgm";
-    string llaves          = RUTA_BASE + "llaves.pgm";
-    string niveles         = RUTA_BASE + "niveles.pgm";
-    Imagen imagen;
+    string cameraman = RUTA_BASE + "/cameraman.pgm";
+    string salida1 = RUTA_BASE + "/salidaMain1.pgm";
+    string salida2 = RUTA_BASE + "/salidaMain2.pgm";
+    string salida3 = RUTA_BASE + "/salidaMain3.pgm";
+    string salida4 = RUTA_BASE + "/salidaMain4.pgm";
 
-    umbralizado_automatico(imagen,niveles,salida);
+    int filas =    255;
+    int columnas = 255;
+    Imagen imagen1;
+    Imagen imagen2(filas,columnas);
+    Imagen imagen3(cameraman.c_str());
+    Imagen imagen4(imagen3);
+
+    for (int i=0; i<filas; ++i)
+        for(int j=0;j<columnas; ++j)
+            imagen2.asigna_pixel(i,j,255);
+
+    imagen1 = imagen2;
+
+    imagen1.escribir_imagen_PGM(salida1.c_str());
+    imagen2.escribir_imagen_PGM(salida2.c_str());
+    imagen3.escribir_imagen_PGM(salida3.c_str());
+    imagen4.escribir_imagen_PGM(salida4.c_str());
+
 }

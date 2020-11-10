@@ -110,62 +110,6 @@ byte *Imagen::pasar_unidimensional(int &tam) {
 	return datos;
 }
 
-// Calcula la media simple de valores de gris en una imagen
-double Imagen::calcular_media_gris(Imagen *imagen_entrada) {
-	double media = 0;
-	int f = imagen_entrada->num_filas();
-	int c = imagen_entrada->num_columnas();
-
-	for (int i=0; i<f; ++i)
-		for (int j=0; j<c; ++j)
-			media += imagen_entrada->valor_pixel(i,j);
-
-	media /= f*c;
-
-	return media;
-}
-
-// Calcula las medias de grises en dos extremos en función de
-// un umbral de entrada
-void Imagen::separar_segun_umbral(Imagen *imagen_entrada, const double umbral_entrada,
-								  double &umbral_primero, double &umbral_segundo) {
-	int tam_primero = 0, tam_segundo = 0;
-	byte pixel = 0;
-	umbral_primero = umbral_segundo = 0;
-
-	// Recorremos la imagen y, conforme visitamos su píxeles,
-	// podemos saber si estos pertenecen a un extremo del
-	// umbral u otro. Gracias a esto ya podemos encargarnos
-	// de calcular la media del tono de gris para cada
-	// extremo y asignársela al parámetro de salida.
-	// Así, no tenemos que crear nuevas imágenes que
-	// no sabemos qué dimensiones tendrán. Cosa que,
-	// por otro lado, es totalmente irrelevante
-	// para el cálculo.
-	for (int i=0; i<imagen_entrada->num_filas(); ++i)
-		for (int j=0; j<imagen_entrada->num_columnas(); ++j) {
-			pixel = imagen_entrada->valor_pixel(i,j);
-			if (pixel <= umbral_entrada) {
-				umbral_primero += pixel;
-				++tam_primero;
-			} else {
-				umbral_segundo += pixel;
-				++tam_segundo;
-			}
-		}
-
-	umbral_primero /= tam_primero;
-	umbral_segundo /= tam_segundo;
-}
-
-// -- Umbraliza una imagen según un umbral dado --
-void Imagen::umbralizar_basico(Imagen *imagen_entrada, const byte umbral) {
-	for (int i=0; i<imagen_entrada->num_filas(); ++i)
-		for (int j=0; j<imagen_entrada->num_columnas(); ++j)
-			if (imagen_entrada->valor_pixel(i,j) > umbral)
-				imagen_entrada->asigna_pixel(i,j,255);
-}
-
 // -- Constructor por defecto y con parámetros --
 Imagen::Imagen(int filas, int columnas) {
 	// Nos aseguramos de que filas y columnas son mayores que 0
@@ -250,61 +194,6 @@ bool Imagen::escribir_imagen_PGM(const char *nombre) {
 		exito = true;
 
 	delete [] datos;
-
-	return exito;
-}
-
-// -- Umbralizar una imagen con un ubmral automático --
-bool Imagen::umbralizado_automatico(const char *fichero_entrada, const char *fichero_salida, byte &umbral) {
-	bool exito = false;
-	bool primera_vez = true;
-	double umbral_actual = 0, umbral_siguiente = 0;
-	double umbral_primero = 0, umbral_segundo = 0;
-	double epsilon = 0.00001;
-
-	// Si podemos cargar la imagen seguimos
-	if (this->cargar_imagen_PGM(fichero_entrada)) {
-		exito = true;
-
-		// La primera vez que entramos al cálculo de la media de
-		// umbrales, debemos usar como referencia la media de
-		// la imagen leída de fichero. Las siguientes veces tenemos
-		// que tomar como referencia el cálculo conseguido en la iteración anterior
-		do {
-			if (primera_vez) {
-				umbral_actual = this->calcular_media_gris(this);
-				primera_vez = false;
-			}
-			else {
-				umbral_actual = umbral_siguiente;
-			}
-
-			// Se calculan las medias de grises sobre la imagen cargada
-			// separando la selección de píxeles en función del umbral
-			// o media de tonos de gris que ya hemos calculado
-			this->separar_segun_umbral(this,umbral_actual,umbral_primero,umbral_segundo);
-			// Con esas dos medias, se vuelve a hacer una media
-			umbral_siguiente = (umbral_primero + umbral_segundo)/2;
-			// Ciclamos mientras el valor absoluto de la diferencia
-			// entre el umbral calculado tras la separación y el de la
-			// iteración anterior sea mayor o igual que un valor
-			// muy pequeño. Es decir, buscamos que la diferencia
-			// entre la media de una iteración y otra, sea muy
-			// pequeña
-		} while (abs(umbral_siguiente-umbral_actual) >= epsilon);
-
-		// Como en la imagen se guardan bytes, eso es lo que el usuario
-		// espera que use como umbral. Así que redondeamos el umbral,
-		// lo convertimos a byte y lo asignamos al parámetro de salida
-		umbral = byte(round(umbral_siguiente));
-
-		// Hacemos efectiva la umbralización con el umbral calculado
-		this->umbralizar_basico(this,umbral);
-
-		// Si no podemos escribir la imagen, entendemos que hemos
-		// fracasado
-		exito = this->escribir_imagen_PGM(fichero_salida);
-	}
 
 	return exito;
 }
