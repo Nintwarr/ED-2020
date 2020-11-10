@@ -1,7 +1,7 @@
 /**
   * @file ejer4.cpp
   * @brief Implementación del ejercicio 4. Creación de un icono a partir de una imagen
-  *
+  * @author María Sánchez Marcos
   */
 
 #include "imagenES.h"
@@ -11,8 +11,16 @@
 
 using namespace std;
 
-//-- Funcion auxiliar para calcular la media de valores en una submatriz
-/** @param matriz que vamos a usar, comienzo de las filas, comienzo de las columnas, final de las filas, final de las columnas y numero de columnas
+
+/**
+* @brief  Funcion auxiliar para calcular la media de valores en una submatriz
+* @param imagen Imagen de la cual queremos calcular la media de valores de una de sus zonas (submatriz)
+* @param inicio_f Fila desde la que empezaremos a contar de la submatriz
+* @param inicio_c Columna desde la que empezaremos a contar de la submatriz
+* @param fin_f Fila en la que terminaremos de contar de la submatriz
+* @param fin_c Columna en la que terminaremos de contar de la submatriz
+* @param num_columnas Imagen de la que queremos calcular la media
+* @return Valor medio de todos los valores de la submatriz
 */
 int calcularMedia(unsigned char* imagen,int inicio_f,
                   int inicio_c, int fin_f, int fin_c, int num_columnas){
@@ -34,8 +42,12 @@ int calcularMedia(unsigned char* imagen,int inicio_f,
 }
 
 
-//-- Funcion que crea una imagen que es un numero entero de veces más pequeña que la original dada
-/** @param fichero de origen, fichero de destino, numero de filas de la nueva imagen, numero de columnas de la ultima imgen
+/**
+* @brief Funcion que crea una imagen que es un numero entero de veces más pequeña que la original dada
+* @param origen Fichero de la imagen original
+* @param fichero de la imagen de salida
+* @param nf Numero de filas de la nueva imagen
+* @param nc Numero de columnas de la nueva imagen
 */
 void crearIcono(char* origen, char* destino, const int nf, const int nc){
 
