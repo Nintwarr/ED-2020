@@ -147,6 +147,8 @@ bool umbralizado_automatico(const char *fichero_entrada, const char *fichero_sal
 		exito = imagen->escribir_imagen_PGM(fichero_salida);
 	}
 
+    delete imagen;
+
 	return exito;
 }
 
