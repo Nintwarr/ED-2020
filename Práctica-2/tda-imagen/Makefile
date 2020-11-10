@@ -4,7 +4,7 @@ INC= $(HOME)/include
 OBJ = $(HOME)/obj
 BIN = $(HOME)/bin
 
-all: imagen negativo ejer4 ejer2
+all: documentacion imagen negativo ejer4 ejer2
 
 imagen: $(OBJ)/imagen.o $(OBJ)/imagenES.o $(OBJ)/main.o
 	g++ -g -o $(BIN)/imagen $(OBJ)/imagen.o $(OBJ)/imagenES.o $(OBJ)/main.o
@@ -17,6 +17,9 @@ ejer4: $(OBJ)/ejer4.o $(OBJ)/imagenES.o
 
 ejer2: $(OBJ)/ejer2.o $(OBJ)/imagen.o $(OBJ)/imagenES.o
 	g++ -g -o $(BIN)/ejer2 $(OBJ)/ejer2.o $(OBJ)/imagen.o $(OBJ)/imagenES.o
+
+documentacion:
+	doxygen
 
 
 
