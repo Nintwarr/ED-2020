@@ -25,7 +25,7 @@ using namespace std;
 * Además almacena el número de filas de la imagen y su número de columnas.
 *
 * @author Darío Megías Guerrero y María Sánchez Marcos
-* @date Octubre 2017
+* @date Noviembre 2020
 */
 
 typedef unsigned char byte;
@@ -38,11 +38,11 @@ private:
 	*
 	* @section invImagen Invariante de la representación
 	*
-	* El invariante es \e rep.filas>=0, rep.columnas>=0
+	* El invariante es \e rep.filas>0, rep.columnas>0
 	*
 	* @section faImagen Función de abstracción
 	*
-	* Un objeto válido @e rep del TDA Racional representa a una imagen cuyos
+	* Un objeto válido @e rep del TDA Imagen representa a una imagen cuyos
 	* datos están en rep.imagen (una matriz dinámica de bytes) con tamaño
 	* rep.filas * rep.columnas. Así, queda la terna
 	*

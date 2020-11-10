@@ -1,4 +1,4 @@
-\let\mypdfximage\pdfximage\def\pdfximage{\immediate\mypdfximage}\documentclass[twoside]{book}
+\let\mypdfximage\pdfximage\def\pdfximage{\immediate\mypdfximage}\documentclass[twoside]{article}
 
 %% moved from doxygen.sty due to workaround for LaTex 2019 version and unmaintained tabu package
 \usepackage{ifthen}
@@ -99,9 +99,6 @@
 \fancyfoot[CO]{\fancyplain{}{}}
 \fancyfoot[RO]{\fancyplain{}{}}
 \renewcommand{\footrulewidth}{0.4pt}
-\renewcommand{\chaptermark}[1]{%
-  \markboth{#1}{}%
-}
 \renewcommand{\sectionmark}[1]{%
   \markright{\thesection\ #1}%
 }
@@ -117,6 +114,24 @@
   \newunicodechar{⁻}{${}^{-}$}% Superscript minus
   \newunicodechar{²}{${}^{2}$}% Superscript two
   \newunicodechar{³}{${}^{3}$}% Superscript three
+
+% Hyperlinks (required, but should be loaded last)
+\ifpdf
+  \usepackage[pdftex,pagebackref=true]{hyperref}
+\else
+  \ifxetex
+    \usepackage[pagebackref=true]{hyperref}
+  \else
+    \usepackage[ps2pdf,pagebackref=true]{hyperref}
+  \fi
+\fi
+
+\hypersetup{%
+  colorlinks=true,%
+  linkcolor=blue,%
+  citecolor=blue,%
+  unicode%
+}
 
 % Custom commands
 \newcommand{\clearemptydoublepage}{%
@@ -134,33 +149,53 @@
 \begin{document}
 
 % Titlepage & ToC
+\hypersetup{pageanchor=false,
+             bookmarksnumbered=true,
+             pdfencoding=unicode
+            }
 \pagenumbering{alph}
 \begin{titlepage}
 \vspace*{7cm}
 \begin{center}%
-{\Large Clase\+Imagen }\\
+{\Large T\+DA Imagen }\\
 \vspace*{1cm}
 {\large Generado por Doxygen 1.8.20}\\
 \end{center}
 \end{titlepage}
-\clearemptydoublepage
 \pagenumbering{roman}
 \tableofcontents
-\clearemptydoublepage
 \pagenumbering{arabic}
+\hypersetup{pageanchor=true}
 
 %--- Begin generated contents ---
-\chapter{ED}
+\doxysection{Rep del T\+DA Imagen}
+\label{repImagen}
+\Hypertarget{repImagen}
+\input{repImagen}
+\doxysection{ED}
 \label{md_README}
+\Hypertarget{md_README}
 \input{md_README}
+\doxysection{Índice de clases}
+\input{annotated}
+\doxysection{Indice de archivos}
+\input{files}
+\doxysection{Documentación de las clases}
+\input{classImagen}
+\doxysection{Documentación de archivos}
+\input{ejer2_8cpp}
+\input{ejer4_8cpp}
+\input{imagen_8cpp}
+\input{imagen_8h}
+\input{imagenES_8cpp}
+\input{imagenES_8h}
 %--- End generated contents ---
 
 % Index
-\backmatter
 \newpage
 \phantomsection
 \clearemptydoublepage
-\addcontentsline{toc}{chapter}{\indexname}
+\addcontentsline{toc}{section}{\indexname}
 \printindex
 
 \end{document}

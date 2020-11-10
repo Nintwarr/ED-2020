@@ -1,0 +1,193 @@
+.TH "imagenES.h" 3 "Martes, 10 de Noviembre de 2020" "TDA Imagen" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+imagenES.h \- Fichero cabecera para la E/S de im�genes\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Enumeraciones"
+
+.in +1c
+.ti -1c
+.RI "enum \fBTipoImagen\fP { \fBIMG_DESCONOCIDO\fP, \fBIMG_PGM\fP, \fBIMG_PPM\fP }"
+.br
+.RI "Tipo de imagen\&. "
+.in -1c
+.SS "Funciones"
+
+.in +1c
+.ti -1c
+.RI "\fBTipoImagen\fP \fBLeerTipoImagen\fP (const char *nombre)"
+.br
+.RI "Devuelve el tipo de imagen del archivo\&. "
+.ti -1c
+.RI "unsigned char * \fBLeerImagenPPM\fP (const char *nombre, int &fils, int &cols)"
+.br
+.RI "Lee una imagen de tipo PPM\&. "
+.ti -1c
+.RI "bool \fBEscribirImagenPPM\fP (const char *nombre, const unsigned char *datos, const int fils, const int cols)"
+.br
+.RI "Escribe una imagen de tipo PPM\&. "
+.ti -1c
+.RI "unsigned char * \fBLeerImagenPGM\fP (const char *nombre, int &fils, int &cols)"
+.br
+.RI "Lee una imagen de tipo PGM\&. "
+.ti -1c
+.RI "bool \fBEscribirImagenPGM\fP (const char *nombre, const unsigned char *datos, const int fils, const int cols)"
+.br
+.RI "Escribe una imagen de tipo PGM\&. "
+.in -1c
+.SH "Descripción detallada"
+.PP 
+Fichero cabecera para la E/S de im�genes\&. 
+
+Permite la E/S de archivos de tipo PGM,PPM 
+.PP
+Definición en el archivo \fBimagenES\&.h\fP\&.
+.SH "Documentación de las enumeraciones"
+.PP 
+.SS "enum \fBTipoImagen\fP"
+
+.PP
+Tipo de imagen\&. Declara una serie de constantes para representar los distintos tipos de imagánes que se pueden manejar\&.
+.PP
+\fBVer también\fP
+.RS 4
+\fBLeerTipoImagen\fP 
+.RE
+.PP
+
+.PP
+Definición en la línea 20 del archivo imagenES\&.h\&.
+.SH "Documentación de las funciones"
+.PP 
+.SS "bool EscribirImagenPGM (const char * nombre, const unsigned char * datos, const int fils, const int cols)"
+
+.PP
+Escribe una imagen de tipo PGM\&. 
+.PP
+\fBParámetros\fP
+.RS 4
+\fInombre\fP archivo a escribir 
+.br
+\fIdatos\fP punteros a los \fIf\fP x \fIc\fP bytes que corresponden a los valores de los p�xeles de la imagen de grises\&. 
+.br
+\fIf\fP filas de la imagen 
+.br
+\fIc\fP columnas de la imagen 
+.RE
+.PP
+\fBDevuelve\fP
+.RS 4
+si ha tenido �xito en la escritura\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 133 del archivo imagenES\&.cpp\&.
+.SS "bool EscribirImagenPPM (const char * nombre, const unsigned char * datos, const int fils, const int cols)"
+
+.PP
+Escribe una imagen de tipo PPM\&. 
+.PP
+\fBParámetros\fP
+.RS 4
+\fInombre\fP archivo a escribir 
+.br
+\fIdatos\fP punteros a los \fIf\fP x \fIc\fP x 3 bytes que corresponden a los valores de los p�xeles de la imagen en formato RGB\&. 
+.br
+\fIf\fP filas de la imagen 
+.br
+\fIc\fP columnas de la imagen 
+.RE
+.PP
+\fBDevuelve\fP
+.RS 4
+si ha tenido �xito en la escritura\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 116 del archivo imagenES\&.cpp\&.
+.SS "unsigned char* LeerImagenPGM (const char * nombre, int & fils, int & cols)"
+
+.PP
+Lee una imagen de tipo PGM\&. 
+.PP
+\fBParámetros\fP
+.RS 4
+\fInombre\fP archivo a leer 
+.br
+\fIfilas\fP Par�metro de salida con las filas de la imagen\&. 
+.br
+\fIcolumnas\fP Par�metro de salida con las columnas de la imagen\&. 
+.RE
+.PP
+\fBDevuelve\fP
+.RS 4
+puntero a una nueva zona de memoria que contiene \fIfilas\fP x \fIcolumnas\fP bytes que corresponden a los grises de todos los p�xeles (desde la esquina superior izqda a la inferior drcha)\&. En caso de que no no se pueda leer, se devuelve cero\&. (0)\&. 
+.RE
+.PP
+\fBPostcondición\fP
+.RS 4
+En caso de �xito, el puntero apunta a una zona de memoria reservada en memoria din�mica\&. Ser� el usuario el responsable de liberarla\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 95 del archivo imagenES\&.cpp\&.
+.SS "unsigned char* LeerImagenPPM (const char * nombre, int & fils, int & cols)"
+
+.PP
+Lee una imagen de tipo PPM\&. 
+.PP
+\fBParámetros\fP
+.RS 4
+\fInombre\fP archivo a leer 
+.br
+\fIfilas\fP Par�metro de salida con las filas de la imagen\&. 
+.br
+\fIcolumnas\fP Par�metro de salida con las columnas de la imagen\&. 
+.RE
+.PP
+\fBDevuelve\fP
+.RS 4
+puntero a una nueva zona de memoria que contiene \fIfilas\fP x \fIcolumnas\fP x 3 bytes que corresponden a los colores de todos los p�xeles en formato RGB (desde la esquina superior izqda a la inferior drcha)\&. En caso de que no no se pueda leer, se devuelve cero\&. (0)\&. 
+.RE
+.PP
+\fBPostcondición\fP
+.RS 4
+En caso de �xito, el puntero apunta a una zona de memoria reservada en memoria din�mica\&. Ser� el usuario el responsable de liberarla\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 74 del archivo imagenES\&.cpp\&.
+.SS "\fBTipoImagen\fP LeerTipoImagen (const char * nombre)"
+
+.PP
+Devuelve el tipo de imagen del archivo\&. 
+.PP
+\fBParámetros\fP
+.RS 4
+\fInombre\fP indica el archivo de disco que consultar 
+.RE
+.PP
+\fBDevuelve\fP
+.RS 4
+Devuelve el tipo de la imagen en el archivo
+.RE
+.PP
+\fBVer también\fP
+.RS 4
+\fBTipoImagen\fP 
+.RE
+.PP
+
+.PP
+Definición en la línea 36 del archivo imagenES\&.cpp\&.
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para TDA Imagen del código fuente\&.

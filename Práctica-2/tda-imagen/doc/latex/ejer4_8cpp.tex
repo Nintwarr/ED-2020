@@ -1,0 +1,89 @@
+\hypertarget{ejer4_8cpp}{}\doxysubsection{Referencia del Archivo ejer4.\+cpp}
+\label{ejer4_8cpp}\index{ejer4.cpp@{ejer4.cpp}}
+
+
+Implementación del ejercicio 4. Creación de un icono a partir de una imagen.  
+
+
+{\ttfamily \#include \char`\"{}imagen\+E\+S.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$cstring$>$}\newline
+{\ttfamily \#include $<$cstdlib$>$}\newline
+\doxysubsubsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{ejer4_8cpp_a3feb812796dd876895d69aa3a627377a}{calcular\+Media}} (unsigned char $\ast$imagen, int inicio\+\_\+f, int inicio\+\_\+c, int fin\+\_\+f, int fin\+\_\+c, int num\+\_\+columnas)
+\begin{DoxyCompactList}\small\item\em Funcion auxiliar para calcular la media de valores en una submatriz. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ejer4_8cpp_a30a4049d4ce29e692138997443fbace5}{crear\+Icono}} (char $\ast$origen, char $\ast$destino, const int nf, const int nc)
+\begin{DoxyCompactList}\small\item\em Funcion que crea una imagen que es un numero entero de veces más pequeña que la original dada. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{ejer4_8cpp_a0ddf1224851353fc92bfbff6f499fa97}\label{ejer4_8cpp_a0ddf1224851353fc92bfbff6f499fa97}} 
+int {\bfseries main} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\doxysubsubsection{Descripción detallada}
+Implementación del ejercicio 4. Creación de un icono a partir de una imagen. 
+
+\begin{DoxyAuthor}{Autor}
+María Sánchez Marcos 
+\end{DoxyAuthor}
+
+
+\doxysubsubsection{Documentación de las funciones}
+\mbox{\Hypertarget{ejer4_8cpp_a3feb812796dd876895d69aa3a627377a}\label{ejer4_8cpp_a3feb812796dd876895d69aa3a627377a}} 
+\index{ejer4.cpp@{ejer4.cpp}!calcularMedia@{calcularMedia}}
+\index{calcularMedia@{calcularMedia}!ejer4.cpp@{ejer4.cpp}}
+\doxyparagraph{\texorpdfstring{calcularMedia()}{calcularMedia()}}
+{\footnotesize\ttfamily int calcular\+Media (\begin{DoxyParamCaption}\item[{unsigned char $\ast$}]{imagen,  }\item[{int}]{inicio\+\_\+f,  }\item[{int}]{inicio\+\_\+c,  }\item[{int}]{fin\+\_\+f,  }\item[{int}]{fin\+\_\+c,  }\item[{int}]{num\+\_\+columnas }\end{DoxyParamCaption})}
+
+
+
+Funcion auxiliar para calcular la media de valores en una submatriz. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em imagen} & \mbox{\hyperlink{classImagen}{Imagen}} de la cual queremos calcular la media de valores de una de sus zonas (submatriz) \\
+\hline
+{\em inicio\+\_\+f} & Fila desde la que empezaremos a contar de la submatriz \\
+\hline
+{\em inicio\+\_\+c} & Columna desde la que empezaremos a contar de la submatriz \\
+\hline
+{\em fin\+\_\+f} & Fila en la que terminaremos de contar de la submatriz \\
+\hline
+{\em fin\+\_\+c} & Columna en la que terminaremos de contar de la submatriz \\
+\hline
+{\em num\+\_\+columnas} & \mbox{\hyperlink{classImagen}{Imagen}} de la que queremos calcular la media \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Valor medio de todos los valores de la submatriz 
+\end{DoxyReturn}
+
+
+Definición en la línea 25 del archivo ejer4.\+cpp.
+
+\mbox{\Hypertarget{ejer4_8cpp_a30a4049d4ce29e692138997443fbace5}\label{ejer4_8cpp_a30a4049d4ce29e692138997443fbace5}} 
+\index{ejer4.cpp@{ejer4.cpp}!crearIcono@{crearIcono}}
+\index{crearIcono@{crearIcono}!ejer4.cpp@{ejer4.cpp}}
+\doxyparagraph{\texorpdfstring{crearIcono()}{crearIcono()}}
+{\footnotesize\ttfamily void crear\+Icono (\begin{DoxyParamCaption}\item[{char $\ast$}]{origen,  }\item[{char $\ast$}]{destino,  }\item[{const int}]{nf,  }\item[{const int}]{nc }\end{DoxyParamCaption})}
+
+
+
+Funcion que crea una imagen que es un numero entero de veces más pequeña que la original dada. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em origen} & Fichero de la imagen original \\
+\hline
+{\em fichero} & de la imagen de salida \\
+\hline
+{\em nf} & Numero de filas de la nueva imagen \\
+\hline
+{\em nc} & Numero de columnas de la nueva imagen \\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea 52 del archivo ejer4.\+cpp.
+

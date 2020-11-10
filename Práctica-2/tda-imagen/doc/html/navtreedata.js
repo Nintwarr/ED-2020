@@ -22,20 +22,41 @@
 
  @licend  The above is the entire license notice for the JavaScript code in this file
 */
-var menudata={children:[
-{text:"Página principal",url:"index.html"},
-{text:"Páginas relacionadas",url:"pages.html"},
-{text:"Clases",url:"annotated.html",children:[
-{text:"Lista de clases",url:"annotated.html"},
-{text:"Índice de clases",url:"classes.html"},
-{text:"Miembros de las clases",url:"functions.html",children:[
-{text:"Todo",url:"functions.html"},
-{text:"Funciones",url:"functions_func.html"},
-{text:"Variables",url:"functions_vars.html"}]}]},
-{text:"Archivos",url:"files.html",children:[
-{text:"Lista de archivos",url:"files.html"},
-{text:"Miembros de los ficheros",url:"globals.html",children:[
-{text:"Todo",url:"globals.html"},
-{text:"Funciones",url:"globals_func.html"},
-{text:"typedefs",url:"globals_type.html"},
-{text:"Enumeraciones",url:"globals_enum.html"}]}]}]}
+var NAVTREE =
+[
+  [ "TDA Imagen", "index.html", [
+    [ "Rep del TDA Imagen", "repImagen.html", [
+      [ "Invariante de la representación", "repImagen.html#invImagen", null ],
+      [ "Función de abstracción", "repImagen.html#faImagen", null ]
+    ] ],
+    [ "ED", "md_README.html", [
+      [ "Práctica 2", "md_README.html#autotoc_md1", null ]
+    ] ],
+    [ "Clases", "annotated.html", [
+      [ "Lista de clases", "annotated.html", "annotated_dup" ],
+      [ "Índice de clases", "classes.html", null ],
+      [ "Miembros de las clases", "functions.html", [
+        [ "Todo", "functions.html", null ],
+        [ "Funciones", "functions_func.html", null ],
+        [ "Variables", "functions_vars.html", null ]
+      ] ]
+    ] ],
+    [ "Archivos", "files.html", [
+      [ "Lista de archivos", "files.html", "files_dup" ],
+      [ "Miembros de los ficheros", "globals.html", [
+        [ "Todo", "globals.html", null ],
+        [ "Funciones", "globals_func.html", null ],
+        [ "typedefs", "globals_type.html", null ],
+        [ "Enumeraciones", "globals_enum.html", null ]
+      ] ]
+    ] ]
+  ] ]
+];
+
+var NAVTREEINDEX =
+[
+"annotated.html"
+];
+
+var SYNCONMSG = 'click en deshabilitar sincronización';
+var SYNCOFFMSG = 'click en habilitar sincronización';

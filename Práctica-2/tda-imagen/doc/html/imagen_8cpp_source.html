@@ -1,0 +1,288 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.20"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>TDA Imagen: Fichero Fuente imagen.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">TDA Imagen
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.20 -->
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',false,false,'search.php','Buscar');
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('imagen_8cpp_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="headertitle">
+<div class="title">imagen.cpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="imagen_8cpp.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;cassert&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="imagen_8h.html">imagen.h</a>&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">// -- Reserva de memoria estructurada --</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="classImagen.html#a2d9c06e7906ba848b4e832c5fd8c6a54">   11</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classImagen.html#a2d9c06e7906ba848b4e832c5fd8c6a54">Imagen::reservar</a>(){</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        <span class="comment">// Si no tenemos filas o columnas, podemos considerar la imagen como nula o vacía</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        <span class="keywordflow">if</span> (filas==0 || <a class="code" href="classImagen.html#af63de0598ca965ab3a30b54ee7e2cedc">columnas</a>==0)</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;                this-&gt;<a class="code" href="classImagen.html#ae32dbfe07188add13e1bc70780845f4e">imagen</a> = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;                <span class="comment">// Si tenemos alguna fila y columna, declaramos la estructura</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;                <span class="comment">// Las filas se almacenan en un vector de punteros a byte.</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;                <span class="comment">// Éstos apuntarán a vectores de byte que se corresponden con las columnas</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;                this-&gt;<a class="code" href="classImagen.html#ae32dbfe07188add13e1bc70780845f4e">imagen</a> = <span class="keyword">new</span> <span class="keywordtype">byte</span>*[this-&gt;filas];</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;                <span class="comment">// Hacemos que cada fila apunte a un vector de byte para que contenga</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;                <span class="comment">// los valores de la imagen</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;                <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i&lt;this-&gt;filas; ++i)</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;                        this-&gt;<a class="code" href="classImagen.html#ae32dbfe07188add13e1bc70780845f4e">imagen</a>[i] = <span class="keyword">new</span> <span class="keywordtype">byte</span>[this-&gt;<a class="code" href="classImagen.html#af63de0598ca965ab3a30b54ee7e2cedc">columnas</a>];</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        }</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;}</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment">// -- Copia de los datos de una imagen dada a la actual --</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="classImagen.html#a5cfd95c9eb9c33e78e765d4f57852aa1">   29</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classImagen.html#a5cfd95c9eb9c33e78e765d4f57852aa1">Imagen::copiar</a>(<span class="keyword">const</span> <a class="code" href="classImagen.html">Imagen</a>&amp; imagen) {</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="comment">// Supone que la memoria está bien reservada</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        assert(this-&gt;filas==<a class="code" href="classImagen.html#ae32dbfe07188add13e1bc70780845f4e">imagen</a>.num_filas() &amp;&amp; this-&gt;columnas==<a class="code" href="classImagen.html#ae32dbfe07188add13e1bc70780845f4e">imagen</a>.num_columnas());</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i&lt;this-&gt;filas; ++i)</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;                <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j=0; j&lt;this-&gt;<a class="code" href="classImagen.html#af63de0598ca965ab3a30b54ee7e2cedc">columnas</a>; ++j)</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;                        this-&gt;<a class="code" href="classImagen.html#a4ffa1cf318d91f1e0780ac084c087180">asigna_pixel</a>(i,j,<a class="code" href="classImagen.html#ae32dbfe07188add13e1bc70780845f4e">imagen</a>.valor_pixel(i,j));</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;}</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment">// -- Borrar la memoria --</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="classImagen.html#a74ae30ba85720c8b7ad85e31a84d56a7">   39</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classImagen.html#a74ae30ba85720c8b7ad85e31a84d56a7">Imagen::borrar</a>() {</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="comment">// Nos aseguramos que la imagen no es vacía</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keywordflow">if</span> (this-&gt;<a class="code" href="classImagen.html#ae32dbfe07188add13e1bc70780845f4e">imagen</a> != <span class="keyword">nullptr</span>) {</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                <span class="comment">// Primero debemos borrar el contenido de las columnas porque se encuentran</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                <span class="comment">// en el vector de filas al que apunta el puntero a puntero a byte &quot;imagen&quot;</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i&lt;this-&gt;filas; ++i)</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                        <span class="keyword">delete</span> [] this-&gt;<a class="code" href="classImagen.html#ae32dbfe07188add13e1bc70780845f4e">imagen</a>[i];</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                <span class="comment">// Ya podemos borrar el contenido del puntero a puntero a byte</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                <span class="keyword">delete</span> [] this-&gt;<a class="code" href="classImagen.html#ae32dbfe07188add13e1bc70780845f4e">imagen</a>;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                <span class="comment">// Podemos añadir que las filas y las columnas pasarán a ser 0 aunque ya no importe</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                this-&gt;filas = 0;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                this-&gt;<a class="code" href="classImagen.html#af63de0598ca965ab3a30b54ee7e2cedc">columnas</a> = 0;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        }</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;}</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment">// -- Lee un fichero con formato pgm --</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="classImagen.html#a19ed130ffd82bb5140d034880c7ab394">   56</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classImagen.html#a19ed130ffd82bb5140d034880c7ab394">Imagen::leer_fichero_PGM</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *nombre) {</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="comment">// Variable que controla el éxito de la ejecución</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keywordtype">bool</span> exito = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="comment">// Variables auxiliares de filas y columnas</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keywordtype">int</span> f = 0,c = 0;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="comment">// Vector de unsigned char o &#39;bytes&#39; que nos devuelve la función</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keywordtype">byte</span> *datos = <a class="code" href="imagenES_8h.html#a03340a1e1e4a88385c972bb4af463649">LeerImagenPGM</a>(nombre,f,c);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keywordflow">if</span> (f!=0 &amp;&amp; c!=0) {</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                <span class="comment">// Si miramos la implementaciónde LeerImagenPGM, si devuelve 0 es que</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                <span class="comment">// no se ha podido leer el archivo</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                <span class="keywordflow">if</span> (datos != 0) {</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                        <span class="comment">// Indicamos que ha habido éxito</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                        exito = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                        <span class="comment">// Si la estructura interna no coincide con la del</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                        <span class="comment">// fichero, tenemos que adaptarla</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                        <span class="keywordflow">if</span> (f!=this-&gt;filas || c!=this-&gt;<a class="code" href="classImagen.html#af63de0598ca965ab3a30b54ee7e2cedc">columnas</a>) {</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                        this-&gt;<a class="code" href="classImagen.html#a74ae30ba85720c8b7ad85e31a84d56a7">borrar</a>();</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                        this-&gt;filas = f;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                        this-&gt;<a class="code" href="classImagen.html#af63de0598ca965ab3a30b54ee7e2cedc">columnas</a> = c;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                        this-&gt;<a class="code" href="classImagen.html#a2d9c06e7906ba848b4e832c5fd8c6a54">reservar</a>();</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                        }</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                        <span class="comment">// Copiamos los datos leídos en nuestra instancia</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i&lt;this-&gt;filas; ++i)</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                                <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j=0; j&lt;this-&gt;<a class="code" href="classImagen.html#af63de0598ca965ab3a30b54ee7e2cedc">columnas</a>; ++j)</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                                        <a class="code" href="classImagen.html#a4ffa1cf318d91f1e0780ac084c087180">asigna_pixel</a>(i,j,datos[i*this-&gt;columnas+j]);</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                        <span class="comment">// ------------------------------------------- //</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                        <span class="comment">// Liberamos la memoria de datos</span></div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                        <span class="keyword">delete</span> [] datos;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;                }</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                        cerr &lt;&lt; <span class="stringliteral">&quot;No se pudo leer la imagen.\nFichero no existente o tipo erróneo: &quot;</span> &lt;&lt; nombre &lt;&lt; endl;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                }</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        <span class="keywordflow">return</span> exito;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;}</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="comment">// Convertir los datos a vector unidimensional</span></div>
+<div class="line"><a name="l00099"></a><span class="lineno"><a class="line" href="classImagen.html#a203bf8feb804e182583a117bea43bc9e">   99</a></span>&#160;<span class="keywordtype">byte</span> *<a class="code" href="classImagen.html#a203bf8feb804e182583a117bea43bc9e">Imagen::pasar_unidimensional</a>(<span class="keywordtype">int</span> &amp;tam) {</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        <span class="comment">// Calculamos el tamaño, por si acaso</span></div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        tam = this-&gt;filas*this-&gt;<a class="code" href="classImagen.html#af63de0598ca965ab3a30b54ee7e2cedc">columnas</a>;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        <span class="comment">// Reservamos el espacion necesario;</span></div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        <span class="keywordtype">byte</span> *datos = <span class="keyword">new</span> <span class="keywordtype">byte</span>[tam];</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160; </div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        <span class="comment">// Copiamos los datos al vector</span></div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i&lt;this-&gt;filas; ++i)</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;                <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j=0; j&lt;this-&gt;<a class="code" href="classImagen.html#af63de0598ca965ab3a30b54ee7e2cedc">columnas</a>; ++j)</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;                        datos[i*this-&gt;columnas+j] = this-&gt;<a class="code" href="classImagen.html#a9f4da242215f29774645d831db3b66cb">valor_pixel</a>(i,j);</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        <span class="keywordflow">return</span> datos;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;}</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160; </div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;<span class="comment">// -- Constructor por defecto y con parámetros --</span></div>
+<div class="line"><a name="l00114"></a><span class="lineno"><a class="line" href="classImagen.html#a6161c0a462953f72e87f9d7e8385db11">  114</a></span>&#160;<a class="code" href="classImagen.html#a6161c0a462953f72e87f9d7e8385db11">Imagen::Imagen</a>(<span class="keywordtype">int</span> filas, <span class="keywordtype">int</span> columnas) {</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        <span class="comment">// Nos aseguramos de que filas y columnas son mayores que 0</span></div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        assert(filas&gt;=0 &amp;&amp; <a class="code" href="classImagen.html#af63de0598ca965ab3a30b54ee7e2cedc">columnas</a> &gt;=0);</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; </div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;        <span class="comment">// Guardamos el valor de filas y columnas en nuestros atributos</span></div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        this-&gt;filas = filas;</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;        this-&gt;columnas = <a class="code" href="classImagen.html#af63de0598ca965ab3a30b54ee7e2cedc">columnas</a>;</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160; </div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;        <span class="comment">// Reservamos la memoria con la forma de una matriz dinámica</span></div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;        this-&gt;<a class="code" href="classImagen.html#a2d9c06e7906ba848b4e832c5fd8c6a54">reservar</a>();</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;}</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160; </div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;<span class="comment">// -- Constructor de copia --</span></div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;<span class="comment">// En la lista de inicialización llama al constructor para preparar los atributos</span></div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;<span class="comment">// y asignar la memoria dinámica correspondiente y no repetir código</span></div>
+<div class="line"><a name="l00129"></a><span class="lineno"><a class="line" href="classImagen.html#a88a2fe0c7fa0693b40190df137a0725a">  129</a></span>&#160;<a class="code" href="classImagen.html#a6161c0a462953f72e87f9d7e8385db11">Imagen::Imagen</a>(<span class="keyword">const</span> <a class="code" href="classImagen.html">Imagen</a>&amp; imagen) : <a class="code" href="classImagen.html">Imagen</a>(imagen.num_filas(),imagen.num_columnas()) {</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;        this-&gt;<a class="code" href="classImagen.html#a5cfd95c9eb9c33e78e765d4f57852aa1">copiar</a>(imagen);</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;}</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160; </div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;<span class="comment">// -- Constructor mediante fichero --</span></div>
+<div class="line"><a name="l00134"></a><span class="lineno"><a class="line" href="classImagen.html#a8f00471ef4fc84fa246b3c7132166cae">  134</a></span>&#160;<a class="code" href="classImagen.html#a6161c0a462953f72e87f9d7e8385db11">Imagen::Imagen</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *nombre) : <a class="code" href="classImagen.html">Imagen</a>() {</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;        <span class="keywordflow">if</span> (!this-&gt;<a class="code" href="classImagen.html#a19ed130ffd82bb5140d034880c7ab394">leer_fichero_PGM</a>(nombre))</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;                exit(1);</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;}</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160; </div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;<span class="comment">// -- Destructor --</span></div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;<span class="comment">// Libera la memoria usada en el puntero a puntero imagen</span></div>
+<div class="line"><a name="l00141"></a><span class="lineno"><a class="line" href="classImagen.html#a03dd93c9cf920a9dc0b72f8bd34f2e8a">  141</a></span>&#160;<a class="code" href="classImagen.html#a03dd93c9cf920a9dc0b72f8bd34f2e8a">Imagen::~Imagen</a>() {</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;        this-&gt;<a class="code" href="classImagen.html#a74ae30ba85720c8b7ad85e31a84d56a7">borrar</a>();</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;}</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160; </div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;<span class="comment">// -- Operador de asignación --</span></div>
+<div class="line"><a name="l00146"></a><span class="lineno"><a class="line" href="classImagen.html#a7f680af074a510f82aa6ae935611d229">  146</a></span>&#160;<a class="code" href="classImagen.html">Imagen</a>&amp; <a class="code" href="classImagen.html#a7f680af074a510f82aa6ae935611d229">Imagen::operator=</a>(<span class="keyword">const</span> <a class="code" href="classImagen.html">Imagen</a>&amp; imagen) {</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;        <span class="comment">// Si &quot;imagen&quot; es distinta al objeto actual, entonces...</span></div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;        <span class="keywordflow">if</span> (<span class="keyword">this</span> != &amp;<a class="code" href="classImagen.html#ae32dbfe07188add13e1bc70780845f4e">imagen</a>) {</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;                <span class="comment">// Tenemos que borrar el contenido para liberar la memoria y no desperdiciarla</span></div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;                this-&gt;<a class="code" href="classImagen.html#a74ae30ba85720c8b7ad85e31a84d56a7">borrar</a>();</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;                <span class="comment">// Fijamos el valor de filas y columnas a los nuevos valores</span></div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;                this-&gt;filas = <a class="code" href="classImagen.html#ae32dbfe07188add13e1bc70780845f4e">imagen</a>.num_filas();</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;                this-&gt;<a class="code" href="classImagen.html#af63de0598ca965ab3a30b54ee7e2cedc">columnas</a> = imagen.<a class="code" href="classImagen.html#ac28d55c18064aea2a65e6fcf51d86191">num_columnas</a>();</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;                <span class="comment">// Reservamos de nuevo la memoria necesaria de forma estructurada</span></div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;                this-&gt;<a class="code" href="classImagen.html#a2d9c06e7906ba848b4e832c5fd8c6a54">reservar</a>();</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;                <span class="comment">// Ya podemos proceder a copiar los valores de &quot;imagen&quot; en el objeto actual</span></div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;                this-&gt;<a class="code" href="classImagen.html#a5cfd95c9eb9c33e78e765d4f57852aa1">copiar</a>(imagen);</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;        }</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;                <span class="comment">// En cualquier caso, devolvemos una referencia del objeto actual ya que:</span></div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;                <span class="comment">// si copiamos, es lo que nos interesa que devolver</span></div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;                <span class="comment">// y sino, de todas formas tenemos que devolverlo</span></div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;                <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;}</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160; </div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;<span class="comment">// -- Dar un valor a un píxel --</span></div>
+<div class="line"><a name="l00166"></a><span class="lineno"><a class="line" href="classImagen.html#a4ffa1cf318d91f1e0780ac084c087180">  166</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classImagen.html#a4ffa1cf318d91f1e0780ac084c087180">Imagen::asigna_pixel</a>(<span class="keywordtype">int</span> fila, <span class="keywordtype">int</span> columna, <span class="keywordtype">byte</span> valor) {</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;        <span class="comment">// Los valores de entrada deben estar en unos intervalos concretos</span></div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;        assert(fila&gt;=0 &amp;&amp; columna&gt;=0 &amp;&amp; valor&gt;=0 &amp;&amp; valor&lt;=255);</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160; </div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;        <span class="comment">// Gracias a la estructura elegida para representar la matriz, podemos</span></div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;        <span class="comment">// acceder al elemento deseado aplicando un operador corchete sobre el</span></div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;        <span class="comment">// resultado de otro operador corchete. Así, se parece a la matriz estática</span></div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;        this-&gt;<a class="code" href="classImagen.html#ae32dbfe07188add13e1bc70780845f4e">imagen</a>[fila][columna] = valor;</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;}</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160; </div>
+<div class="line"><a name="l00176"></a><span class="lineno"><a class="line" href="classImagen.html#a9f4da242215f29774645d831db3b66cb">  176</a></span>&#160;<span class="keywordtype">byte</span> <a class="code" href="classImagen.html#a9f4da242215f29774645d831db3b66cb">Imagen::valor_pixel</a>(<span class="keywordtype">int</span> fila, <span class="keywordtype">int</span> columna)<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;        <span class="comment">// Los valores de entrada deben estar en unos intervalos concretos</span></div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;        assert(fila&gt;=0 &amp;&amp; fila&lt;=this-&gt;filas &amp;&amp; columna&gt;=0 &amp;&amp; columna&lt;=this-&gt;<a class="code" href="classImagen.html#af63de0598ca965ab3a30b54ee7e2cedc">columnas</a>);</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160; </div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;        <span class="comment">// Accedemos al valor con los parámetros introducidos</span></div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;        <span class="keywordflow">return</span> this-&gt;<a class="code" href="classImagen.html#ae32dbfe07188add13e1bc70780845f4e">imagen</a>[fila][columna];</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;}</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160; </div>
+<div class="line"><a name="l00184"></a><span class="lineno"><a class="line" href="classImagen.html#a9d81ee1c17c5aed4cbf87be5874bdd98">  184</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classImagen.html#a9d81ee1c17c5aed4cbf87be5874bdd98">Imagen::cargar_imagen_PGM</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *nombre) {</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;        <span class="keywordflow">return</span> this-&gt;<a class="code" href="classImagen.html#a19ed130ffd82bb5140d034880c7ab394">leer_fichero_PGM</a>(nombre);</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;}</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160; </div>
+<div class="line"><a name="l00188"></a><span class="lineno"><a class="line" href="classImagen.html#a26e14599819a79610239594f295fb1f6">  188</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classImagen.html#a26e14599819a79610239594f295fb1f6">Imagen::escribir_imagen_PGM</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *nombre) {</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;        <span class="keywordtype">bool</span> exito = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;        <span class="keywordtype">int</span> tam = 0;</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;        <span class="keywordtype">byte</span> *datos = this-&gt;<a class="code" href="classImagen.html#a203bf8feb804e182583a117bea43bc9e">pasar_unidimensional</a>(tam);</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160; </div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="imagenES_8h.html#a4b649cc272f02649563791d5ed75b557">EscribirImagenPGM</a>(nombre,datos,this-&gt;filas,this-&gt;<a class="code" href="classImagen.html#af63de0598ca965ab3a30b54ee7e2cedc">columnas</a>))</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;                exito = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160; </div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;        <span class="keyword">delete</span> [] datos;</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160; </div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;        <span class="keywordflow">return</span> exito;</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;}</div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<div class="ttc" id="aimagenES_8h_html_a03340a1e1e4a88385c972bb4af463649"><div class="ttname"><a href="imagenES_8h.html#a03340a1e1e4a88385c972bb4af463649">LeerImagenPGM</a></div><div class="ttdeci">unsigned char * LeerImagenPGM(const char *nombre, int &amp;fils, int &amp;cols)</div><div class="ttdoc">Lee una imagen de tipo PGM.</div><div class="ttdef"><b>Definition:</b> <a href="imagenES_8cpp_source.html#l00095">imagenES.cpp:95</a></div></div>
+<div class="ttc" id="aclassImagen_html_a74ae30ba85720c8b7ad85e31a84d56a7"><div class="ttname"><a href="classImagen.html#a74ae30ba85720c8b7ad85e31a84d56a7">Imagen::borrar</a></div><div class="ttdeci">void borrar()</div><div class="ttdef"><b>Definition:</b> <a href="imagen_8cpp_source.html#l00039">imagen.cpp:39</a></div></div>
+<div class="ttc" id="aclassImagen_html_a6161c0a462953f72e87f9d7e8385db11"><div class="ttname"><a href="classImagen.html#a6161c0a462953f72e87f9d7e8385db11">Imagen::Imagen</a></div><div class="ttdeci">Imagen(int filas=1, int columnas=1)</div><div class="ttdoc">Constructor por defecto y por parámetros.</div><div class="ttdef"><b>Definition:</b> <a href="imagen_8cpp_source.html#l00114">imagen.cpp:114</a></div></div>
+<div class="ttc" id="aclassImagen_html_a4ffa1cf318d91f1e0780ac084c087180"><div class="ttname"><a href="classImagen.html#a4ffa1cf318d91f1e0780ac084c087180">Imagen::asigna_pixel</a></div><div class="ttdeci">void asigna_pixel(int fila, int columna, byte valor)</div><div class="ttdoc">Asigna el valor valor al pixel (fila, columna) de la imagen.</div><div class="ttdef"><b>Definition:</b> <a href="imagen_8cpp_source.html#l00166">imagen.cpp:166</a></div></div>
+<div class="ttc" id="aclassImagen_html_a03dd93c9cf920a9dc0b72f8bd34f2e8a"><div class="ttname"><a href="classImagen.html#a03dd93c9cf920a9dc0b72f8bd34f2e8a">Imagen::~Imagen</a></div><div class="ttdeci">~Imagen()</div><div class="ttdoc">Destructor.</div><div class="ttdef"><b>Definition:</b> <a href="imagen_8cpp_source.html#l00141">imagen.cpp:141</a></div></div>
+<div class="ttc" id="aclassImagen_html_a5cfd95c9eb9c33e78e765d4f57852aa1"><div class="ttname"><a href="classImagen.html#a5cfd95c9eb9c33e78e765d4f57852aa1">Imagen::copiar</a></div><div class="ttdeci">void copiar(const Imagen &amp;imagen)</div><div class="ttdef"><b>Definition:</b> <a href="imagen_8cpp_source.html#l00029">imagen.cpp:29</a></div></div>
+<div class="ttc" id="aclassImagen_html_ae32dbfe07188add13e1bc70780845f4e"><div class="ttname"><a href="classImagen.html#ae32dbfe07188add13e1bc70780845f4e">Imagen::imagen</a></div><div class="ttdeci">byte ** imagen</div><div class="ttdef"><b>Definition:</b> <a href="imagen_8h_source.html#l00056">imagen.h:56</a></div></div>
+<div class="ttc" id="aclassImagen_html_a19ed130ffd82bb5140d034880c7ab394"><div class="ttname"><a href="classImagen.html#a19ed130ffd82bb5140d034880c7ab394">Imagen::leer_fichero_PGM</a></div><div class="ttdeci">bool leer_fichero_PGM(const char *nombre)</div><div class="ttdef"><b>Definition:</b> <a href="imagen_8cpp_source.html#l00056">imagen.cpp:56</a></div></div>
+<div class="ttc" id="aclassImagen_html_a9f4da242215f29774645d831db3b66cb"><div class="ttname"><a href="classImagen.html#a9f4da242215f29774645d831db3b66cb">Imagen::valor_pixel</a></div><div class="ttdeci">byte valor_pixel(int fila, int columna) const</div><div class="ttdoc">Consultar el valor de la casilla (fila, columna) de la imagen.</div><div class="ttdef"><b>Definition:</b> <a href="imagen_8cpp_source.html#l00176">imagen.cpp:176</a></div></div>
+<div class="ttc" id="aclassImagen_html_a2d9c06e7906ba848b4e832c5fd8c6a54"><div class="ttname"><a href="classImagen.html#a2d9c06e7906ba848b4e832c5fd8c6a54">Imagen::reservar</a></div><div class="ttdeci">void reservar()</div><div class="ttdef"><b>Definition:</b> <a href="imagen_8cpp_source.html#l00011">imagen.cpp:11</a></div></div>
+<div class="ttc" id="aclassImagen_html_a7f680af074a510f82aa6ae935611d229"><div class="ttname"><a href="classImagen.html#a7f680af074a510f82aa6ae935611d229">Imagen::operator=</a></div><div class="ttdeci">Imagen &amp; operator=(const Imagen &amp;imagen)</div><div class="ttdoc">Operador de asignación.</div><div class="ttdef"><b>Definition:</b> <a href="imagen_8cpp_source.html#l00146">imagen.cpp:146</a></div></div>
+<div class="ttc" id="aclassImagen_html_af63de0598ca965ab3a30b54ee7e2cedc"><div class="ttname"><a href="classImagen.html#af63de0598ca965ab3a30b54ee7e2cedc">Imagen::columnas</a></div><div class="ttdeci">int columnas</div><div class="ttdef"><b>Definition:</b> <a href="imagen_8h_source.html#l00055">imagen.h:55</a></div></div>
+<div class="ttc" id="aimagen_8h_html"><div class="ttname"><a href="imagen_8h.html">imagen.h</a></div><div class="ttdoc">Fichero de cabecera asociado a la biblioteca libimg.a. Implementacion del TDA imagen (imagen digital ...</div></div>
+<div class="ttc" id="aimagenES_8h_html_a4b649cc272f02649563791d5ed75b557"><div class="ttname"><a href="imagenES_8h.html#a4b649cc272f02649563791d5ed75b557">EscribirImagenPGM</a></div><div class="ttdeci">bool EscribirImagenPGM(const char *nombre, const unsigned char *datos, const int fils, const int cols)</div><div class="ttdoc">Escribe una imagen de tipo PGM.</div><div class="ttdef"><b>Definition:</b> <a href="imagenES_8cpp_source.html#l00133">imagenES.cpp:133</a></div></div>
+<div class="ttc" id="aclassImagen_html_ac28d55c18064aea2a65e6fcf51d86191"><div class="ttname"><a href="classImagen.html#ac28d55c18064aea2a65e6fcf51d86191">Imagen::num_columnas</a></div><div class="ttdeci">int num_columnas() const</div><div class="ttdoc">Getter del atributo columnas.</div><div class="ttdef"><b>Definition:</b> <a href="imagen_8h_source.html#l00144">imagen.h:144</a></div></div>
+<div class="ttc" id="aclassImagen_html_a26e14599819a79610239594f295fb1f6"><div class="ttname"><a href="classImagen.html#a26e14599819a79610239594f295fb1f6">Imagen::escribir_imagen_PGM</a></div><div class="ttdeci">bool escribir_imagen_PGM(const char *nombre)</div><div class="ttdoc">Vuelca los datos de la instancia en un arhcivo con formato .pgm.</div><div class="ttdef"><b>Definition:</b> <a href="imagen_8cpp_source.html#l00188">imagen.cpp:188</a></div></div>
+<div class="ttc" id="aclassImagen_html_a9d81ee1c17c5aed4cbf87be5874bdd98"><div class="ttname"><a href="classImagen.html#a9d81ee1c17c5aed4cbf87be5874bdd98">Imagen::cargar_imagen_PGM</a></div><div class="ttdeci">bool cargar_imagen_PGM(const char *nombre)</div><div class="ttdoc">Lee un fichero en formato .pgm y lo copia en la estructura interna.</div><div class="ttdef"><b>Definition:</b> <a href="imagen_8cpp_source.html#l00184">imagen.cpp:184</a></div></div>
+<div class="ttc" id="aclassImagen_html_a203bf8feb804e182583a117bea43bc9e"><div class="ttname"><a href="classImagen.html#a203bf8feb804e182583a117bea43bc9e">Imagen::pasar_unidimensional</a></div><div class="ttdeci">byte * pasar_unidimensional(int &amp;tam)</div><div class="ttdef"><b>Definition:</b> <a href="imagen_8cpp_source.html#l00099">imagen.cpp:99</a></div></div>
+<div class="ttc" id="aclassImagen_html"><div class="ttname"><a href="classImagen.html">Imagen</a></div><div class="ttdef"><b>Definition:</b> <a href="imagen_8h_source.html#l00033">imagen.h:33</a></div></div>
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="imagen_8cpp.html">imagen.cpp</a></li>
+    <li class="footer">Generado por <a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20 </li>
+  </ul>
+</div>
+</body>
+</html>

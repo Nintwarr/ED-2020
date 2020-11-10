@@ -1,0 +1,344 @@
+.TH "Imagen" 3 "Martes, 10 de Noviembre de 2020" "TDA Imagen" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Imagen
+.SH SYNOPSIS
+.br
+.PP
+.SS "Métodos públicos"
+
+.in +1c
+.ti -1c
+.RI "\fBImagen\fP (int filas=1, int \fBcolumnas\fP=1)"
+.br
+.RI "Constructor por defecto y por parámetros\&. "
+.ti -1c
+.RI "\fBImagen\fP (const \fBImagen\fP &\fBimagen\fP)"
+.br
+.RI "Constructor de copia\&. "
+.ti -1c
+.RI "\fBImagen\fP (const char *nombre_archivo)"
+.br
+.RI "Constructor a partir del nombre de un fichero de tipo \fIpgm\fP\&. "
+.ti -1c
+.RI "\fB~Imagen\fP ()"
+.br
+.RI "Destructor\&. "
+.ti -1c
+.RI "\fBImagen\fP & \fBoperator=\fP (const \fBImagen\fP &\fBimagen\fP)"
+.br
+.RI "Operador de asignación\&. "
+.ti -1c
+.RI "int \fBnum_filas\fP () const"
+.br
+.RI "Getter del atributo \fCfilas\fP\&. "
+.ti -1c
+.RI "int \fBnum_columnas\fP () const"
+.br
+.RI "Getter del atributo \fCcolumnas\fP\&. "
+.ti -1c
+.RI "void \fBasigna_pixel\fP (int fila, int columna, \fBbyte\fP valor)"
+.br
+.RI "Asigna el valor \fIvalor\fP al pixel (\fIfila\fP, \fIcolumna\fP) de la imagen\&. "
+.ti -1c
+.RI "\fBbyte\fP \fBvalor_pixel\fP (int fila, int columna) const"
+.br
+.RI "Consultar el valor de la casilla (\fIfila\fP, \fIcolumna\fP) de la imagen\&. "
+.ti -1c
+.RI "bool \fBcargar_imagen_PGM\fP (const char *nombre)"
+.br
+.RI "Lee un fichero en formato \fI\fP\&.pgm y lo copia en la estructura interna\&. "
+.ti -1c
+.RI "bool \fBescribir_imagen_PGM\fP (const char *nombre)"
+.br
+.RI "Vuelca los datos de la instancia en un arhcivo con formato \fI\fP\&.pgm\&. "
+.in -1c
+.SS "Métodos privados"
+
+.in +1c
+.ti -1c
+.RI "void \fBreservar\fP ()"
+.br
+.ti -1c
+.RI "void \fBcopiar\fP (const \fBImagen\fP &\fBimagen\fP)"
+.br
+.ti -1c
+.RI "void \fBborrar\fP ()"
+.br
+.ti -1c
+.RI "bool \fBleer_fichero_PGM\fP (const char *nombre)"
+.br
+.ti -1c
+.RI "\fBbyte\fP * \fBpasar_unidimensional\fP (int &tam)"
+.br
+.in -1c
+.SS "Atributos privados"
+
+.in +1c
+.ti -1c
+.RI "int \fBfilas\fP"
+.br
+.ti -1c
+.RI "int \fBcolumnas\fP"
+.br
+.ti -1c
+.RI "\fBbyte\fP ** \fBimagen\fP"
+.br
+.in -1c
+.SH "Descripción detallada"
+.PP 
+Definición en la línea 33 del archivo imagen\&.h\&.
+.SH "Documentación del constructor y destructor"
+.PP 
+.SS "Imagen::Imagen (int filas = \fC1\fP, int columnas = \fC1\fP)"
+
+.PP
+Constructor por defecto y por parámetros\&. 
+.PP
+\fBParámetros\fP
+.RS 4
+\fIfilas\fP Indica el número de filas que tendrá la imagen 
+.br
+\fIcolumnas\fP Indica el número de columnas que tendrá la image  Crea una imagen en memoria con 'filas' filas y 'cols' columnas\&. Reserva memoria para alojar la imagen de 'filas' x 'cols' pixeles\&. El objeto resultante no está inicializado y tendrá valores basura\&. 
+.RE
+.PP
+\fBNota\fP
+.RS 4
+Este constructor sirve como constructor por defecto si se invoca vacío 
+.RE
+.PP
+
+.PP
+Definición en la línea 114 del archivo imagen\&.cpp\&.
+.SS "Imagen::Imagen (const \fBImagen\fP & imagen)"
+
+.PP
+Constructor de copia\&. 
+.PP
+\fBParámetros\fP
+.RS 4
+\fIimagen\fP Es un objeto del tipo \fBImagen\fP que queremos copiar en \fIthis\fP 
+.RE
+.PP
+
+.PP
+Definición en la línea 129 del archivo imagen\&.cpp\&.
+.SS "Imagen::Imagen (const char * nombre_archivo)"
+
+.PP
+Constructor a partir del nombre de un fichero de tipo \fIpgm\fP\&. 
+.PP
+\fBParámetros\fP
+.RS 4
+\fInombre_archivo\fP Es el nombre o ruta del archivo a leer 
+.RE
+.PP
+\fBPostcondición\fP
+.RS 4
+Si el archivo existe, la instancia tendrá los datos de la misma\&. Sino, el programa terminará con error 
+.RE
+.PP
+
+.PP
+Definición en la línea 134 del archivo imagen\&.cpp\&.
+.SS "Imagen::~Imagen ()"
+
+.PP
+Destructor\&. Desaloja la memoria que se reserva para la matriz dinámica en la que guardamos los datos de la imagen llamando a 'borrar()' 
+.PP
+Definición en la línea 141 del archivo imagen\&.cpp\&.
+.SH "Documentación de las funciones miembro"
+.PP 
+.SS "void Imagen::asigna_pixel (int fila, int columna, \fBbyte\fP valor)"
+
+.PP
+Asigna el valor \fIvalor\fP al pixel (\fIfila\fP, \fIcolumna\fP) de la imagen\&. 
+.PP
+\fBParámetros\fP
+.RS 4
+\fIfila\fP Coordenada \fIx\fP del píxel en el que insertar \fIvalor\fP 
+.br
+\fIcolumna\fP Coordenada \fIy\fP del píxel en el que insertar \fIvalor\fP 
+.br
+\fIvalor\fP Valor de luminosidad a escribir 
+.RE
+.PP
+\fBPrecondición\fP
+.RS 4
+0 <= \fIfila\fP <= imagen\&.num_filas() 
+.PP
+0 <= \fIcolumna\fP <= imagen\&.num_columnas() 
+.PP
+0 <= \fIvalor\fP <= 255 
+.RE
+.PP
+\fBPostcondición\fP
+.RS 4
+imagen(\fIfila\fP, \fIcolumna\fP) = @valor 
+.RE
+.PP
+\fBNota\fP
+.RS 4
+Se asigna un único valor en una única coordenada 
+.RE
+.PP
+
+.PP
+Definición en la línea 166 del archivo imagen\&.cpp\&.
+.SS "void Imagen::borrar ()\fC [private]\fP"
+Borra la estructura de memoria que reservamos con 'reservar()' 
+.PP
+Definición en la línea 39 del archivo imagen\&.cpp\&.
+.SS "bool Imagen::cargar_imagen_PGM (const char * nombre)"
+
+.PP
+Lee un fichero en formato \fI\fP\&.pgm y lo copia en la estructura interna\&. Utliza el módulo \fIimagenES\fP para cargar la imagen 
+.PP
+\fBParámetros\fP
+.RS 4
+\fInombre\fP Archivo a leer 
+.RE
+.PP
+\fBPostcondición\fP
+.RS 4
+En la estructura interna de la instancia se habrán copiado los datos del fichero\&. Tanto su contenido como su número de filas y columnas quedará sbrescrito en caso de éxito 
+.RE
+.PP
+\fBDevuelve\fP
+.RS 4
+Valor booleano que indica si se ha leído el archivo correctamente 
+.RE
+.PP
+
+.PP
+Definición en la línea 184 del archivo imagen\&.cpp\&.
+.SS "void Imagen::copiar (const \fBImagen\fP & imagen)\fC [private]\fP"
+Se encarga de copiar los píxeles de 'imagen' a 'this'\&. Asume que las filas y las columnas coinciden 
+.PP
+Definición en la línea 29 del archivo imagen\&.cpp\&.
+.SS "bool Imagen::escribir_imagen_PGM (const char * nombre)"
+
+.PP
+Vuelca los datos de la instancia en un arhcivo con formato \fI\fP\&.pgm\&. Utiliza el módulo \fIimagenES\fP para escribir la imagen 
+.PP
+\fBParámetros\fP
+.RS 4
+\fInombre\fP Nombre del archivo en le que se van a escribir los datos\&. Puede existir o no\&. 
+.RE
+.PP
+\fBPrecondición\fP
+.RS 4
+Los datos de la instancia se suponen inicailizados 
+.RE
+.PP
+\fBPostcondición\fP
+.RS 4
+En el nombre o ruta indicada se habrá creado una imagen con extensión \fI\fP\&.pgm conteniendo los datos actuales de la instancia 
+.RE
+.PP
+\fBDevuelve\fP
+.RS 4
+Si la escritura ha tenido éxito o no 
+.RE
+.PP
+
+.PP
+Definición en la línea 188 del archivo imagen\&.cpp\&.
+.SS "bool Imagen::leer_fichero_PGM (const char * nombre)\fC [private]\fP"
+Utiliza el módulo \fCimagenES\fP para leer una imagen y copiar los datos a la estructura interna 
+.PP
+Definición en la línea 56 del archivo imagen\&.cpp\&.
+.SS "int Imagen::num_columnas () const\fC [inline]\fP"
+
+.PP
+Getter del atributo \fCcolumnas\fP\&. 
+.PP
+\fBDevuelve\fP
+.RS 4
+Devuelve el valor del atributo \fCcolumnas\fP 
+.RE
+.PP
+
+.PP
+Definición en la línea 144 del archivo imagen\&.h\&.
+.SS "int Imagen::num_filas () const\fC [inline]\fP"
+
+.PP
+Getter del atributo \fCfilas\fP\&. 
+.PP
+\fBDevuelve\fP
+.RS 4
+Devuelve el valor del atributo \fCfilas\fP 
+.RE
+.PP
+
+.PP
+Definición en la línea 138 del archivo imagen\&.h\&.
+.SS "\fBImagen\fP & Imagen::operator= (const \fBImagen\fP & imagen)"
+
+.PP
+Operador de asignación\&. 
+.PP
+\fBParámetros\fP
+.RS 4
+\fIimagen\fP Es un objeto del tipo \fBImagen\fP que queremos asignar a \fIthis\fP 
+.RE
+.PP
+\fBDevuelve\fP
+.RS 4
+Devuelve la referencia de una copia de \fIimagen\fP 
+.RE
+.PP
+
+.PP
+Definición en la línea 146 del archivo imagen\&.cpp\&.
+.SS "\fBbyte\fP * Imagen::pasar_unidimensional (int & tam)\fC [private]\fP"
+Pasa los datos de la imagen a un vector unidimensional 'tam' es un parámetro de salida con el tamaño del vector AVISO!!! Devuelve memoria dinámica\&. Hay que borrarla cuando no se necesite 
+.PP
+Definición en la línea 99 del archivo imagen\&.cpp\&.
+.SS "void Imagen::reservar ()\fC [private]\fP"
+Apunta a un vector de punteros a \fIbyte\fP Se encarga de reservar la memoria de forma que 'imagen' apunta a un vector de punteros a byte y cada posicón de ese vector apunta a un vector de bytes\&. 
+.PP
+Definición en la línea 11 del archivo imagen\&.cpp\&.
+.SS "\fBbyte\fP Imagen::valor_pixel (int fila, int columna) const"
+
+.PP
+Consultar el valor de la casilla (\fIfila\fP, \fIcolumna\fP) de la imagen\&. 
+.PP
+\fBParámetros\fP
+.RS 4
+\fIfila\fP Coordenada \fIx\fP del píxel a consultar 
+.br
+\fIcolumna\fP Coordenada \fIy\fP del píxel a consultar 
+.RE
+.PP
+\fBPrecondición\fP
+.RS 4
+0 <= \fIfila\fP <= imagen\&.num_filas() 
+.PP
+0 <= \fIcolumna\fP <= imagen\&.num_columnas() 
+.RE
+.PP
+\fBDevuelve\fP
+.RS 4
+Devuelve un valor de tipo \fIbyte\fP que se encuentra en la posición imagen(\fIfila\fP, \fIcolumna\fP) 
+.RE
+.PP
+
+.PP
+Definición en la línea 176 del archivo imagen\&.cpp\&.
+.SH "Documentación de los datos miembro"
+.PP 
+.SS "int Imagen::columnas\fC [private]\fP"
+Es el número de filas de la imagen 
+.PP
+Definición en la línea 55 del archivo imagen\&.h\&.
+.SS "\fBbyte\fP** Imagen::imagen\fC [private]\fP"
+Es el número de columnas de la imagen 
+.PP
+Definición en la línea 56 del archivo imagen\&.h\&.
+
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para TDA Imagen del código fuente\&.

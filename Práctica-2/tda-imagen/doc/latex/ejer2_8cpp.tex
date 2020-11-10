@@ -1,0 +1,130 @@
+\hypertarget{ejer2_8cpp}{}\doxysubsection{Referencia del Archivo ejer2.\+cpp}
+\label{ejer2_8cpp}\index{ejer2.cpp@{ejer2.cpp}}
+
+
+Implementación del ejercicio 2. Umbralización automática.  
+
+
+{\ttfamily \#include $<$imagen\+E\+S.\+h$>$}\newline
+{\ttfamily \#include $<$imagen.\+h$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+\doxysubsubsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{ejer2_8cpp_a2f523f13b8fde026eb4cc006f06b6482}{calcular\+\_\+media\+\_\+gris}} (\mbox{\hyperlink{classImagen}{Imagen}} $\ast$imagen\+\_\+entrada)
+\begin{DoxyCompactList}\small\item\em Calcula la media de los niveles de gris en una imagen. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ejer2_8cpp_a94014833ffb0bd98362535c201cc7de4}{separar\+\_\+segun\+\_\+umbral}} (\mbox{\hyperlink{classImagen}{Imagen}} $\ast$imagen\+\_\+entrada, const double umbral\+\_\+entrada, double \&umbral\+\_\+primero, double \&umbral\+\_\+segundo)
+\begin{DoxyCompactList}\small\item\em Calcula las medias de grises en dos extremos en función de un umbral de entrada. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ejer2_8cpp_ae37ff0c7056efda71517f81496dd9bd8}{umbralizar\+\_\+basico}} (\mbox{\hyperlink{classImagen}{Imagen}} $\ast$imagen\+\_\+entrada, const \mbox{\hyperlink{imagen_8h_a0c8186d9b9b7880309c27230bbb5e69d}{byte}} umbral)
+\begin{DoxyCompactList}\small\item\em Umbraliza una imagen según un umbral dado. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{ejer2_8cpp_a79cc9dd07cff483ca534641fbb07dd6c}{umbralizado\+\_\+automatico}} (const char $\ast$fichero\+\_\+entrada, const char $\ast$fichero\+\_\+salida, \mbox{\hyperlink{imagen_8h_a0c8186d9b9b7880309c27230bbb5e69d}{byte}} \&umbral)
+\begin{DoxyCompactList}\small\item\em Genera una imagen a partir de una imagen de entrada tal que los píxeles con un valor menor que un umbral calculado de forma automática se dejan tal cual. Y todos aquellos que estén por encima de ese umbral, se pasan a blanco. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{ejer2_8cpp_a0ddf1224851353fc92bfbff6f499fa97}\label{ejer2_8cpp_a0ddf1224851353fc92bfbff6f499fa97}} 
+int {\bfseries main} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\doxysubsubsection{Descripción detallada}
+Implementación del ejercicio 2. Umbralización automática. 
+
+\begin{DoxyAuthor}{Autor}
+Darío Megías Guerrero 
+\end{DoxyAuthor}
+
+
+\doxysubsubsection{Documentación de las funciones}
+\mbox{\Hypertarget{ejer2_8cpp_a2f523f13b8fde026eb4cc006f06b6482}\label{ejer2_8cpp_a2f523f13b8fde026eb4cc006f06b6482}} 
+\index{ejer2.cpp@{ejer2.cpp}!calcular\_media\_gris@{calcular\_media\_gris}}
+\index{calcular\_media\_gris@{calcular\_media\_gris}!ejer2.cpp@{ejer2.cpp}}
+\doxyparagraph{\texorpdfstring{calcular\_media\_gris()}{calcular\_media\_gris()}}
+{\footnotesize\ttfamily double calcular\+\_\+media\+\_\+gris (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classImagen}{Imagen}} $\ast$}]{imagen\+\_\+entrada }\end{DoxyParamCaption})}
+
+
+
+Calcula la media de los niveles de gris en una imagen. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em imagen\+\_\+entrada} & \mbox{\hyperlink{classImagen}{Imagen}} de la que queremos calcular la media \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Un valor decimal que representa la media simple de grises que tiene la imagen 
+\end{DoxyReturn}
+
+
+Definición en la línea 18 del archivo ejer2.\+cpp.
+
+\mbox{\Hypertarget{ejer2_8cpp_a94014833ffb0bd98362535c201cc7de4}\label{ejer2_8cpp_a94014833ffb0bd98362535c201cc7de4}} 
+\index{ejer2.cpp@{ejer2.cpp}!separar\_segun\_umbral@{separar\_segun\_umbral}}
+\index{separar\_segun\_umbral@{separar\_segun\_umbral}!ejer2.cpp@{ejer2.cpp}}
+\doxyparagraph{\texorpdfstring{separar\_segun\_umbral()}{separar\_segun\_umbral()}}
+{\footnotesize\ttfamily void separar\+\_\+segun\+\_\+umbral (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classImagen}{Imagen}} $\ast$}]{imagen\+\_\+entrada,  }\item[{const double}]{umbral\+\_\+entrada,  }\item[{double \&}]{umbral\+\_\+primero,  }\item[{double \&}]{umbral\+\_\+segundo }\end{DoxyParamCaption})}
+
+
+
+Calcula las medias de grises en dos extremos en función de un umbral de entrada. 
+
+
+\begin{DoxyParams}[1]{Parámetros}
+ & {\em imagen\+\_\+entrada} & \mbox{\hyperlink{classImagen}{Imagen}} sobre la que trabajar \\
+\hline
+ & {\em umbral\+\_\+entrada} & \mbox{\hyperlink{classImagen}{Imagen}} que determina el valor de gris a partir del cual separamos el cálculo de las medias \\
+\hline
+\mbox{\texttt{ out}}  & {\em umbral\+\_\+primero} & Parámetro de salida en el que quedará la media de tonos de gris por {\bfseries{debajo}} del umbral \\
+\hline
+\mbox{\texttt{ out}}  & {\em umbral\+\_\+segundo} & Parámetro de salida en el que quedará la media de tonos de gris por {\bfseries{encima}} del umbral \\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea 44 del archivo ejer2.\+cpp.
+
+\mbox{\Hypertarget{ejer2_8cpp_a79cc9dd07cff483ca534641fbb07dd6c}\label{ejer2_8cpp_a79cc9dd07cff483ca534641fbb07dd6c}} 
+\index{ejer2.cpp@{ejer2.cpp}!umbralizado\_automatico@{umbralizado\_automatico}}
+\index{umbralizado\_automatico@{umbralizado\_automatico}!ejer2.cpp@{ejer2.cpp}}
+\doxyparagraph{\texorpdfstring{umbralizado\_automatico()}{umbralizado\_automatico()}}
+{\footnotesize\ttfamily bool umbralizado\+\_\+automatico (\begin{DoxyParamCaption}\item[{const char $\ast$}]{fichero\+\_\+entrada,  }\item[{const char $\ast$}]{fichero\+\_\+salida,  }\item[{\mbox{\hyperlink{imagen_8h_a0c8186d9b9b7880309c27230bbb5e69d}{byte}} \&}]{umbral }\end{DoxyParamCaption})}
+
+
+
+Genera una imagen a partir de una imagen de entrada tal que los píxeles con un valor menor que un umbral calculado de forma automática se dejan tal cual. Y todos aquellos que estén por encima de ese umbral, se pasan a blanco. 
+
+
+\begin{DoxyParams}[1]{Parámetros}
+ & {\em fichero\+\_\+entrada} & Nombre del fichero a leer \\
+\hline
+ & {\em fichero\+\_\+salida} & Nombre del fichero que se va a escribir umbralizado \\
+\hline
+\mbox{\texttt{ out}}  & {\em umbral} & Parámetro de salida que informa del umbral que se ha calculado de forma automática. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Si ha tenido éxito la umbralización o no 
+\end{DoxyReturn}
+
+
+Definición en la línea 98 del archivo ejer2.\+cpp.
+
+\mbox{\Hypertarget{ejer2_8cpp_ae37ff0c7056efda71517f81496dd9bd8}\label{ejer2_8cpp_ae37ff0c7056efda71517f81496dd9bd8}} 
+\index{ejer2.cpp@{ejer2.cpp}!umbralizar\_basico@{umbralizar\_basico}}
+\index{umbralizar\_basico@{umbralizar\_basico}!ejer2.cpp@{ejer2.cpp}}
+\doxyparagraph{\texorpdfstring{umbralizar\_basico()}{umbralizar\_basico()}}
+{\footnotesize\ttfamily void umbralizar\+\_\+basico (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classImagen}{Imagen}} $\ast$}]{imagen\+\_\+entrada,  }\item[{const \mbox{\hyperlink{imagen_8h_a0c8186d9b9b7880309c27230bbb5e69d}{byte}}}]{umbral }\end{DoxyParamCaption})}
+
+
+
+Umbraliza una imagen según un umbral dado. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em imagen\+\_\+entrada} & \mbox{\hyperlink{classImagen}{Imagen}} a umbralizar \\
+\hline
+{\em umbral} & Umbral a utilizar para la operación \\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea 80 del archivo ejer2.\+cpp.
+

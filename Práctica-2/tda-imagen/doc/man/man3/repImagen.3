@@ -1,0 +1,14 @@
+.TH "repImagen" 3 "Martes, 10 de Noviembre de 2020" "TDA Imagen" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+repImagen \- Rep del TDA \fBImagen\fP 
+
+.SH "Invariante de la representación"
+.PP
+El invariante es \fIrep\&.filas>0\fP, rep\&.columnas>0
+.SH "Función de abstracción"
+.PP
+Un objeto válido \fIrep\fP del TDA \fBImagen\fP representa a una imagen cuyos datos están en rep\&.imagen (una matriz dinámica de bytes) con tamaño rep\&.filas * rep\&.columnas\&. Así, queda la terna
+.PP
+({rep\&.imagen[0][0],rep\&.imagen[0][1],\&.\&.\&.,rep\&.imagen[0][rep\&.columnas],\&.\&.\&.,rep\&.imagen[rep\&.filas][rep\&.columnas]}, rep\&.filas, rep\&.columnas) 

@@ -1,0 +1,134 @@
+.TH "ejer2.cpp" 3 "Martes, 10 de Noviembre de 2020" "TDA Imagen" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ejer2.cpp \- Implementación del ejercicio 2\&. Umbralización automática\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <imagenES\&.h>\fP
+.br
+\fC#include <imagen\&.h>\fP
+.br
+\fC#include <iostream>\fP
+.br
+\fC#include <string>\fP
+.br
+
+.SS "Funciones"
+
+.in +1c
+.ti -1c
+.RI "double \fBcalcular_media_gris\fP (\fBImagen\fP *imagen_entrada)"
+.br
+.RI "Calcula la media de los niveles de gris en una imagen\&. "
+.ti -1c
+.RI "void \fBseparar_segun_umbral\fP (\fBImagen\fP *imagen_entrada, const double umbral_entrada, double &umbral_primero, double &umbral_segundo)"
+.br
+.RI "Calcula las medias de grises en dos extremos en función de un umbral de entrada\&. "
+.ti -1c
+.RI "void \fBumbralizar_basico\fP (\fBImagen\fP *imagen_entrada, const \fBbyte\fP umbral)"
+.br
+.RI "Umbraliza una imagen según un umbral dado\&. "
+.ti -1c
+.RI "bool \fBumbralizado_automatico\fP (const char *fichero_entrada, const char *fichero_salida, \fBbyte\fP &umbral)"
+.br
+.RI "Genera una imagen a partir de una imagen de entrada tal que los píxeles con un valor menor que un umbral calculado de forma automática se dejan tal cual\&. Y todos aquellos que estén por encima de ese umbral, se pasan a blanco\&. "
+.ti -1c
+.RI "int \fBmain\fP (int argc, char *argv[])"
+.br
+.in -1c
+.SH "Descripción detallada"
+.PP 
+Implementación del ejercicio 2\&. Umbralización automática\&. 
+
+
+.PP
+\fBAutor\fP
+.RS 4
+Darío Megías Guerrero 
+.RE
+.PP
+
+.PP
+Definición en el archivo \fBejer2\&.cpp\fP\&.
+.SH "Documentación de las funciones"
+.PP 
+.SS "double calcular_media_gris (\fBImagen\fP * imagen_entrada)"
+
+.PP
+Calcula la media de los niveles de gris en una imagen\&. 
+.PP
+\fBParámetros\fP
+.RS 4
+\fIimagen_entrada\fP \fBImagen\fP de la que queremos calcular la media 
+.RE
+.PP
+\fBDevuelve\fP
+.RS 4
+Un valor decimal que representa la media simple de grises que tiene la imagen 
+.RE
+.PP
+
+.PP
+Definición en la línea 18 del archivo ejer2\&.cpp\&.
+.SS "void separar_segun_umbral (\fBImagen\fP * imagen_entrada, const double umbral_entrada, double & umbral_primero, double & umbral_segundo)"
+
+.PP
+Calcula las medias de grises en dos extremos en función de un umbral de entrada\&. 
+.PP
+\fBParámetros\fP
+.RS 4
+\fIimagen_entrada\fP \fBImagen\fP sobre la que trabajar 
+.br
+\fIumbral_entrada\fP \fBImagen\fP que determina el valor de gris a partir del cual separamos el cálculo de las medias 
+.br
+\fIumbral_primero\fP Parámetro de salida en el que quedará la media de tonos de gris por \fBdebajo\fP del umbral 
+.br
+\fIumbral_segundo\fP Parámetro de salida en el que quedará la media de tonos de gris por \fBencima\fP del umbral 
+.RE
+.PP
+
+.PP
+Definición en la línea 44 del archivo ejer2\&.cpp\&.
+.SS "bool umbralizado_automatico (const char * fichero_entrada, const char * fichero_salida, \fBbyte\fP & umbral)"
+
+.PP
+Genera una imagen a partir de una imagen de entrada tal que los píxeles con un valor menor que un umbral calculado de forma automática se dejan tal cual\&. Y todos aquellos que estén por encima de ese umbral, se pasan a blanco\&. 
+.PP
+\fBParámetros\fP
+.RS 4
+\fIfichero_entrada\fP Nombre del fichero a leer 
+.br
+\fIfichero_salida\fP Nombre del fichero que se va a escribir umbralizado 
+.br
+\fIumbral\fP Parámetro de salida que informa del umbral que se ha calculado de forma automática\&. 
+.RE
+.PP
+\fBDevuelve\fP
+.RS 4
+Si ha tenido éxito la umbralización o no 
+.RE
+.PP
+
+.PP
+Definición en la línea 98 del archivo ejer2\&.cpp\&.
+.SS "void umbralizar_basico (\fBImagen\fP * imagen_entrada, const \fBbyte\fP umbral)"
+
+.PP
+Umbraliza una imagen según un umbral dado\&. 
+.PP
+\fBParámetros\fP
+.RS 4
+\fIimagen_entrada\fP \fBImagen\fP a umbralizar 
+.br
+\fIumbral\fP Umbral a utilizar para la operación 
+.RE
+.PP
+
+.PP
+Definición en la línea 80 del archivo ejer2\&.cpp\&.
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para TDA Imagen del código fuente\&.

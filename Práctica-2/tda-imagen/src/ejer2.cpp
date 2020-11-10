@@ -36,9 +36,9 @@ double calcular_media_gris(Imagen *imagen_entrada) {
 * @param umbral_entrada Imagen que determina el valor de gris
 *                       a partir del cual separamos el cálculo
 *                       de las medias
-* @param umbral_primero Parámetro de salida en el que quedará la media
+* @param [out] umbral_primero Parámetro de salida en el que quedará la media
 *                       de tonos de gris por \b debajo del umbral
-* @param umbral_segundo Parámetro de salida en el que quedará la media
+* @param [out] umbral_segundo Parámetro de salida en el que quedará la media
 *                       de tonos de gris por \b encima del umbral
 */
 void separar_segun_umbral(Imagen *imagen_entrada, const double umbral_entrada,
@@ -91,7 +91,7 @@ void umbralizar_basico(Imagen *imagen_entrada, const byte umbral) {
 *        a blanco.
 * @param fichero_entrada Nombre del fichero a leer
 * @param fichero_salida Nombre del fichero que se va a escribir umbralizado
-* @param umbral Parámetro de salida que informa del umbral que se ha calculado de
+* @param [out] umbral Parámetro de salida que informa del umbral que se ha calculado de
                 forma automática.
 * @return Si ha tenido éxito la umbralización o no
 */

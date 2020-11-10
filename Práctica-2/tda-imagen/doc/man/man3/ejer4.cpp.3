@@ -1,0 +1,99 @@
+.TH "ejer4.cpp" 3 "Martes, 10 de Noviembre de 2020" "TDA Imagen" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ejer4.cpp \- Implementación del ejercicio 4\&. Creación de un icono a partir de una imagen\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'imagenES\&.h'\fP
+.br
+\fC#include <iostream>\fP
+.br
+\fC#include <cstring>\fP
+.br
+\fC#include <cstdlib>\fP
+.br
+
+.SS "Funciones"
+
+.in +1c
+.ti -1c
+.RI "int \fBcalcularMedia\fP (unsigned char *imagen, int inicio_f, int inicio_c, int fin_f, int fin_c, int num_columnas)"
+.br
+.RI "Funcion auxiliar para calcular la media de valores en una submatriz\&. "
+.ti -1c
+.RI "void \fBcrearIcono\fP (char *origen, char *destino, const int nf, const int nc)"
+.br
+.RI "Funcion que crea una imagen que es un numero entero de veces más pequeña que la original dada\&. "
+.ti -1c
+.RI "int \fBmain\fP (int argc, char *argv[])"
+.br
+.in -1c
+.SH "Descripción detallada"
+.PP 
+Implementación del ejercicio 4\&. Creación de un icono a partir de una imagen\&. 
+
+
+.PP
+\fBAutor\fP
+.RS 4
+María Sánchez Marcos 
+.RE
+.PP
+
+.PP
+Definición en el archivo \fBejer4\&.cpp\fP\&.
+.SH "Documentación de las funciones"
+.PP 
+.SS "int calcularMedia (unsigned char * imagen, int inicio_f, int inicio_c, int fin_f, int fin_c, int num_columnas)"
+
+.PP
+Funcion auxiliar para calcular la media de valores en una submatriz\&. 
+.PP
+\fBParámetros\fP
+.RS 4
+\fIimagen\fP \fBImagen\fP de la cual queremos calcular la media de valores de una de sus zonas (submatriz) 
+.br
+\fIinicio_f\fP Fila desde la que empezaremos a contar de la submatriz 
+.br
+\fIinicio_c\fP Columna desde la que empezaremos a contar de la submatriz 
+.br
+\fIfin_f\fP Fila en la que terminaremos de contar de la submatriz 
+.br
+\fIfin_c\fP Columna en la que terminaremos de contar de la submatriz 
+.br
+\fInum_columnas\fP \fBImagen\fP de la que queremos calcular la media 
+.RE
+.PP
+\fBDevuelve\fP
+.RS 4
+Valor medio de todos los valores de la submatriz 
+.RE
+.PP
+
+.PP
+Definición en la línea 25 del archivo ejer4\&.cpp\&.
+.SS "void crearIcono (char * origen, char * destino, const int nf, const int nc)"
+
+.PP
+Funcion que crea una imagen que es un numero entero de veces más pequeña que la original dada\&. 
+.PP
+\fBParámetros\fP
+.RS 4
+\fIorigen\fP Fichero de la imagen original 
+.br
+\fIfichero\fP de la imagen de salida 
+.br
+\fInf\fP Numero de filas de la nueva imagen 
+.br
+\fInc\fP Numero de columnas de la nueva imagen 
+.RE
+.PP
+
+.PP
+Definición en la línea 52 del archivo ejer4\&.cpp\&.
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para TDA Imagen del código fuente\&.
