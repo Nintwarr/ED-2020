@@ -7,12 +7,8 @@ struct elemento {
     int ele;
     int maximo;
 
-    std::ostream& operator<<(std::ostream &salida) {
-        salida << "Elemento de la pila: " << ele << ", Máximo de la pila: "
-               << maximo << std::endl;
-
-        return salida;
-    }
 };
+
+std::ostream& operator<<(std::ostream &salida, const elemento & elem);
 
 #endif

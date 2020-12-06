@@ -12,14 +12,38 @@
 #include "elemento.h"
 #include <vector>
 
+
+/**
+ *  @brief PilaMax_VD
+ *  Pila_Max implementada a partir de un vector dinámio de la STL :)
+ *
+ *  
+ *
+ * @author María Sánchez Marcos y Darío Guerrero Megías
+ * @date Noviembre 2020
+*/
+
 class Pila_Max {
 private:
 
     std::vector<elemento> vector;
 
 public:
+    /**
+     * @brief Constructor por defecto
+     */
     Pila_Max();
+
+    /**
+     * @brief Constructor de copia
+     * @param otra La pila que se va a asignar.
+     */
     Pila_Max (Pila_Max & otro);
+
+    /**
+     * @brief DESTRUCTOR
+     */
+    
     ~Pila_Max();
 
     /**
