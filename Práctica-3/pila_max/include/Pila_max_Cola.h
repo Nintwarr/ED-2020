@@ -1,7 +1,7 @@
 /**
 * @file Pila_max_Cola.h
 * @author Darío Megías Guerrero & María Sánchez Marcos
-* @date 5 Oct 2020
+* @date 5 Dec 2020
 * @copyright 2020 Darío Megías Guerrero & María Sanchez Marcos
 * @brief Fichero de cabecera asociado a la pila de pares valor-máximo.
 * Implementacion del TDA Pila_Max.
@@ -26,7 +26,7 @@ using namespace std;
 *
 * Para esta versión en concreto, se utiliza un T.D.A. @e cola propio
 *
-* @author Darío Megías Guerrero y María Sánchez Marcos
+* @author María Sánchez Marcos y Darío Megías Guerrero
 * @date Diciembre 2020
 */
 

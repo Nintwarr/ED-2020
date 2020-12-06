@@ -1,5 +1,8 @@
 /**
   * @file Pila_max_VD.h
+  * @author Darío Megías Guerrero & María Sánchez Marcos
+  * @date 5 Dec 2020
+  * @copyright 2020 Darío Megías Guerrero & María Sanchez Marcos
   * @brief Fichero cabecera del TDA PilaMAX
   *
   * Gestiona una secuencia de elementos con estructura de pila en la que encontramos
@@ -19,8 +22,8 @@
  *
  *
  *
- * @author María Sánchez Marcos y Darío Guerrero Megías
- * @date Noviembre 2020
+ * @author María Sánchez Marcos y Darío Megías Guerrero
+ * @date Diciembre 2020
 */
 
 class Pila_Max {
