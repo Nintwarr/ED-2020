@@ -4,7 +4,7 @@
 * @date 5 Oct 2020
 * @copyright 2020 Darío Megías Guerrero & María Sanchez Marcos
 * @brief Fichero de cabecera asociado a la pila de pares valor-máximo.
-* Implementacion del TDA Pila_max.
+* Implementacion del TDA Pila_Max.
 */
 
 #ifndef _PILA_MAX_COLA_H_
@@ -16,7 +16,7 @@
 using namespace std;
 
 /**
-* @brief T.D.A. Pila_max
+* @brief T.D.A. Pila_Max
 *
 * Una instancia @e c del tipo de dato abstracto @c Pila_max_Cola es un objeto que
 * representa una estructura de datos que funciona tal cual funcionan las colas
@@ -30,12 +30,12 @@ using namespace std;
 * @date Diciembre 2020
 */
 
-class Pila_max_Cola {
+class Pila_Max {
 private:
     /**
-	* @page repPila_max_Cola Rep del TDA Pila_max_Cola
+	* @page repPila_max_Cola Rep del TDA Pila_Max con cola
 	*
-	* @section invPila_max_cola Invariante de la representación
+	* @section invPila_max_Cola Invariante de la representación
 	*
 	* El invariante es:
     * Para todo \e rep.cola.frente().ele = \e e, entonces
@@ -43,7 +43,7 @@ private:
 	*
 	* @section faPila_max_Cola Función de abstracción
 	*
-	* Un objeto válido @e rep del TDA Cola_max_Cola representa a una
+	* Un objeto válido @e rep del TDA Cola_Max representa a una
     * estructura de datos que se comporta como una \c pila que almacena
 	* datos del tipo \c elemento. Estos son parejas valor-maximo.
 	*
@@ -54,13 +54,17 @@ private:
     * | rep.cola[0]   | Corresponde con rep.cola.primera.
 	*/
 
-    Cola<elemento> cola;
+    Cola<elemento> cola; // Estructura que va a almacenar los elementos
+    int max = 0;         // Máximo uxiliar necesario para evitar recursividad infinita
 
     /**
      * @brief Copia una pila en otra
      * @param otra Pila a copiar
+     * @param elem_dejar Con cuántos elementos dejar \e otra
+     * @post El parámetro \e otra se verá \c modificado de forma que le
+     *       quedarán \e elem_dejar elementos
      */
-    void copiar(const Pila_max_Cola &otra);
+    void copiar(Pila_Max &otra, unsigned int elem_dejar = 0);
 
     /**
      * @brief Borra la pila
@@ -72,22 +76,24 @@ public:
     /**
      * @brief Constructor sin parámetro que incializa la pila vacía
     */
-    Pila_max_Cola() : cola(Cola()) {
+    Pila_Max(){
     };
 
     /**
      * @brief Constructor de copia que copia los elementos de
-     * una pila_max a otra.
+     * una pila_Max a otra.
      * @param copia Instancia de Pila_max_Cola a copiar.
+     * @post El parámetro \e otra se verá \c modificado quedando
+     *       totalmente vacío.
      */
-    Pila_max_Cola(const Pila_max_Cola &copia);
+    Pila_Max(Pila_Max &copia);
 
     /**
      * @brief Operador de asignación para Pila_max_Cola
      * @param otra Es el \e right-value en la asignación
      * @return Devuleve a la nueva pila una vez hecha la asignación.
      */
-    Pila_max_Cola &operator=(Pila_max_cola &otra);
+    Pila_Max &operator=(Pila_Max &otra);
 
     /**
      * @brief Indica si la pila se encuentra vacía o no.
@@ -102,7 +108,7 @@ public:
      *         almacenado en la pila y el valor máximo almacenado
      *         hasta el momento.
      */
-    elemento tope() const;
+    elemento tope();
 
     /**
      * @brief Añade un elemento a la pila haciéndose cargo de actualizar

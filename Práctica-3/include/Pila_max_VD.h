@@ -2,14 +2,14 @@
   * @file Pila_max_VD.h
   * @brief Fichero cabecera del TDA PilaMAX
   *
-  * Gestiona una secuencia de elementos con estructura de pila en la que encontramos 
+  * Gestiona una secuencia de elementos con estructura de pila en la que encontramos
   * dos objetos, el elemento de la pila y el tope hasta el momento
   *
   */
 #ifndef PILA_MAX_VD
 #define PILA_MAX_VD
 
-#include "elemento.h"
+#include <elemento.h>
 #include <vector>
 
 
@@ -17,7 +17,7 @@
  *  @brief PilaMax_VD
  *  Pila_Max implementada a partir de un vector dinámio de la STL :)
  *
- *  
+ *
  *
  * @author María Sánchez Marcos y Darío Guerrero Megías
  * @date Noviembre 2020
@@ -43,7 +43,7 @@ public:
     /**
      * @brief DESTRUCTOR
      */
-    
+
     ~Pila_Max();
 
     /**
@@ -72,7 +72,7 @@ public:
      * @brief Elimina el elemento tope de la pila
      */
     void quitar ();
-    
+
     /**
      * @brief Devuelve el número de elementos de la pila
      */

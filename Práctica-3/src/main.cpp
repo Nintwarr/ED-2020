@@ -1,6 +1,5 @@
 #include <iostream>
 #include "pila_max.h"
-#include "elemento.h"
 
 using namespace std;
 
@@ -12,7 +11,7 @@ int main(){
     }
     p.poner(32);
     p.poner(2);
-    
+
     while (!p.vacia() ){
         elemento x = p.tope();
         cout << x << endl;

@@ -45,7 +45,7 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"Pila__max__Cola_8h_source.html"
+"Cola__max_8cpp_source.html"
 ];
 
 var SYNCONMSG = 'click en deshabilitar sincronización';

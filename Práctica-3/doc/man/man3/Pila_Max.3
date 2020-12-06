@@ -2,16 +2,60 @@
 .ad l
 .nh
 .SH NAME
-Pila_Max
+Pila_Max \- T\&.D\&.A\&. \fBPila_Max\fP\&.  
+
 .SH SYNOPSIS
 .br
 .PP
+.PP
+\fC#include <Pila_max_Cola\&.h>\fP
 .SS "Métodos públicos"
 
 .in +1c
 .ti -1c
+.RI "\fBPila_Max\fP ()"
+.br
+.RI "Constructor sin parámetro que incializa la pila vacía\&. "
+.ti -1c
+.RI "\fBPila_Max\fP (\fBPila_Max\fP &copia)"
+.br
+.RI "Constructor de copia que copia los elementos de una pila_Max a otra\&. "
+.ti -1c
+.RI "\fBPila_Max\fP & \fBoperator=\fP (\fBPila_Max\fP &otra)"
+.br
+.RI "Operador de asignación para Pila_max_Cola\&. "
+.ti -1c
+.RI "bool \fBvacia\fP () const"
+.br
+.RI "Indica si la pila se encuentra vacía o no\&. "
+.ti -1c
+.RI "\fBelemento\fP \fBtope\fP ()"
+.br
+.RI "Devuelve el elemento que hay en el tope de la pila\&. "
+.ti -1c
+.RI "void \fBponer\fP (const int elem)"
+.br
+.RI "Añade un elemento a la pila haciéndose cargo de actualizar el máximo\&. "
+.ti -1c
+.RI "void \fBquitar\fP ()"
+.br
+.RI "Elimina el elemento que hay en el tope de la pila\&. "
+.ti -1c
+.RI "int \fBnum_elementos\fP () const"
+.br
+.RI "Dice el número de elemento que tiene la pila\&. "
+.ti -1c
+.RI "\fBPila_Max\fP ()"
+.br
+.RI "Constructor por defecto\&. "
+.ti -1c
 .RI "\fBPila_Max\fP (\fBPila_Max\fP &otro)"
 .br
+.RI "Constructor de copia\&. "
+.ti -1c
+.RI "\fB~Pila_Max\fP ()"
+.br
+.RI "DESTRUCTOR\&. "
 .ti -1c
 .RI "\fBPila_Max\fP & \fBoperator=\fP (const \fBPila_Max\fP &otra)"
 .br
@@ -37,18 +81,115 @@ Pila_Max
 .br
 .RI "Devuelve el número de elementos de la pila\&. "
 .in -1c
+.SS "Métodos privados"
+
+.in +1c
+.ti -1c
+.RI "void \fBcopiar\fP (\fBPila_Max\fP &otra, unsigned int elem_dejar=0)"
+.br
+.RI "Copia una pila en otra\&. "
+.ti -1c
+.RI "void \fBborrar\fP ()"
+.br
+.RI "Borra la pila\&. "
+.in -1c
 .SS "Atributos privados"
 
 .in +1c
+.ti -1c
+.RI "\fBCola\fP< \fBelemento\fP > \fBcola\fP"
+.br
 .ti -1c
 .RI "std::vector< \fBelemento\fP > \fBvector\fP"
 .br
 .in -1c
 .SH "Descripción detallada"
 .PP 
-Definición en la línea 15 del archivo Pila_max_VD\&.h\&.
+T\&.D\&.A\&. \fBPila_Max\fP\&. 
+
+PilaMax_VD \fBPila_Max\fP implementada a partir de un vector dinámio de la STL :)
+.PP
+Una instancia \fIc\fP del tipo de dato abstracto \fCPila_max_Cola\fP es un objeto que representa una estructura de datos que funciona tal cual funcionan las colas tradicionales\&. La peculiaridad de esta cola es que guarda parejas de valores\&. Así, el primer elemento es el elemento normal con el que trabajamos y el segundo representa el valor máximo introducido en la cola hasta el momento\&.
+.PP
+Para esta versión en concreto, se utiliza un T\&.D\&.A\&. \fIcola\fP propio
+.PP
+\fBAutor\fP
+.RS 4
+Darío Megías Guerrero y María Sánchez Marcos 
+.RE
+.PP
+\fBFecha\fP
+.RS 4
+Diciembre 2020
+.RE
+.PP
+\fBAutor\fP
+.RS 4
+María Sánchez Marcos y Darío Guerrero Megías 
+.RE
+.PP
+\fBFecha\fP
+.RS 4
+Noviembre 2020 
+.RE
+.PP
+
+.PP
+Definición en la línea 33 del archivo Pila_max_Cola\&.h\&.
+.SH "Documentación del constructor y destructor"
+.PP 
+.SS "Pila_Max::Pila_Max (\fBPila_Max\fP & copia)"
+
+.PP
+Constructor de copia que copia los elementos de una pila_Max a otra\&. 
+.PP
+\fBParámetros\fP
+.RS 4
+\fIcopia\fP Instancia de Pila_max_Cola a copiar\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 20 del archivo Pila_max_Cola\&.cpp\&.
+.SS "Pila_Max::Pila_Max (\fBPila_Max\fP & otro)"
+
+.PP
+Constructor de copia\&. 
+.PP
+\fBParámetros\fP
+.RS 4
+\fIotra\fP La pila que se va a asignar\&. 
+.RE
+.PP
+
 .SH "Documentación de las funciones miembro"
 .PP 
+.SS "void Pila_Max::copiar (\fBPila_Max\fP & otra, unsigned int elem_dejar = \fC0\fP)\fC [private]\fP"
+
+.PP
+Copia una pila en otra\&. 
+.PP
+\fBParámetros\fP
+.RS 4
+\fIotra\fP Pila a copiar 
+.RE
+.PP
+
+.PP
+Definición en la línea 3 del archivo Pila_max_Cola\&.cpp\&.
+.SS "int Pila_Max::num_elementos () const"
+
+.PP
+Dice el número de elemento que tiene la pila\&. 
+.PP
+\fBDevuelve\fP
+.RS 4
+Valor entero que representa el número de elementos que hay almacenados en al pila 
+.RE
+.PP
+
+.PP
+Definición en la línea 58 del archivo Pila_max_Cola\&.cpp\&.
 .SS "\fBPila_Max\fP & Pila_Max::operator= (const \fBPila_Max\fP & otra)"
 
 .PP
@@ -62,6 +203,24 @@ Operador de asignación\&.
 
 .PP
 Definición en la línea 52 del archivo Pila_max_VD\&.cpp\&.
+.SS "\fBPila_Max\fP & Pila_Max::operator= (\fBPila_Max\fP & otra)"
+
+.PP
+Operador de asignación para Pila_max_Cola\&. 
+.PP
+\fBParámetros\fP
+.RS 4
+\fIotra\fP Es el \fIright-value\fP en la asignación 
+.RE
+.PP
+\fBDevuelve\fP
+.RS 4
+Devuleve a la nueva pila una vez hecha la asignación\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 24 del archivo Pila_max_Cola\&.cpp\&.
 .SS "void Pila_Max::poner (const int & elem)"
 
 .PP
@@ -75,6 +234,73 @@ añade el elemento elem al tope de la pila
 
 .PP
 Definición en la línea 26 del archivo Pila_max_VD\&.cpp\&.
+.SS "void Pila_Max::poner (const int elem)"
+
+.PP
+Añade un elemento a la pila haciéndose cargo de actualizar el máximo\&. 
+.PP
+\fBParámetros\fP
+.RS 4
+\fIelem\fP Valor entero a poner en la pila 
+.RE
+.PP
+
+.PP
+Definición en la línea 44 del archivo Pila_max_Cola\&.cpp\&.
+.SS "\fBelemento\fP Pila_Max::tope ()"
+
+.PP
+Devuelve el elemento que hay en el tope de la pila\&. 
+.PP
+\fBDevuelve\fP
+.RS 4
+Un dato \fIstruct\fP que contiene el último valor almacenado en la pila y el valor máximo almacenado hasta el momento\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 34 del archivo Pila_max_Cola\&.cpp\&.
+.SS "bool Pila_Max::vacia () const"
+
+.PP
+Indica si la pila se encuentra vacía o no\&. 
+.PP
+\fBDevuelve\fP
+.RS 4
+Valor booleano que estará a \fItrue\fP si la pila está vacía\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 30 del archivo Pila_max_Cola\&.cpp\&.
+.SH "Documentación de los datos miembro"
+.PP 
+.SS "\fBCola\fP<\fBelemento\fP> Pila_Max::cola\fC [private]\fP"
+
+.PP
+.nf
+@page repPila_max_Cola Rep del TDA Pila_Max con cola
+
+@section invPila_max_Cola Invariante de la representación
+
+El invariante es:
+
+.fi
+.PP
+ Para todo \fIrep\&.cola\&.frente()\fP\&.ele = \fIe\fP, entonces \fIrep\&.cola\&.frente()\fP\&.maximo >= \fIe\fP\&. 
+.PP
+.nf
+@section faPila_max_Cola Función de abstracción
+
+Un objeto válido @e rep del TDA Cola_Max representa a una
+
+.fi
+.PP
+ estructura de datos que se comporta como una \fCpila\fP que almacena datos del tipo \fCelemento\fP\&. Estos son parejas valor-maximo\&.
+.PP
+Si la pila tiene \fIn\fP elementos y el tope es el elemento n-ésimo: | rep\&.cola[n] | Corresponde con rep\&.cola\&.ultima\&. | rep\&.cola[n-1] | | \&.\&.\&. | | rep\&.cola[0] | Corresponde con rep\&.cola\&.primera\&. 
+.PP
+Definición en la línea 57 del archivo Pila_max_Cola\&.h\&.
 
 .SH "Autor"
 .PP 

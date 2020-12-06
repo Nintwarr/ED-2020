@@ -1,0 +1,128 @@
+.TH "Cola_Max" 3 "Domingo, 6 de Diciembre de 2020" "TDA Imagen" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Cola_Max \- ColaMax \fBCola_Max\fP implementada a partir de una Pila Stack de la STL :)  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <Cola_max\&.h>\fP
+.SS "Métodos públicos"
+
+.in +1c
+.ti -1c
+.RI "\fBCola_Max\fP ()"
+.br
+.RI "Constructor por defecto\&. "
+.ti -1c
+.RI "\fBCola_Max\fP (\fBCola_Max\fP &otro)"
+.br
+.RI "Constructor de copia\&. "
+.ti -1c
+.RI "\fB~Cola_Max\fP ()"
+.br
+.RI "DESTRUCTOR\&. "
+.ti -1c
+.RI "\fBCola_Max\fP & \fBoperator=\fP (const \fBCola_Max\fP &otra)"
+.br
+.RI "Operador de asignación\&. "
+.ti -1c
+.RI "bool \fBvacia\fP () const"
+.br
+.RI "Devuelve true si la cola está vacía, false si no\&. "
+.ti -1c
+.RI "\fBelemento\fP \fBfront\fP ()"
+.br
+.RI "Devuelve el elemento frente de la cola\&. "
+.ti -1c
+.RI "\fBelemento\fP \fBback\fP ()"
+.br
+.RI "Devuelve el elemento final de la cola\&. "
+.ti -1c
+.RI "void \fBponer\fP (const int &elem)"
+.br
+.RI "añade el elemento elem a la cola "
+.ti -1c
+.RI "void \fBquitar\fP ()"
+.br
+.RI "Elimina el elemento del frente de la cola\&. "
+.ti -1c
+.RI "int \fBnum_elementos\fP () const"
+.br
+.RI "Devuelve el número de elementos de la cola\&. "
+.in -1c
+.SS "Atributos privados"
+
+.in +1c
+.ti -1c
+.RI "std::stack< \fBelemento\fP > \fBpila\fP"
+.br
+.in -1c
+.SH "Descripción detallada"
+.PP 
+ColaMax \fBCola_Max\fP implementada a partir de una Pila Stack de la STL :) 
+
+
+.PP
+\fBAutor\fP
+.RS 4
+María Sánchez Marcos y Darío Guerrero Megías 
+.RE
+.PP
+\fBFecha\fP
+.RS 4
+Noviembre 2020 
+.RE
+.PP
+
+.PP
+Definición en la línea 26 del archivo Cola_max\&.h\&.
+.SH "Documentación del constructor y destructor"
+.PP 
+.SS "Cola_Max::Cola_Max (\fBCola_Max\fP & otro)"
+
+.PP
+Constructor de copia\&. 
+.PP
+\fBParámetros\fP
+.RS 4
+\fIotra\fP La cola que se va a asignar\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 9 del archivo Cola_max\&.cpp\&.
+.SH "Documentación de las funciones miembro"
+.PP 
+.SS "\fBCola_Max\fP & Cola_Max::operator= (const \fBCola_Max\fP & otra)"
+
+.PP
+Operador de asignación\&. 
+.PP
+\fBParámetros\fP
+.RS 4
+\fIotra\fP La cola que se va a asignar\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 79 del archivo Cola_max\&.cpp\&.
+.SS "void Cola_Max::poner (const int & elem)"
+
+.PP
+añade el elemento elem a la cola 
+.PP
+\fBParámetros\fP
+.RS 4
+\fIelem\fP elemento que se va a añadir\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 43 del archivo Cola_max\&.cpp\&.
+
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para TDA Imagen del código fuente\&.

@@ -1,0 +1,153 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.20"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>TDA Imagen: Fichero Fuente Pila_max_Cola.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">TDA Imagen
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.20 -->
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',false,false,'search.php','Buscar');
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('Pila__max__Cola_8cpp_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="headertitle">
+<div class="title">Pila_max_Cola.cpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="Pila__max__Cola_8h.html">Pila_max_Cola.h</a>&gt;</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
+<div class="line"><a name="l00003"></a><span class="lineno"><a class="line" href="classPila__Max.html#a17704ca769b3e49819297bab29f88753">    3</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classPila__Max.html#a17704ca769b3e49819297bab29f88753">Pila_Max::copiar</a>(<a class="code" href="classPila__Max.html">Pila_Max</a> &amp;otra, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> elem_dejar) {</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;    assert(otra.<a class="code" href="classPila__Max.html#af6c5b45b099ee5677b724b2faa56876c">num_elementos</a>() &gt; 0);</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;    <span class="keywordflow">if</span> (otra.<a class="code" href="classPila__Max.html#af6c5b45b099ee5677b724b2faa56876c">num_elementos</a>() - elem_dejar &gt; 0) {</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i&lt;otra.<a class="code" href="classPila__Max.html#af6c5b45b099ee5677b724b2faa56876c">num_elementos</a>()-elem_dejar; ++i) {</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;        this-&gt;<a class="code" href="classPila__Max.html#ad64bb9e7508a174cca59bc63c095c620">cola</a>.<a class="code" href="classCola.html#a4a902e5805ae74f8d80c6f3267fd14c4">poner</a>(otra.<a class="code" href="classPila__Max.html#ad64bb9e7508a174cca59bc63c095c620">cola</a>.<a class="code" href="classCola.html#a1df4ad2b50116ef22e77ad3f77b02d29">frente</a>());</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;        otra.<a class="code" href="classPila__Max.html#ad64bb9e7508a174cca59bc63c095c620">cola</a>.<a class="code" href="classCola.html#a320766ddc7020424052c99e5c82a105d">quitar</a>();</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;        }</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    }</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;}</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="classPila__Max.html#a0e81aa8bac8f2b2e58ebdd9465103833">   14</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classPila__Max.html#a0e81aa8bac8f2b2e58ebdd9465103833">Pila_Max::borrar</a>() {</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keywordflow">while</span> (!this-&gt;<a class="code" href="classPila__Max.html#ad64bb9e7508a174cca59bc63c095c620">cola</a>.<a class="code" href="classCola.html#a2c746a66289cd4f90d4e43f712b72fb6">vacia</a>()) {</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        this-&gt;<a class="code" href="classPila__Max.html#ad64bb9e7508a174cca59bc63c095c620">cola</a>.<a class="code" href="classCola.html#a320766ddc7020424052c99e5c82a105d">quitar</a>();</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    }</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;}</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="classPila__Max.html#a7bc9ce1c71feb0c6e43ecbdb308252af">   20</a></span>&#160;<a class="code" href="classPila__Max.html#a57bb327c05ef9fdaa775e72b7fbd6850">Pila_Max::Pila_Max</a>(<a class="code" href="classPila__Max.html">Pila_Max</a> &amp;otra) {</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    this-&gt;<a class="code" href="classPila__Max.html#a17704ca769b3e49819297bab29f88753">copiar</a>(otra);</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;}</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="classPila__Max.html#a0819a180fc3a6fbf7d72a74e22f20f41">   24</a></span>&#160;<a class="code" href="classPila__Max.html">Pila_Max</a> &amp; <a class="code" href="classPila__Max.html#a0819a180fc3a6fbf7d72a74e22f20f41">Pila_Max::operator=</a>(<a class="code" href="classPila__Max.html">Pila_Max</a> &amp;otra) {</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    this-&gt;<a class="code" href="classPila__Max.html#a0e81aa8bac8f2b2e58ebdd9465103833">borrar</a>();</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    this-&gt;<a class="code" href="classPila__Max.html#a17704ca769b3e49819297bab29f88753">copiar</a>(otra);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;}</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="classPila__Max.html#a66bc3bef3c62852fb1400213f3616cb8">   30</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classPila__Max.html#a66bc3bef3c62852fb1400213f3616cb8">Pila_Max::vacia</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordflow">return</span> this-&gt;<a class="code" href="classPila__Max.html#ad64bb9e7508a174cca59bc63c095c620">cola</a>.<a class="code" href="classCola.html#a2c746a66289cd4f90d4e43f712b72fb6">vacia</a>();</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;}</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="classPila__Max.html#a76e28e181413773098249d42020bfb2a">   34</a></span>&#160;<a class="code" href="structelemento.html">elemento</a> <a class="code" href="classPila__Max.html#a76e28e181413773098249d42020bfb2a">Pila_Max::tope</a>(){</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <a class="code" href="classPila__Max.html">Pila_Max</a> aux(*<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <a class="code" href="classPila__Max.html#a17704ca769b3e49819297bab29f88753">copiar</a>(aux,1);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    this-&gt;<a class="code" href="classPila__Max.html#a0d4229f4d992536186a10de76bf4318b">poner</a>(aux.<a class="code" href="classPila__Max.html#a76e28e181413773098249d42020bfb2a">tope</a>().ele);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordflow">return</span> aux.<a class="code" href="classPila__Max.html#a76e28e181413773098249d42020bfb2a">tope</a>();</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;}</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="classPila__Max.html#a0d4229f4d992536186a10de76bf4318b">   44</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classPila__Max.html#a0d4229f4d992536186a10de76bf4318b">Pila_Max::poner</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> elem) {</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <a class="code" href="structelemento.html">elemento</a> aux = <a class="code" href="classPila__Max.html#a76e28e181413773098249d42020bfb2a">tope</a>();</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    aux.ele = elem;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    aux.maximo = (elem &gt; aux.maximo) ? elem : aux.maximo;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    this-&gt;cola.poner(aux);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;}</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="classPila__Max.html#a695dfe525b85d10d26098e821c95e243">   52</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classPila__Max.html#a695dfe525b85d10d26098e821c95e243">Pila_Max::quitar</a>() {</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <a class="code" href="classPila__Max.html">Pila_Max</a> aux(*<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <a class="code" href="classPila__Max.html#a17704ca769b3e49819297bab29f88753">copiar</a>(aux,1);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;}</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
+<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="classPila__Max.html#af6c5b45b099ee5677b724b2faa56876c">   58</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="classPila__Max.html#af6c5b45b099ee5677b724b2faa56876c">Pila_Max::num_elementos</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordflow">return</span> this-&gt;<a class="code" href="classPila__Max.html#ad64bb9e7508a174cca59bc63c095c620">cola</a>.<a class="code" href="classCola.html#a26e5b0df5411aa23114d790f0a8c023b">num_elementos</a>();</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;}</div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<div class="ttc" id="aclassPila__Max_html_a0d4229f4d992536186a10de76bf4318b"><div class="ttname"><a href="classPila__Max.html#a0d4229f4d992536186a10de76bf4318b">Pila_Max::poner</a></div><div class="ttdeci">void poner(const int elem)</div><div class="ttdoc">Añade un elemento a la pila haciéndose cargo de actualizar el máximo.</div><div class="ttdef"><b>Definition:</b> <a href="Pila__max__Cola_8cpp_source.html#l00044">Pila_max_Cola.cpp:44</a></div></div>
+<div class="ttc" id="aclassCola_html_a1df4ad2b50116ef22e77ad3f77b02d29"><div class="ttname"><a href="classCola.html#a1df4ad2b50116ef22e77ad3f77b02d29">Cola::frente</a></div><div class="ttdeci">T &amp; frente()</div><div class="ttdoc">Devuelve el elemento del frente de la cola.</div><div class="ttdef"><b>Definition:</b> <a href="cola_8h_source.html#l00098">cola.h:98</a></div></div>
+<div class="ttc" id="aclassCola_html_a26e5b0df5411aa23114d790f0a8c023b"><div class="ttname"><a href="classCola.html#a26e5b0df5411aa23114d790f0a8c023b">Cola::num_elementos</a></div><div class="ttdeci">int num_elementos() const</div><div class="ttdoc">Devuelve el n�mero de elementos de la cola.</div><div class="ttdef"><b>Definition:</b> <a href="cola_8h_source.html#l00121">cola.h:121</a></div></div>
+<div class="ttc" id="aclassCola_html_a2c746a66289cd4f90d4e43f712b72fb6"><div class="ttname"><a href="classCola.html#a2c746a66289cd4f90d4e43f712b72fb6">Cola::vacia</a></div><div class="ttdeci">bool vacia() const</div><div class="ttdoc">Comprueba si la cola est� vac�a.</div><div class="ttdef"><b>Definition:</b> <a href="cola_8h_source.html#l00092">cola.h:92</a></div></div>
+<div class="ttc" id="astructelemento_html"><div class="ttname"><a href="structelemento.html">elemento</a></div><div class="ttdef"><b>Definition:</b> <a href="elemento_8h_source.html#l00006">elemento.h:6</a></div></div>
+<div class="ttc" id="aclassCola_html_a4a902e5805ae74f8d80c6f3267fd14c4"><div class="ttname"><a href="classCola.html#a4a902e5805ae74f8d80c6f3267fd14c4">Cola::poner</a></div><div class="ttdeci">void poner(const T &amp;elem)</div><div class="ttdoc">A�ade un elemento al final de la cola.</div></div>
+<div class="ttc" id="aclassPila__Max_html_a0e81aa8bac8f2b2e58ebdd9465103833"><div class="ttname"><a href="classPila__Max.html#a0e81aa8bac8f2b2e58ebdd9465103833">Pila_Max::borrar</a></div><div class="ttdeci">void borrar()</div><div class="ttdoc">Borra la pila.</div><div class="ttdef"><b>Definition:</b> <a href="Pila__max__Cola_8cpp_source.html#l00014">Pila_max_Cola.cpp:14</a></div></div>
+<div class="ttc" id="aclassPila__Max_html_a17704ca769b3e49819297bab29f88753"><div class="ttname"><a href="classPila__Max.html#a17704ca769b3e49819297bab29f88753">Pila_Max::copiar</a></div><div class="ttdeci">void copiar(Pila_Max &amp;otra, unsigned int elem_dejar=0)</div><div class="ttdoc">Copia una pila en otra.</div><div class="ttdef"><b>Definition:</b> <a href="Pila__max__Cola_8cpp_source.html#l00003">Pila_max_Cola.cpp:3</a></div></div>
+<div class="ttc" id="aclassPila__Max_html"><div class="ttname"><a href="classPila__Max.html">Pila_Max</a></div><div class="ttdoc">T.D.A. Pila_Max.</div><div class="ttdef"><b>Definition:</b> <a href="Pila__max__Cola_8h_source.html#l00033">Pila_max_Cola.h:33</a></div></div>
+<div class="ttc" id="aclassPila__Max_html_a0819a180fc3a6fbf7d72a74e22f20f41"><div class="ttname"><a href="classPila__Max.html#a0819a180fc3a6fbf7d72a74e22f20f41">Pila_Max::operator=</a></div><div class="ttdeci">Pila_Max &amp; operator=(Pila_Max &amp;otra)</div><div class="ttdoc">Operador de asignación para Pila_max_Cola.</div><div class="ttdef"><b>Definition:</b> <a href="Pila__max__Cola_8cpp_source.html#l00024">Pila_max_Cola.cpp:24</a></div></div>
+<div class="ttc" id="aclassPila__Max_html_ad64bb9e7508a174cca59bc63c095c620"><div class="ttname"><a href="classPila__Max.html#ad64bb9e7508a174cca59bc63c095c620">Pila_Max::cola</a></div><div class="ttdeci">Cola&lt; elemento &gt; cola</div><div class="ttdef"><b>Definition:</b> <a href="Pila__max__Cola_8h_source.html#l00057">Pila_max_Cola.h:57</a></div></div>
+<div class="ttc" id="aclassCola_html_a320766ddc7020424052c99e5c82a105d"><div class="ttname"><a href="classCola.html#a320766ddc7020424052c99e5c82a105d">Cola::quitar</a></div><div class="ttdeci">void quitar()</div><div class="ttdoc">Quita el elemento del frente de la cola.</div></div>
+<div class="ttc" id="aPila__max__Cola_8h_html"><div class="ttname"><a href="Pila__max__Cola_8h.html">Pila_max_Cola.h</a></div><div class="ttdoc">Fichero de cabecera asociado a la pila de pares valor-máximo. Implementacion del TDA Pila_Max.</div></div>
+<div class="ttc" id="aclassPila__Max_html_af6c5b45b099ee5677b724b2faa56876c"><div class="ttname"><a href="classPila__Max.html#af6c5b45b099ee5677b724b2faa56876c">Pila_Max::num_elementos</a></div><div class="ttdeci">int num_elementos() const</div><div class="ttdoc">Dice el número de elemento que tiene la pila.</div><div class="ttdef"><b>Definition:</b> <a href="Pila__max__Cola_8cpp_source.html#l00058">Pila_max_Cola.cpp:58</a></div></div>
+<div class="ttc" id="aclassPila__Max_html_a695dfe525b85d10d26098e821c95e243"><div class="ttname"><a href="classPila__Max.html#a695dfe525b85d10d26098e821c95e243">Pila_Max::quitar</a></div><div class="ttdeci">void quitar()</div><div class="ttdoc">Elimina el elemento que hay en el tope de la pila.</div><div class="ttdef"><b>Definition:</b> <a href="Pila__max__Cola_8cpp_source.html#l00052">Pila_max_Cola.cpp:52</a></div></div>
+<div class="ttc" id="aclassPila__Max_html_a57bb327c05ef9fdaa775e72b7fbd6850"><div class="ttname"><a href="classPila__Max.html#a57bb327c05ef9fdaa775e72b7fbd6850">Pila_Max::Pila_Max</a></div><div class="ttdeci">Pila_Max()</div><div class="ttdoc">Constructor sin parámetro que incializa la pila vacía.</div><div class="ttdef"><b>Definition:</b> <a href="Pila__max__Cola_8h_source.html#l00075">Pila_max_Cola.h:75</a></div></div>
+<div class="ttc" id="aclassPila__Max_html_a66bc3bef3c62852fb1400213f3616cb8"><div class="ttname"><a href="classPila__Max.html#a66bc3bef3c62852fb1400213f3616cb8">Pila_Max::vacia</a></div><div class="ttdeci">bool vacia() const</div><div class="ttdoc">Indica si la pila se encuentra vacía o no.</div><div class="ttdef"><b>Definition:</b> <a href="Pila__max__Cola_8cpp_source.html#l00030">Pila_max_Cola.cpp:30</a></div></div>
+<div class="ttc" id="aclassPila__Max_html_a76e28e181413773098249d42020bfb2a"><div class="ttname"><a href="classPila__Max.html#a76e28e181413773098249d42020bfb2a">Pila_Max::tope</a></div><div class="ttdeci">elemento tope()</div><div class="ttdoc">Devuelve el elemento que hay en el tope de la pila.</div><div class="ttdef"><b>Definition:</b> <a href="Pila__max__Cola_8cpp_source.html#l00034">Pila_max_Cola.cpp:34</a></div></div>
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><b>Pila_max_Cola.cpp</b></li>
+    <li class="footer">Generado por <a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20 </li>
+  </ul>
+</div>
+</body>
+</html>
