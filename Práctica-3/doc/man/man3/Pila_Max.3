@@ -1,0 +1,81 @@
+.TH "Pila_Max" 3 "Domingo, 6 de Diciembre de 2020" "TDA Imagen" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Pila_Max
+.SH SYNOPSIS
+.br
+.PP
+.SS "Métodos públicos"
+
+.in +1c
+.ti -1c
+.RI "\fBPila_Max\fP (\fBPila_Max\fP &otro)"
+.br
+.ti -1c
+.RI "\fBPila_Max\fP & \fBoperator=\fP (const \fBPila_Max\fP &otra)"
+.br
+.RI "Operador de asignación\&. "
+.ti -1c
+.RI "bool \fBvacia\fP () const"
+.br
+.RI "Devuelve true si la cola está vacía, false si no\&. "
+.ti -1c
+.RI "\fBelemento\fP \fBtope\fP ()"
+.br
+.RI "Devuelve el elemento tope de la pila\&. "
+.ti -1c
+.RI "void \fBponer\fP (const int &elem)"
+.br
+.RI "añade el elemento elem al tope de la pila "
+.ti -1c
+.RI "void \fBquitar\fP ()"
+.br
+.RI "Elimina el elemento tope de la pila\&. "
+.ti -1c
+.RI "int \fBnum_elementos\fP () const"
+.br
+.RI "Devuelve el número de elementos de la pila\&. "
+.in -1c
+.SS "Atributos privados"
+
+.in +1c
+.ti -1c
+.RI "std::vector< \fBelemento\fP > \fBvector\fP"
+.br
+.in -1c
+.SH "Descripción detallada"
+.PP 
+Definición en la línea 15 del archivo Pila_max_VD\&.h\&.
+.SH "Documentación de las funciones miembro"
+.PP 
+.SS "\fBPila_Max\fP & Pila_Max::operator= (const \fBPila_Max\fP & otra)"
+
+.PP
+Operador de asignación\&. 
+.PP
+\fBParámetros\fP
+.RS 4
+\fIotra\fP La pila que se va a asignar\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 52 del archivo Pila_max_VD\&.cpp\&.
+.SS "void Pila_Max::poner (const int & elem)"
+
+.PP
+añade el elemento elem al tope de la pila 
+.PP
+\fBParámetros\fP
+.RS 4
+\fIelem\fP elemento que se va a añadir al tope\&. 
+.RE
+.PP
+
+.PP
+Definición en la línea 26 del archivo Pila_max_VD\&.cpp\&.
+
+.SH "Autor"
+.PP 
+Generado automáticamente por Doxygen para TDA Imagen del código fuente\&.

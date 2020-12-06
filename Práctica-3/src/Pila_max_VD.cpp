@@ -51,11 +51,7 @@ void Pila_Max::quitar(){
 
 Pila_Max& Pila_Max:: operator= (const Pila_Max & otra){
 
-    this->vector.clear();
-
-    for (int i = 0; i < otra.vector.size() -1;i++){
-        this->vector.push_back(otra.vector[i]);
-    }
+    this->vector = otra.vector;
 
     return *this;
 }
