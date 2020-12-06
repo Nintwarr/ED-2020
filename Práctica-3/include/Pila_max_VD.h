@@ -9,34 +9,29 @@
 #ifndef PILA_MAX_VD
 #define PILA_MAX_VD
 
+#include "elemento.h"
 #include <vector>
 
-
-struct elemento{
-    int ele; //Elemnto a almacenar
-    int maximo; //el maximo
-};
-
-class PilaMax {
+class Pila_Max {
 private:
 
-    elemento *pila;
+    std::vector<elemento> vector;
 
 public:
-    PilaMax();
-    PilaMax (PilaMax & otro);
-    ~PilaMax();
+    Pila_Max();
+    Pila_Max (Pila_Max & otro);
+    ~Pila_Max();
 
     /**
      * @brief Operador de asignación
      * @param otra La pila que se va a asignar.
      */
-    PilaMax operator= (const PilaMax otra);
+    Pila_Max &operator= (const Pila_Max & otra);
 
     /**
      * @brief Devuelve true si la cola está vacía, false si no
      */
-    bool vacía () const;
+    bool vacia () const;
 
     /**
      * @brief Devuelve el elemento tope de la pila
@@ -47,7 +42,7 @@ public:
      * @brief añade el elemento elem al tope de la pila
      * @param elem elemento que se va a añadir al tope.
      */
-    void anadir (const elemento & elem);
+    void poner (const int & elem);
 
     /**
      * @brief Elimina el elemento tope de la pila
