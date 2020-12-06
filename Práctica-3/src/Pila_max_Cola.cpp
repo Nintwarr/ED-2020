@@ -13,7 +13,6 @@ void Pila_Max::copiar(Pila_Max &otra, unsigned int elem_dejar) {
         this->cola.poner(otra.cola.frente());
         otra.cola.quitar();
         }
-        this->max = otra.max;
     }
 }
 
@@ -39,23 +38,27 @@ bool Pila_Max::vacia() const {
 }
 
 elemento Pila_Max::tope(){
-    // Hacemos una copia temporal porque tenemos que
-    // acceder al último elemento de la cola
-    Pila_Max aux(*this);
+    assert(this->num_elementos() > 0);
+    if (this->num_elementos() > 1) {
+        // Hacemos una copia temporal porque tenemos que
+        // acceder al último elemento de la cola
+        Pila_Max aux(*this);
 
-    // Dejamos un elemento en la cola
-    copiar(aux,1);
+        // Dejamos un elemento en la cola
+        copiar(aux,1);
 
-    // Copiamos el último elemento para tener nuestra
-    // pila íntegra
-    this->poner(aux.tope().ele);
+        // Copiamos el último elemento para tener nuestra
+        // pila íntegra
+        this->poner(aux.tope().ele);
 
-    return aux.tope();
+        return aux.cola.frente();
+    } else {
+        return this->cola.frente();
+    }
 }
 
 void Pila_Max::poner(const int elem) {
     elemento aux;
-    cout << "poner" << endl;
     /*
     Si hay más de un elemento, comprobamos si el elemento
     a insertar es mayor que el máximo hasta ahora.
@@ -84,13 +87,16 @@ void Pila_Max::poner(const int elem) {
 }
 
 void Pila_Max::quitar() {
-    cout << "quitar" << endl;
-    Pila_Max aux(*this);
+    if (this->num_elementos() > 1) {
+        Pila_Max aux(*this);
 
-    copiar(aux,1);
+        copiar(aux,1);
 
-    if (aux.tope().ele == this->max)
-        this->max = this->tope().maximo;
+        if (aux.tope().ele == this->max)
+            this->max = this->tope().maximo;
+    } else if (this->num_elementos() == 1) {
+        this->cola.quitar();
+    }
 }
 
 int Pila_Max::num_elementos() const {

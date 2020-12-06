@@ -4,7 +4,7 @@
 using namespace std;
 
 std::ostream& operator<<(std::ostream &salida, const elemento & elem) {
-    salida << "Elemento de la pila: " << elem.ele << ", Máximo de la pila: "
+    salida << "Elemento: " << elem.ele << ", Máximo: "
             << elem.maximo << std::endl;
 
     return salida;
