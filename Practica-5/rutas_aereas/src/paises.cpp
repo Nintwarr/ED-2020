@@ -43,7 +43,7 @@ iterator find(const Pais &p) {
 iterator find(const Punto &p) {
     Paises::iterator it;
     set<Pais>::iterator i;
-    for (i=datos.begin(); i!=datos.end() && !((*i).p==p.p);++i);
+    for (i=datos.begin(); i!=datos.end() && !((*i).p==*(it).p);++i);
     it.p=i;
     return it;
 }

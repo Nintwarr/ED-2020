@@ -102,23 +102,91 @@ public:
     private:
         list<Punto>::iterator p;
     public:
+
+        /**
+         * @brief Operador de acceso a memoria
+         * @return Devuelve una referencia al punto que está en la posición del iterador
+         */
         Punto & operator*(){return *p;}
+
+        /**
+         * @brief Operador de incremento
+         * @return Devuelve un iterador de la clase Ruta incrementado en una unidad
+         */
         iterator & operator++(){++p; return *this;}
+
+        /**
+         * @brief Operador de decremento
+         * @return Devuelve un iterador constante de la clase Ruta decrementado en una unidad
+         */
         iterator & operator--(){--p; return *this;}
+
+        /**
+         * @brief Operador igualdad
+         * @param i Una referencia constante del iterador que queremos comparar
+         * @return Devuelve un booleano, true en caso de que los iteradores sean iguales, false en el contrario
+         */
         bool operator==(const iterator &i){return p == i.p;}
+
+        /**
+         * @brief Operador desigualdad
+         * @param i Una referencia constante del iterador que queremos comparar
+         * @return Devuelve un booleano, false en caso de que los iteradores sean iguales, true en el contrario
+         */
         bool operator!=(const iterator &i){return p != i.p;}
 
         friend class Ruta;
     };
 
+    /**
+     *  @brief iterator constante del T.D.A. Ruta
+     *
+     *
+     * Una instancia @e c del tipo de dato abstracto @e iterator representa
+     * una referencia a un elemento concreto de la colección de puntos o
+     * al final de dicha colección.
+     *
+     * Estas referencias son constantes de forma que se puede acceder a su
+     * información pero no modificarla.
+     *
+     * @author María Sánchez Marcos y Darío Megías Guerrero
+     * @date Enero 2021
+     */
     class const_iterator {
     private:
         list<Punto>::const_iterator p;
     public:
+
+        /**
+         * @brief Operador de acceso a memoria
+         * @return Devuelve una referencia constante al punto que está en la posición del iterador
+         */
         const Punto & operator*(){return *p;}
+
+        /**
+         * @brief Operador de incremento
+         * @return Devuelve un iterador constante de la clase punto incrementado en una unidad
+         */
         const_iterator & operator++(){++p; return *this;}
+
+        /**
+         * @brief Operador de decremento
+         * @return Devuelve un iterador constante de la clase punto decrementado en una unidad
+         */
         const_iterator & operator--(){--p; return *this;}
+
+        /**
+         * @brief Operador igualdad
+         * @param i Una referencia constante del iterador que queremos comparar
+         * @return Devuelve un booleano, true en caso de que los iteradores sean iguales, false en el contrario
+         */
         bool operator==(const const_iterator &i){return p == i.p;}
+
+        /**
+         * @brief Operador desigualdad
+         * @param i Una referencia constante del iterador que queremos comparar
+         * @return Devuelve un booleano, false en caso de que los iteradores sean iguales, true en el contrario
+         */
         bool operator!=(const const_iterator &i){return p != i.p;}
 
         friend class Ruta;

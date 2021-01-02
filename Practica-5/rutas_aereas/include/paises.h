@@ -74,36 +74,36 @@ public:
         set<Pais>::iterator p; ///< Iterador del tipo set de la STL
 	public:
 
-    /**
-     * @brief Operador de acceso a memoria
-     * @return Devuelve una referencia al país que esta en la posición del iterador
-     */
+        /**
+         * @brief Operador de acceso a memoria
+         * @return Devuelve una referencia al país que esta en la posición del iterador
+         */
         Pais & operator*(){return *p;}
 
-    /**
-     * @brief Operador de incremento
-     * @return Devuelve un iterador de la clase país incrementado en una unidad
-     */    
+        /**
+         * @brief Operador de incremento
+         * @return Devuelve un iterador de la clase país incrementado en una unidad
+         */
         iterator & operator++(){++p; return *this;}
 
-    /**
-     * @brief Operador de decremento
-     * @return Devuelve un iterador de la clase país decrementado en una unidad
-     */    
+        /**
+         * @brief Operador de decremento
+         * @return Devuelve un iterador de la clase país decrementado en una unidad
+         */
         iterator & operator--(){--p; return *this;}
 
-    /**
-     * @brief Operador igualdad
-     * @param i Una referencia constante del iterador que queremos comparar
-     * @return Devuelve un booleano, true en caso de que los iteradores sean iguales, false en el contrario
-     */    
+        /**
+         * @brief Operador igualdad
+         * @param i Una referencia constante del iterador que queremos comparar
+         * @return Devuelve un booleano, true en caso de que los iteradores sean iguales, false en el contrario
+         */
         bool operator==(const iterator &i){return p == i.p;}
 
         /**
          * @brief Operador desigualdad
          * @param i Una referencia constante del iterador que queremos comparar
          * @return Devuelve un booleano, false en caso de que los iteradores sean iguales, true en el contrario
-         */   
+         */
         bool operator!=(const iterator &i){return p != i.p;}
 
 	    friend class Paises;
@@ -128,37 +128,37 @@ public:
 	private:
         set<Pais>::const_iterator p; ///< Iterador constante del tipo set de la STL
 	public:
-    
-    /**
-     * @brief Operador de acceso a memoria
-     * @return Devuelve una referencia constante al país que esta en la posición del iterador
-     */
+
+        /**
+         * @brief Operador de acceso a memoria
+         * @return Devuelve una referencia constante al país que esta en la posición del iterador
+         */
 	    const Pais & operator*(){return *p;}
 
-    /**
-     * @brief Operador de incremento
-     * @return Devuelve un iterador constante de la clase país incrementado en una unidad
-     */        
+        /**
+         * @brief Operador de incremento
+         * @return Devuelve un iterador constante de la clase país incrementado en una unidad
+         */
         const_iterator & operator++(){++p; return *this;}
 
-     /**
-     * @brief Operador de decremento
-     * @return Devuelve un iterador constante de la clase país decrementado en una unidad
-     */    
+        /**
+         * @brief Operador de decremento
+         * @return Devuelve un iterador constante de la clase país decrementado en una unidad
+         */
         const_iterator & operator--(){--p; return *this;}
 
-    /**
-     * @brief Operador igualdad
-     * @param i Una referencia constante del iterador que queremos comparar
-     * @return Devuelve un booleano, true en caso de que los iteradores sean iguales, false en el contrario
-     */    
+        /**
+         * @brief Operador igualdad
+         * @param i Una referencia constante del iterador que queremos comparar
+         * @return Devuelve un booleano, true en caso de que los iteradores sean iguales, false en el contrario
+         */
         bool operator==(const const_iterator &i){return p == i.p;}
 
-     /**
-     * @brief Operador desigualdad
-     * @param i Una referencia constante del iterador que queremos comparar
-     * @return Devuelve un booleano, false en caso de que los iteradores sean iguales, true en el contrario
-     */    
+        /**
+         * @brief Operador desigualdad
+         * @param i Una referencia constante del iterador que queremos comparar
+         * @return Devuelve un booleano, false en caso de que los iteradores sean iguales, true en el contrario
+         */
         bool operator!=(const const_iterator &i){return p != i.p;}
 
 	    friend class Paises;
