@@ -23,7 +23,7 @@
  * @author María Sánchez Marcos y Darío Megías Guerrero
  * @date Enero 2021
 */
-#include "Punto.h"
+#include "punto.h"
 #include <string>
 
 class Pais{
