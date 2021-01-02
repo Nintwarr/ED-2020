@@ -24,6 +24,8 @@
  * @date Enero 2021
 */
 #include "Punto.h"
+#include <string>
+
 class Pais{
 private:
     Punto p;        ///< Punto geográfico

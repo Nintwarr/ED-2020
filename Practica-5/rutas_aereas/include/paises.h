@@ -24,7 +24,9 @@
   */
 #include "Pais.h"
 #include <set>
+
 using namespace std;
+
 class Paises{
 private:
     set<Pais> datos; ///< Conjunto de países
