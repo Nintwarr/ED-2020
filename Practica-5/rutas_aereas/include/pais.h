@@ -23,7 +23,7 @@
  * @author María Sánchez Marcos y Darío Megías Guerrero
  * @date Enero 2021
 */
-#include "Punto.h"
+#include "punto.h"
 class Pais{
 private:
     Punto p;        ///< Punto geográfico
