@@ -1,4 +1,5 @@
 /**
+  * @author Darío Megías Guerrero y María Sánchez Marcos 
   * @file punto.h
   * @brief Fichero cabecera para el TDA
   *
@@ -8,6 +9,10 @@
 
 #ifndef _PUNTO_H_
 #define _PUNTO_H_
+
+#include <iostream>
+
+using namespace std;
 
 class Punto {
     private:
@@ -20,7 +25,9 @@ class Punto {
      * @brief Crea un objeto tipo Punto
      * @see Constructor sin parámetros
      */
-        Punto();
+        Punto(){
+            latitud = longitud = 0;
+        }
 
     /**
      * @brief Crea un objeto tipo Punto a partir de otro
@@ -94,6 +101,31 @@ class Punto {
      * @see Operator==
      */
         bool operator== (const Punto & p) const;
+
+
+    /**
+     * @brief  Operador de entrada para objetos de tipo Punto
+     *
+     * @param is flujo de entrada
+     * @param p El punto a insertar
+     * @return Devuelve el flujo is
+     *
+     * @see Operator>>
+     */
+        friend istream & operator >> (istream & is, Punto & p);
+
+    /**
+     * @brief  Operador de salida para objetos de tipo Punto
+     *
+     * @param os flujo de salida
+     * @param p El punto que queremos mostrar
+     * @return Devuelve el flujo os
+     *
+     * @see Operator>>
+     */
+        friend ostream & operator << (ostream & os, const Punto & p);
+
+
 
 };
 
