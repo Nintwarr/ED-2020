@@ -65,7 +65,7 @@ Ruta::const_iterator Ruta::end() const {
 Ruta::iterator Ruta::find(const Punto &p) {
     Ruta::iterator it;
     list<Punto>::iterator i;
-    for (i=puntos.begin(); i!=puntos.end() && !((*i)==*it);++i);
+    for (i=puntos.begin(); i!=puntos.end() && !((*i)==p);++i);
     it.p=i;
     return it;
 }
