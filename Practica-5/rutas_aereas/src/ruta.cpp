@@ -70,7 +70,7 @@ Ruta::iterator Ruta::find(const Punto &p) {
     return it;
 }
 
-friend istream & Ruta::operator>>(istream &is, Ruta &R) {
+istream & operator>>(istream &is, Ruta &R) {
     Ruta rlocal;
 
     Punto punto;
@@ -93,7 +93,7 @@ friend istream & Ruta::operator>>(istream &is, Ruta &R) {
     return is;
 }
 
-friend ostream & Ruta::operator<<(ostream &os, Ruta &R) {
+ostream & operator<<(ostream &os, Ruta &R) {
     os << R.GetCode() << '\t' << R.puntos.size() << '\t';
 
     Ruta::iterator it = R.begin();

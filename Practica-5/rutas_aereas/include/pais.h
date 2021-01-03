@@ -94,14 +94,7 @@ public:
      * @return Referencia al flujo de entrada en el que leemos los datos
      *         para rellenar nuestro país
      */
-    friend istream & operator>>(istream & is, Pais & P){
-        double lat,lng;
-
-        is>>lat>>lng>>P.pais>>P.bandera;
-
-        P.p=Punto(lat,lng,"");
-        return is;
-    }
+    friend istream & operator>>(istream & is, Pais & P);
 
     /**
      * @brief Operador de salida
@@ -110,10 +103,7 @@ public:
      * @return Referencia al flujo de salida en el que volcamos los datos
      *         de nuestro país
      */
-    friend ostream & operator<<(ostream & os, const Pais &P){
-        os<<P.p<<" "<<P.pais<<" "<<P.bandera<<endl;
-        return os;
-    }
+    friend ostream & operator<<(ostream & os, const Pais &P);
 };
 
 #endif

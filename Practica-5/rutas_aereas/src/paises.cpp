@@ -32,7 +32,7 @@ Paises::const_iterator Paises::end () {
     return it;
 }
 
-iterator find(const Pais &p) {
+Paises::iterator Paises::find(const Pais &p) {
     Paises::iterator it;
     set<Pais>::iterator i;
     for (i=datos.begin(); i!=datos.end() && !((*i)==p);++i);
@@ -40,7 +40,7 @@ iterator find(const Pais &p) {
     return it;
 }
 
-iterator find(const Punto &p) {
+Paises::iterator Paises::find(const Punto &p) {
     Paises::iterator it;
     set<Pais>::iterator i;
     for (i=datos.begin(); i!=datos.end() && !((*i).p==*(it).p);++i);
@@ -48,7 +48,7 @@ iterator find(const Punto &p) {
     return it;
 }
 
-friend istream & operator>>(istream & is, Paises & R) {
+istream & operator>>(istream & is, Paises & R) {
     Paises rlocal;
 
     //leemos el comentario
@@ -66,7 +66,7 @@ friend istream & operator>>(istream & is, Paises & R) {
     return is;
 }
 
-friend ostream & operator<<(ostream & os, const Paises &R) {
+ostream & operator<<(ostream & os, const Paises &R) {
     Paises::const_iterator it;
 
     for (it=R.begin(); it!=R.end(); ++it){
