@@ -1,0 +1,122 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.20"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Rutas Aereas: Fichero Fuente include/punto.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Rutas Aereas
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.20 -->
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',false,false,'search.php','Buscar');
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('punto_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="headertitle">
+<div class="title">punto.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="punto_8h.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#ifndef _PUNTO_H_</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#define _PUNTO_H_</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">using namespace </span>std;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="classPunto.html">   17</a></span>&#160;<span class="keyword">class </span><a class="code" href="classPunto.html">Punto</a> {</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        <span class="keywordtype">double</span> latitud;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="keywordtype">double</span> longitud;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="classPunto.html#a4b8b70b933ff13493ee5ddb3c8532c10">   28</a></span>&#160;        <a class="code" href="classPunto.html#a4b8b70b933ff13493ee5ddb3c8532c10">Punto</a>(){</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;            latitud = longitud = 0;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        }</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="classPunto.html#a31f8de2f3ef34da091ce8cef0870fe0d">   38</a></span>&#160;        <a class="code" href="classPunto.html#a31f8de2f3ef34da091ce8cef0870fe0d">Punto</a>(<span class="keyword">const</span> <a class="code" href="classPunto.html">Punto</a> &amp; otro);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="classPunto.html#a5ddc9644505c45a868eda413d84f4fea">   49</a></span>&#160;        <a class="code" href="classPunto.html#a5ddc9644505c45a868eda413d84f4fea">Punto</a> (<span class="keyword">const</span> <span class="keywordtype">double</span> &amp; lat, <span class="keyword">const</span> <span class="keywordtype">double</span> &amp; lon);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="classPunto.html#ac5d5066c3993dedd3050d0b919394dcd">   58</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classPunto.html#ac5d5066c3993dedd3050d0b919394dcd">setLatitud</a> (<span class="keyword">const</span> <span class="keywordtype">double</span> &amp; lat);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
+<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="classPunto.html#a2967c9988aa53da9bb6e29e2e353978c">   67</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classPunto.html#a2967c9988aa53da9bb6e29e2e353978c">setLongitud</a> (<span class="keyword">const</span> <span class="keywordtype">double</span> &amp; lon);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        </div>
+<div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="classPunto.html#a08694f20ebdd34f237646cb9bc35fb62">   75</a></span>&#160;        <span class="keywordtype">double</span> <a class="code" href="classPunto.html#a08694f20ebdd34f237646cb9bc35fb62">getLatitud</a>();</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
+<div class="line"><a name="l00083"></a><span class="lineno"><a class="line" href="classPunto.html#a5863add0fd1bf57858e2e30db714dd60">   83</a></span>&#160;        <span class="keywordtype">double</span> <a class="code" href="classPunto.html#a5863add0fd1bf57858e2e30db714dd60">getLongitud</a>();</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
+<div class="line"><a name="l00093"></a><span class="lineno"><a class="line" href="classPunto.html#a5583f564dab87d0d31c7facbd767fbfb">   93</a></span>&#160;        <span class="keywordtype">bool</span> operator&lt; (<span class="keyword">const</span> <a class="code" href="classPunto.html">Punto</a> &amp; p) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
+<div class="line"><a name="l00103"></a><span class="lineno"><a class="line" href="classPunto.html#a28092d53569dd766695ba90c71763df2">  103</a></span>&#160;        <span class="keywordtype">bool</span> operator== (<span class="keyword">const</span> <a class="code" href="classPunto.html">Punto</a> &amp; p) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160; </div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
+<div class="line"><a name="l00115"></a><span class="lineno"><a class="line" href="classPunto.html#a31128d021f3e7062da16ccae225b9c68">  115</a></span>&#160;        <span class="keyword">friend</span> istream &amp; operator &gt;&gt; (istream &amp; is, <a class="code" href="classPunto.html">Punto</a> &amp; p);</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160; </div>
+<div class="line"><a name="l00126"></a><span class="lineno"><a class="line" href="classPunto.html#a087d8093af21652931916f49d5698ec1">  126</a></span>&#160;        <span class="keyword">friend</span> ostream &amp; operator &lt;&lt; (ostream &amp; os, <span class="keyword">const</span> <a class="code" href="classPunto.html">Punto</a> &amp; p);</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160; </div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160; </div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160; </div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;};</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160; </div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;<span class="preprocessor">#endif</span></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<div class="ttc" id="aclassPunto_html_a31f8de2f3ef34da091ce8cef0870fe0d"><div class="ttname"><a href="classPunto.html#a31f8de2f3ef34da091ce8cef0870fe0d">Punto::Punto</a></div><div class="ttdeci">Punto(const Punto &amp;otro)</div><div class="ttdoc">Crea un objeto tipo Punto a partir de otro.</div></div>
+<div class="ttc" id="aclassPunto_html_ac5d5066c3993dedd3050d0b919394dcd"><div class="ttname"><a href="classPunto.html#ac5d5066c3993dedd3050d0b919394dcd">Punto::setLatitud</a></div><div class="ttdeci">void setLatitud(const double &amp;lat)</div><div class="ttdoc">Asigna un valor al atributo latitud.</div></div>
+<div class="ttc" id="aclassPunto_html_a4b8b70b933ff13493ee5ddb3c8532c10"><div class="ttname"><a href="classPunto.html#a4b8b70b933ff13493ee5ddb3c8532c10">Punto::Punto</a></div><div class="ttdeci">Punto()</div><div class="ttdoc">Crea un objeto tipo Punto.</div><div class="ttdef"><b>Definition:</b> <a href="punto_8h_source.html#l00028">punto.h:28</a></div></div>
+<div class="ttc" id="aclassPunto_html_a2967c9988aa53da9bb6e29e2e353978c"><div class="ttname"><a href="classPunto.html#a2967c9988aa53da9bb6e29e2e353978c">Punto::setLongitud</a></div><div class="ttdeci">void setLongitud(const double &amp;lon)</div><div class="ttdoc">Asigna un valor al atributo longitud.</div></div>
+<div class="ttc" id="aclassPunto_html_a08694f20ebdd34f237646cb9bc35fb62"><div class="ttname"><a href="classPunto.html#a08694f20ebdd34f237646cb9bc35fb62">Punto::getLatitud</a></div><div class="ttdeci">double getLatitud()</div><div class="ttdoc">Devuelve el valor del atributo latitud.</div></div>
+<div class="ttc" id="aclassPunto_html"><div class="ttname"><a href="classPunto.html">Punto</a></div><div class="ttdef"><b>Definition:</b> <a href="punto_8h_source.html#l00017">punto.h:17</a></div></div>
+<div class="ttc" id="aclassPunto_html_a5ddc9644505c45a868eda413d84f4fea"><div class="ttname"><a href="classPunto.html#a5ddc9644505c45a868eda413d84f4fea">Punto::Punto</a></div><div class="ttdeci">Punto(const double &amp;lat, const double &amp;lon)</div><div class="ttdoc">Crea un objeto de tipo Punto a partir de su latitud y longitud.</div></div>
+<div class="ttc" id="aclassPunto_html_a5863add0fd1bf57858e2e30db714dd60"><div class="ttname"><a href="classPunto.html#a5863add0fd1bf57858e2e30db714dd60">Punto::getLongitud</a></div><div class="ttdeci">double getLongitud()</div><div class="ttdoc">Devuelve el valor del atributo longitud.</div></div>
+<hr>
+<small>ETS Ingeniería Informática y Telecomunicaciones. Universidad de Granada.
+</small>

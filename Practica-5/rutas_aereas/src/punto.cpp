@@ -55,7 +55,15 @@ bool Punto::operator== (const Punto & p) const {
 }
 
 istream & operator >> (istream & is, Punto & p){
-    is >> 
+    const int TAM = 200;
+    is.ignore (TAM,'(');
+    is >> p.latitud;
+    is.ignore (TAM,',');
+    is >> p.longitud;
+    is.ignore (TAM,')');
+
+    return is;
+    
 }
 
 ostream & operator << (ostream & os, const Punto & p){
