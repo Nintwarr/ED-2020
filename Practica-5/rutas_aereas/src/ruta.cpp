@@ -8,6 +8,10 @@ void Ruta::Borrar(const Punto &n) {
    puntos.remove(n);
 }
 
+Ruta::Ruta() : puntos() {
+    code = "";
+}
+
 bool Ruta::operator==(const Ruta &R) const {
     bool es_igual = false;
     const_iterator it = begin();
@@ -22,20 +26,20 @@ bool Ruta::operator==(const Ruta &R) const {
 }
 
 bool Ruta::operator<(const Ruta &R) const {
+    bool es_menor = false;
+
     if (puntos.size() < R.puntos.size()) {
-        return true;
-    } else if (puntos.size() == R.puntos.size()) {
-        bool es_menor = false;
-    const_iterator it = begin();
-    const_iterator it_r = R.begin();
-
-    for (; it != end() && *it < *it_r; ++it, ++it_r);
-
-    if (it == end())
         es_menor = true;
+    } else if (puntos.size() == R.puntos.size()) {
+        const_iterator it = begin();
+        const_iterator it_r = R.begin();
 
-    return es_menor;
+        for (; it != end() && *it < *it_r; ++it, ++it_r);
+
+        if (it == end())
+            es_menor = true;
     }
+    return es_menor;
 }
 
 Ruta::iterator Ruta::begin() {
@@ -85,7 +89,7 @@ istream & operator>>(istream &is, Ruta &R) {
     num_rutas = atoi(aux.c_str());
 
     for(int i=0; i<num_rutas; ++i) {
-        is << punto;
+        is >> punto;
         ruta.Insertar(punto);
     }
 

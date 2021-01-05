@@ -14,7 +14,7 @@ void Imagen::Reservar(int nf, int nc) {
 
 		for (int i=0; i<nf; ++i) {
             data[i] = new Pixel[nc];
-            for (int j=0;j<nc;j++){
+            for (int j=0;j<nc;++j){
                 data[i][j].r=255;
                 data[i][j].g=255;
                 data[i][j].b=255;
@@ -31,6 +31,11 @@ void Imagen::Copiar(const Imagen &I) {
 	for (int i=0; i<nf; ++i)
 		for (int j=0; j<nc; ++j)
 			(*this)(i,j) = I(i,j);
+}
+
+Imagen::Imagen() {
+    nf = nc = 0;
+    data = nullptr;
 }
 
 Imagen::Imagen(int f,int c){
@@ -73,7 +78,7 @@ void Imagen::Borrar(){
 
     nc = 0;
     nf = 0;
-    
+
 }
 
 void Imagen::EscribirImagen(const char * nombre){

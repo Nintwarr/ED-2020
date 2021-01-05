@@ -26,7 +26,7 @@ Paises::iterator Paises::end () {
     return it;
 }
 
-Paises::const_iterator Paises::end () {
+Paises::const_iterator Paises::end () const{
     Paises::const_iterator it;
     it.p = datos.cend();
     return it;
@@ -43,7 +43,7 @@ Paises::iterator Paises::find(const Pais &p) {
 Paises::iterator Paises::find(const Punto &p) {
     Paises::iterator it;
     set<Pais>::iterator i;
-    for (i=datos.begin(); i!=datos.end() && !((*i).p==*(it).p);++i);
+    for (i=datos.begin(); i!=datos.end() && !((*i).GetPunto()==(*it).GetPunto());++i);
     it.p=i;
     return it;
 }

@@ -6,7 +6,7 @@ Punto::Punto (const Punto & otro){
     longitud = otro. longitud;
 }
 
-Punto::Punto (const double & lat, const double & lon){
+Punto::Punto (const double lat, const double lon, string desc){
     latitud = lat;
     longitud = lon;
 }
@@ -63,9 +63,9 @@ istream & operator >> (istream & is, Punto & p){
     is.ignore (TAM,')');
 
     return is;
-    
 }
 
 ostream & operator << (ostream & os, const Punto & p){
-     os << "("<<  p.latitud << ")"<< ", (" << p.longitud << ")"<<endl;
+     os << "("<<  p.latitud << "," << p.longitud << ")"<<endl;
+     return os;
 }

@@ -78,7 +78,7 @@ public:
          * @brief Operador de acceso a memoria
          * @return Devuelve una referencia al país que esta en la posición del iterador
          */
-        Pais & operator*(){return *p;}
+        const Pais & operator*(){return *p;}
 
         /**
          * @brief Operador de incremento

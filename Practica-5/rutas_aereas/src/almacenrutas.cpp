@@ -17,7 +17,7 @@ void Almacen_Rutas::Borrar (const Ruta &R){
 
 Ruta Almacen_Rutas::GetRuta (const string & a){
     map <string,Ruta>:: iterator it = ruta.find(a);
-    return *it;
+    return (*it).second;
 }
 
 Almacen_Rutas::iterator Almacen_Rutas::begin(){
@@ -26,7 +26,7 @@ Almacen_Rutas::iterator Almacen_Rutas::begin(){
     return it;
 }
 
-Almacen_Rutas::const_iterator Almacen_Rutas::begin(){
+Almacen_Rutas::const_iterator Almacen_Rutas::begin()const{
     Almacen_Rutas::const_iterator it;
     it.p = ruta.cbegin();
     return it;
@@ -38,7 +38,7 @@ Almacen_Rutas::iterator Almacen_Rutas::end(){
     return it;
 }
 
-Almacen_Rutas::const_iterator Almacen_Rutas::end(){
+Almacen_Rutas::const_iterator Almacen_Rutas::end()const{
     Almacen_Rutas::const_iterator it;
     it.p = ruta.cend();
     return it;

@@ -1,5 +1,5 @@
 /**
-  * @author Darío Megías Guerrero y María Sánchez Marcos 
+  * @author Darío Megías Guerrero y María Sánchez Marcos
   * @file punto.h
   * @brief Fichero cabecera para el TDA
   *
@@ -46,12 +46,12 @@ class Punto {
      * @see  Constructor por parámetros
      */
 
-        Punto (const double & lat, const double & lon);
+        Punto (const double lat, const double lon, string desc="");
 
     /**
      * @brief Asigna un valor al atributo latitud
      * @param lat Latitud a signar
-    
+
      *
      * @see setLatitud
      */
@@ -60,12 +60,12 @@ class Punto {
     /**
      * @brief Asigna un valor al atributo longitud
      * @param lon Longitud a signar
-    
+
      *
      * @see setLongitud
      */
         void setLongitud (const double & lon);
-        
+
     /**
      * @brief Devuelve el valor del atributo latitud
      * @return Valor de latitud
@@ -86,7 +86,7 @@ class Punto {
      * @brief  Compara que punto es menos según el criterio de menor latitud
      *
      * @param p El punto con el que lo queremos comparar
-     * @return Devuelve true si es menor y false si no lo es 
+     * @return Devuelve true si es menor y false si no lo es
      *
      * @see Operator<
      */
