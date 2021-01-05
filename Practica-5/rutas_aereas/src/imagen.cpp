@@ -1,19 +1,55 @@
 #include <imagen.h>
+#include <cassert>
+
+void Imagen::Reservar(int nf, int nc) {
+    if (nf==0 || nc==0)
+		data = nullptr;
+	else {
+		data = new Pixel*[nf];
+
+		for (int i=0; i<nf; ++i) {
+            data[i] = new Pixel[nc];
+            for (int j=0;j<nc;j++){
+                data[i][j].r=255;
+                data[i][j].g=255;
+                data[i][j].b=255;
+                data[i][j].transp=255;
+	        }
+        }
+    }
+}
+
+void Imagen::Copiar(const Imagen &I) {
+    // Supone que la memoria está bien reservada
+	assert(nf==I.num_filas() && nc==I.num_cols());
+
+	for (int i=0; i<nf; ++i)
+		for (int j=0; j<nc; ++j)
+			(*this)(i,j) = I(i,j);
+}
 
 Imagen::Imagen(int f,int c){
-  nf = f;
-  nc = c;
-  data = new Pixel*[nf];
+  Reservar(f,c);
+}
 
-  for (int i=0;i<nf;i++){
-    data[i]=new Pixel[nc];
-    for (int j=0;j<nc;j++){
-        data[i][j].r=255;
-        data[i][j].g=255;
-        data[i][j].b=255;
-        data[i][j].transp=255;
+Imagen & Imagen::operator=(const Imagen & I) {
+    if (this != &I) {
+        Borrar();
+        Reservar(I.num_filas(),I.num_cols());
+        Copiar(I);
     }
-  }
+
+    return *this;
+}
+
+Imagen::~Imagen() {
+    Borrar();
+}
+
+Pixel & Imagen::operator ()(int i,int j) {
+    assert(i>=0 && i<nf && j>=0 && j<nc);
+    return data[i][j];
+}
 
 const Pixel & Imagen::operator()(int i,int j)const{
   assert(i>=0 && i<nf && j>=0 && j<nc);
@@ -114,4 +150,25 @@ void Imagen::PutImagen(int posi,int posj, const Imagen &I,Tipo_Pegado tippegado)
                 }
             }
         }
+}
+
+Imagen Imagen::ExtraeImagen(int posi, int posj, int dimi, int dimj) {
+    if (posi<0 || posi>nc || posj<0 || posj>nf) {
+        Imagen imagen;
+        return imagen;
+    } else {
+        Imagen imagen(dimi,dimj);
+        Pixel blank_pixel;
+        blank_pixel.r = blank_pixel.g = blank_pixel.b = blank_pixel.transp = 255;
+
+        for (int i=0; i<dimi; ++i, ++posi)
+            for(int j=0;j<dimj; ++j, ++posj) {
+                if (posi<=nc && posj<=nf)
+                    imagen(i,j) = (*this)(posi,posj);
+                else
+                    imagen(i,j) = blank_pixel;
+            }
+
+        return imagen;
+    }
 }

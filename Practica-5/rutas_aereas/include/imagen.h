@@ -9,6 +9,7 @@ class Imagen{
     Pixel ** data;
     int nf,nc;
 
+    void Reservar(int nf=0, int nc=0);
     void Borrar(); //Falta
     void Copiar(const Imagen &I); //Falta
 
