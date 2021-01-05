@@ -1,4 +1,12 @@
 #include <imagen.h>
+using namespace std;
+
+
+Imagen::Imagen(){
+  nf = 0;
+  nc = 0;
+  data = nullptr;
+  }
 
 Imagen::Imagen(int f,int c){
   nf = f;
@@ -14,10 +22,41 @@ Imagen::Imagen(int f,int c){
         data[i][j].transp=255;
     }
   }
+}
+
+Imagen::Imagen(const Imagen & I){
+    *this = I;
+}
+
+Imagen & Imagen::operator= (const Imagen & I ){
+    
+    Borrar();
+    nc = I.nc;
+    nf = I.nf;
+
+    for (int i = 0; i < nf; i++ ){
+        for (int j = 0; j < nc; j++){
+            data[i][j] = I.data[i][j];
+        }
+    }
+}
+
+
 
 const Pixel & Imagen::operator()(int i,int j)const{
   assert(i>=0 && i<nf && j>=0 && j<nc);
   return data[i][j];
+}
+
+void Imagen::Borrar(){
+    for (int i = 0; i < nf; i ++){
+        delete [] data[i];
+    }
+    delete [] data;
+
+    nc = 0;
+    nf = 0;
+    
 }
 
 void Imagen::EscribirImagen(const char * nombre){
@@ -115,3 +154,11 @@ void Imagen::PutImagen(int posi,int posj, const Imagen &I,Tipo_Pegado tippegado)
             }
         }
 }
+
+   void Imagen::LimpiarTransp(){
+       for (int i = 0; i < nf; i++){
+           for (int j = 0; j < nc; j++){
+               data[i][j].transp = 0;
+           }
+       }
+   }

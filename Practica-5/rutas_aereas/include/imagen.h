@@ -9,17 +9,17 @@ class Imagen{
     Pixel ** data;
     int nf,nc;
 
-    void Borrar(); //Falta
-    void Copiar(const Imagen &I); //Falta
+    void Borrar();
+    void Copiar(const Imagen &I);
 
   public:
-   Imagen(); //Falta
+   Imagen();
 
    Imagen(int f,int c);
 
-   Imagen(const Imagen & I); //Falta
+   Imagen(const Imagen & I);
 
-   Imagen & operator=(const Imagen & I); //Falta
+   Imagen & operator=(const Imagen & I);
 
    ~Imagen(); //Falta
 
@@ -31,7 +31,7 @@ class Imagen{
    void EscribirImagen(const char * nombre);
 
    void LeerImagen (const char *nombre,const string &nombremascara="");
-   void LimpiarTransp(); //Falta
+   void LimpiarTransp();
    int num_filas()const{return nf;}
    int num_cols()const{return nc;}
    void PutImagen(int posi,int posj, const Imagen &I,Tipo_Pegado tippegado=OPACO);
