@@ -97,7 +97,7 @@ istream & operator>>(istream &is, Ruta &R) {
     return is;
 }
 
-ostream & operator<<(ostream &os, Ruta &R) {
+ostream & operator<<(ostream &os, const Ruta &R) {
     os << R.GetCode() << '\t' << R.puntos.size() << '\t';
 
     Ruta::iterator it = R.begin();

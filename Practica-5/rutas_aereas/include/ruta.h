@@ -63,11 +63,18 @@ public:
      */
     string GetCode() const {return code;}
 
+
     /**
      * @brief Setter del cópdigo que identifica la ruta
      * @param code Código a insertar
      */
     void SetCode(const string &code) {this->code = code;}
+
+    /**
+     * @brief Getter del numero de puntos que tiene la ruta
+     * @return Numero de puntos de la ruta (int)
+     */
+    int GetNumPuntos() const {return puntos.size();}
 
     /**
      * @brief Operador de igualdad
@@ -247,7 +254,7 @@ public:
      * @return Una referencia al flujo de salida en el que se ha
      *         "escrito" la ruta con un formato determinado
      */
-    friend ostream & operator<<(ostream & os, Ruta &R);
+    friend ostream & operator<<(ostream & os, const Ruta &R);
 };
 
 #endif
