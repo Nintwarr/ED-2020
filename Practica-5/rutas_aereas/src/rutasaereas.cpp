@@ -138,6 +138,30 @@ int main(int argc, char * argv[]){
     Ruta R=Ar.GetRuta(a);
     cout << "Ruta: " << R <<endl;
 
+    /*
+      1. Iterar sobre la ruta R.
+      2. Si tiene más de 2 puntos:
+        2.1 Escogemos el primero en una variable auxiliar "punto_primero" (no tiene por qué ser este nombre).
+        2.2 Para cada uno de los puntos restantes:
+            2.2.1 Escogemos el segundo en otra variable auxiliar "punto_segundo".
+            2.2.2 Buscamos a qué país corresponde "punto_primero" y "punto_segundo" gracias a "Pses"
+                  que resulta en las variables "pais_primero" y "pais_segundo".
+            2.2.3 Leemos las banderas de "pais_primero"y "pais_segundo" quedando éstas en
+                  "bandera_primera" y "bandera_segunda".
+            2.2.4 Calcular a qué posicición de la imagen del mapa corresponden "punto_primero"
+                  y "punto_segundo" quedando en "posicion_primera" y "posicion_segunda".
+            2.2.5 Llamar a Pintar(...) para que se pinten do forma correcta los aviones entre
+                  "posicion_primera" y "posicion_segunda".
+            2.2.6 Pegar la bandera de "pais_primero" en "posicion_primera" y la de "pais_segundo"
+                  en "posicion_segunda".
+            2.2.7 Actualizar "punto_primero" con "punto_segundo" (punto_primero = punto_segundo;)
+
+        2.3 Escribir la imagen del mapa con todo ya pegado en disco.
+    */
+
+
+    /*
     Pintar(80,700,80,1000,I,avion,85,70);
     I.EscribirImagen("ajajajaja.ppm");
+    */
 }
