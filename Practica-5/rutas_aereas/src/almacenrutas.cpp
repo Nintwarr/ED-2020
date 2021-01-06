@@ -13,7 +13,10 @@ void Almacen_Rutas::Borrar (const Ruta &R){
 
 Ruta Almacen_Rutas::GetRuta (const string & a){
     map <string,Ruta>:: iterator it = ruta.find(a);
-    return (*it).second;
+    if (it != ruta.end())
+        return (*it).second;
+    else
+        return Ruta();
 }
 
 Almacen_Rutas::iterator Almacen_Rutas::begin(){
@@ -42,18 +45,15 @@ Almacen_Rutas::const_iterator Almacen_Rutas::end()const{
 
 
 istream & operator >> (istream & is, Almacen_Rutas & AR){
-    
+
     string aux;
     getline(is,aux);
 
     Ruta R;
 
-    Almacen_Rutas::iterator it;
-
     if ( aux == "#Rutas"){
 
-        while(is){
-            is >> R;
+        while(is >> R){
             AR.Insertar(R);
         }
     }
@@ -62,7 +62,6 @@ istream & operator >> (istream & is, Almacen_Rutas & AR){
 }
 
 ostream & operator << (ostream & os, const Almacen_Rutas &R){
-   
     os << "#Rutas" << endl;
 
     Almacen_Rutas::const_iterator it;
@@ -73,4 +72,3 @@ ostream & operator << (ostream & os, const Almacen_Rutas &R){
 
     return os;
 }
-

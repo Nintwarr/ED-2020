@@ -8,9 +8,7 @@ void Ruta::Borrar(const Punto &n) {
    puntos.remove(n);
 }
 
-Ruta::Ruta() : puntos() {
-    code = "";
-}
+Ruta::Ruta() : puntos(), code() {}
 
 bool Ruta::operator==(const Ruta &R) const {
     bool es_igual = false;
@@ -75,34 +73,40 @@ Ruta::iterator Ruta::find(const Punto &p) {
 }
 
 istream & operator>>(istream &is, Ruta &R) {
-    Ruta rlocal;
+    if (is.peek()) {
+        Ruta rlocal;
 
-    Punto punto;
-    Ruta ruta;
-    string aux;
-    int num_rutas = 0;
+        Punto punto;
+        string aux;
+        int num_puntos = 0;
 
-    getline(is,aux,'\t');
-    ruta.SetCode(aux);
+        getline(is,aux,'\t');
+        rlocal.SetCode(aux);
 
-    getline(is,aux,'\t');
-    num_rutas = atoi(aux.c_str());
+        getline(is,aux,'\t');
+        num_puntos = atoi(aux.c_str());
 
-    for(int i=0; i<num_rutas; ++i) {
-        is >> punto;
-        ruta.Insertar(punto);
+        for(int i=0; i<num_puntos; ++i) {
+            is >> punto;
+            rlocal.Insertar(punto);
+        }
+        // Se queda colgando un salto de línea '\n'
+        // y hay que quitarlo para que todo funcione
+        int characters_to_ignore = 200;
+        is.ignore(characters_to_ignore,'\n');
+
+        R=rlocal;
     }
 
-    R=rlocal;
     return is;
 }
 
 ostream & operator<<(ostream &os, const Ruta &R) {
     os << R.GetCode() << '\t' << R.puntos.size() << '\t';
 
-    Ruta::iterator it = R.begin();
+    Ruta::const_iterator it = R.begin();
     for (; it != R.end(); ++it) {
-        os << *it << '\t';
+        os << *it << ' ';
     }
     return os;
 }

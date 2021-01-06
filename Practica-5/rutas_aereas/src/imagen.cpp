@@ -18,7 +18,7 @@ void Imagen::Reservar(int nf, int nc) {
                 data[i][j].r=255;
                 data[i][j].g=255;
                 data[i][j].b=255;
-                data[i][j].transp=255;
+                data[i][j].transp=0;
 	        }
         }
     }

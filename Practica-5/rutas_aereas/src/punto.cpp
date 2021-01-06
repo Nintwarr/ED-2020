@@ -66,6 +66,6 @@ istream & operator >> (istream & is, Punto & p){
 }
 
 ostream & operator << (ostream & os, const Punto & p){
-     os << "("<<  p.latitud << "," << p.longitud << ")"<<endl;
+     os << "("<<  p.latitud << "," << p.longitud << ")";
      return os;
 }

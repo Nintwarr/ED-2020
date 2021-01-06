@@ -118,7 +118,7 @@ int main(int argc, char * argv[]){
     Paises Pses;
     ifstream f (argv[1]);
     f>>Pses;
-    cout<<Pses;
+    //cout<<Pses;
 
     Imagen I;
     I.LeerImagen(argv[2]);
@@ -136,6 +136,8 @@ int main(int argc, char * argv[]){
     string a;
     cin>>a;
     Ruta R=Ar.GetRuta(a);
+    cout << "Ruta: " << R <<endl;
 
-    Pintar(0,0,200,200,I,avion,85,70);
+    Pintar(80,700,80,1000,I,avion,85,70);
+    I.EscribirImagen("ajajajaja.ppm");
 }

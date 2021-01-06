@@ -10,7 +10,7 @@ class Almacen_Rutas{
         map<string,Ruta> ruta; //Codigo de ruta y ruta
 
     public:
-        Almacen_Rutas(){};
+        Almacen_Rutas(): ruta() {};
         void Insertar (const Ruta & R);
         void Borrar (const Ruta &R);
         Ruta GetRuta (const string & a);
