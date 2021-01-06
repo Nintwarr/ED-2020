@@ -5,7 +5,7 @@ BIN = bin
 CXX = g++
 CPPFLAGS = -Wall -g  -I$(INC) -c
 
-all: pruebapegado pruebarotacion rutasaereas
+all: pruebapegado pruebarotacion rutasaereas documentacion
 
 rutasaereas: $(BIN)/rutasaereas
 

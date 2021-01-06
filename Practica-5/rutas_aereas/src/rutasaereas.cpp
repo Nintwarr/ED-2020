@@ -4,6 +4,16 @@
 #include <fstream>
 #include <cmath>
 
+int latitudToPixel (const double latitud, const int nf){
+    int fila = ((nf/180.0)*(90-latitud));
+    return fila;
+}
+
+int longitudToPixel(const double longitud, const int nc){
+    int columna = ((nc/360.0)*(180+longitud));
+    return columna;
+}
+
 Imagen Rota(const Imagen & Io,double angulo){
     double rads=angulo;
     double coseno = cos(angulo);
@@ -136,11 +146,17 @@ int main(int argc, char * argv[]){
     string a;
     cin>>a;
     Ruta R=Ar.GetRuta(a);
-    cout << "Ruta: " << R <<endl;
+    cout << "Ruta:";
 
+    Ruta::iterator it_ruta;
+    for (it_ruta = R.begin(); it_ruta != R.end(); ++it_ruta) {
+        cout << " " << (*Pses.find((*it_ruta))).GetPais();
+    }
+
+    cout << endl;
     /*
-      1. Iterar sobre la ruta R.
-      2. Si tiene más de 2 puntos:
+      1. Si tiene más de o exactamente 2 puntos:
+      2. Iterar sobre la ruta R.
         2.1 Escogemos el primero en una variable auxiliar "punto_primero" (no tiene por qué ser este nombre).
         2.2 Para cada uno de los puntos restantes:
             2.2.1 Escogemos el segundo en otra variable auxiliar "punto_segundo".
@@ -150,7 +166,7 @@ int main(int argc, char * argv[]){
                   "bandera_primera" y "bandera_segunda".
             2.2.4 Calcular a qué posicición de la imagen del mapa corresponden "punto_primero"
                   y "punto_segundo" quedando en "posicion_primera" y "posicion_segunda".
-            2.2.5 Llamar a Pintar(...) para que se pinten do forma correcta los aviones entre
+            2.2.5 Llamar a Pintar(...) para que se pinten de forma correcta los aviones entre
                   "posicion_primera" y "posicion_segunda".
             2.2.6 Pegar la bandera de "pais_primero" en "posicion_primera" y la de "pais_segundo"
                   en "posicion_segunda".
@@ -158,6 +174,70 @@ int main(int argc, char * argv[]){
 
         2.3 Escribir la imagen del mapa con todo ya pegado en disco.
     */
+
+   if (R.GetNumPuntos() >= 2) {
+       // Preparamos el iterador para iterar sobre las rutas
+        Ruta::iterator it;
+        it = R.begin();
+
+        // Vamos capturando el primer punto
+        Punto punto_primero = *it;
+        ++it;
+        // Declaración de variables necesarias para el bucle
+        Punto punto_segundo;
+
+        Pais pais_primero;
+        Pais pais_segundo;
+
+        Paises::iterator pais_primero_encontrado;
+        Paises::iterator pais_segundo_encontrado;
+
+        string rutas_banderas = argv[3];
+        Imagen bandera_primera;
+        Imagen bandera_segunda;
+
+        int filas_p1 = 0;
+        int columnas_p1 = 0;
+        int filas_p2 = 0;
+        int columnas_p2 = 0;
+
+        // Ahora sí, iteramos sobre las rutas
+        for(; it != R.end(); ++it) {
+            // Conseguimos el segundo punto en la pareja de puntos
+            punto_segundo = *it;
+
+            // Buscamos a qué países corresponde cada punto
+            pais_primero_encontrado = Pses.find(punto_primero);
+            pais_segundo_encontrado = Pses.find(punto_segundo);
+
+            pais_primero = *pais_primero_encontrado;
+            pais_segundo = *pais_segundo_encontrado;
+
+            // Leemos las banderas de ambos países
+            bandera_primera.LeerImagen((rutas_banderas + pais_primero.GetBandera()).c_str());
+            bandera_segunda.LeerImagen((rutas_banderas + pais_segundo.GetBandera()).c_str());
+            // Calculamos a qué posición de la imagen corresponden los países obtenidos
+            filas_p1 = latitudToPixel(punto_primero.getLatitud(),I.num_filas());
+            columnas_p1 = longitudToPixel(punto_primero.getLongitud(),I.num_cols());
+
+            filas_p2 = latitudToPixel(punto_segundo.getLatitud(),I.num_filas());
+            columnas_p2 = longitudToPixel(punto_segundo.getLongitud(),I.num_cols());
+
+            // Pintamos los aviones en el lugar de salida, de destino y el punto medio
+            Pintar (filas_p1, filas_p2, columnas_p1, columnas_p2, I, avion, 85, 70);
+
+            // Pegamos las banderas de los correspondientes países en sus
+            // correspondintes posiciones
+            I.PutImagen(filas_p1,columnas_p1,bandera_primera,BLENDING);
+            I.PutImagen(filas_p2,columnas_p2,bandera_segunda,BLENDING);
+
+            // Actualizamos el segundo punto para que se escojan bien las parejas
+            punto_primero = punto_segundo;
+        }
+
+        // Escribimos el resultado en el directorio "resultados"
+        I.EscribirImagen("datos/resultados/resultado.ppm");
+   }
 
 
     /*
