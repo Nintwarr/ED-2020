@@ -1,3 +1,11 @@
+/**
+  * @author Darío Megías Guerrero y María Sánchez Marcos
+  * @file almacenrutas.h
+  * @brief Fichero cabecera para el Almacen de Rutas
+  *
+  * Representa puntos geograficos
+  *
+  */
 #ifndef _ALMACEN_RUTAS_H_
 #define _ALMACEN_RUTAS_H
 
