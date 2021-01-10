@@ -1,3 +1,9 @@
+/**
+  * @author Darío Megías Guerrero y María Sánchez Marcos
+  * @file ruta.cpp
+  * @brief Fichero de implementación para la Ruta
+  */
+
 #include <ruta.h>
 
 void Ruta::Insertar(const Punto &n) {

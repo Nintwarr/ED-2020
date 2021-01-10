@@ -1,3 +1,9 @@
+/**
+  * @author Darío Megías Guerrero y María Sánchez Marcos
+  * @file imagen.cpp
+  * @brief Fichero de implementación para Imagen
+  */
+
 #include <imagen.h>
 #include <imagenES.h>
 #include <cassert>

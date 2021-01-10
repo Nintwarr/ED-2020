@@ -4,6 +4,7 @@
 /**
   * @file pais.h
   * @brief Fichero cabecera del TDA Pais
+  * @author María Sánchez Marcos y Darío Megías Guerrero
   *
   * Gestiona la información que necesitamos sobre países
   */

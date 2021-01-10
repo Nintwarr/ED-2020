@@ -4,6 +4,7 @@
 /**
   * @file ruta.h
   * @brief Fichero cabecera del TDA Ruta
+  * @author María Sánchez Marcos y Darío Megías Guerrero
   *
   * Maneja una lista de puntos geográficos y un código asociado a la lista
   */

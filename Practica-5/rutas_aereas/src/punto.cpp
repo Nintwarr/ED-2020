@@ -1,3 +1,9 @@
+/**
+  * @author Darío Megías Guerrero y María Sánchez Marcos
+  * @file punto.cpp
+  * @brief Fichero de implementación para el Punto
+  */
+
 #include "punto.h"
 
 

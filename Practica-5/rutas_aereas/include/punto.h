@@ -1,7 +1,7 @@
 /**
   * @author Darío Megías Guerrero y María Sánchez Marcos
   * @file punto.h
-  * @brief Fichero cabecera para el TDA
+  * @brief Fichero cabecera para el TDA Punto
   *
   * Representa puntos geograficos
   *

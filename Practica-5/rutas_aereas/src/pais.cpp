@@ -1,3 +1,9 @@
+/**
+  * @author Darío Megías Guerrero y María Sánchez Marcos
+  * @file pais.cpp
+  * @brief Fichero de implementación para el Pais
+  */
+
 #include <pais.h>
 
 istream & operator>>(istream & is, Pais & P) {

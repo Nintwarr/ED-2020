@@ -1,3 +1,9 @@
+/**
+  * @author Darío Megías Guerrero y María Sánchez Marcos
+  * @file paises.cpp
+  * @brief Fichero de implementación para los Paises
+  */
+
 #include <paises.h>
 
 void Paises::Insertar (const Pais &P) {

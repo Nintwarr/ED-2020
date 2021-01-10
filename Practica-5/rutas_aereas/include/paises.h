@@ -4,6 +4,7 @@
 /**
   * @file paises.h
   * @brief Fichero cabecera del TDA Paises
+  * @author María Sánchez Marcos y Darío Megías Guerrero
   *
   * Gestiona toda la colección de países disponible
   * utilizando una estructura subyacente del estilo @e conjunto

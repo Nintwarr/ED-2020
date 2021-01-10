@@ -1,3 +1,9 @@
+/**
+  * @author Darío Megías Guerrero y María Sánchez Marcos
+  * @file rutasaereas.cpp
+  * @brief Fichero de programa principal
+  */
+
 #include <imagen.h>
 #include <paises.h>
 #include <almacenrutas.h>
@@ -238,10 +244,4 @@ int main(int argc, char * argv[]){
         // Escribimos el resultado en el directorio "resultados"
         I.EscribirImagen("datos/resultados/resultado.ppm");
    }
-
-
-    /*
-    Pintar(80,700,80,1000,I,avion,85,70);
-    I.EscribirImagen("ajajajaja.ppm");
-    */
 }

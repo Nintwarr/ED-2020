@@ -39,7 +39,6 @@ struct Pixel{
  * - Número de columnas
  *
 */
-
 class Imagen{
   private:
     Pixel ** data;
@@ -56,7 +55,7 @@ class Imagen{
    Imagen();
 
  /**
-   * @brief constructor con parámetros 
+   * @brief constructor con parámetros
    * @param f numero de filas
    * @param c numero de columnas
    * @return una instancia de imagen de tamaño fxc
@@ -64,18 +63,19 @@ class Imagen{
    Imagen(int f,int c);
 
 /**
-   * @brief constructor de copia 
+   * @brief constructor de copia
    * @param I Imagen que quiere ser duplicada
    * @return una instancia con los datos de I
    */
    Imagen(const Imagen & I);
 
 /**
-   * @brief Operador de asignacion 
+   * @brief Operador de asignacion
    * @param I Imagen que queremos que se asigne a la instancia actual
    * @return Una imagen con los datos de I
    */
    Imagen & operator=(const Imagen & I);
+
 /**
    * @brief destructor
    */
@@ -98,7 +98,7 @@ class Imagen{
    const Pixel & operator ()(int i,int j)const;
 
   /**
-   * @brief Escribe los datos que contiene la instancia al disco 
+   * @brief Escribe los datos que contiene la instancia al disco
    * @param nombre Nombre del archivo en el que se va a escribir
    */
    void EscribirImagen(const char * nombre);
@@ -123,16 +123,17 @@ class Imagen{
    int num_cols()const{return nc;}
 
     /**
-   * @brief Pone una imagen encima de otra 
+   * @brief Pone una imagen encima de otra
    * @param posi Fila en la que se va a pegar
    * @param posj Columna en la que se va a pegar
    * @param I Imagen que se va a pegar encima de la que tenemos
    * @param tippegado forma en la que se va a pegar la imagen (por defecto opaco)
    */
    void PutImagen(int posi,int posj, const Imagen &I,Tipo_Pegado tippegado=OPACO);
+
     /**
-   * @brief Extrae una subimagen de una imagen 
-   * @param posi Fila en la que se empieza 
+   * @brief Extrae una subimagen de una imagen
+   * @param posi Fila en la que se empieza
    * @param posj Columna en la que se empieza
    * @param dimi Dimension de filas
    * @param dimj fDimension de columnas
